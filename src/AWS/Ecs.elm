@@ -52,7 +52,7 @@ module AWS.Ecs exposing
     , containerCondition, containerInstanceField, containerInstanceStatus, deploymentControllerType, desiredStatus
     , deviceCgroupPermission, healthStatus, ipcMode, launchType, logDriver, networkMode, pidMode, placementConstraintType
     , placementStrategyType, platformDeviceType, propagateTags, proxyConfigurationType, resourceType, scaleUnit, schedulingStrategy, scope
-    , serviceField, settingName, sortOrder, stabilityStatus, tagKey, tagValue, targetType, taskDefinitionFamilyStatus, taskDefinitionField
+    , serviceField, settingName, sortOrder, stabilityStatus, targetType, taskDefinitionFamilyStatus, taskDefinitionField
     , taskDefinitionPlacementConstraintType, taskDefinitionStatus, taskField, taskStopCode, transportProtocol, ulimitName
     )
 
@@ -131,7 +131,7 @@ You can use Amazon ECS to schedule the placement of containers across your clust
 @docs containerCondition, containerInstanceField, containerInstanceStatus, deploymentControllerType, desiredStatus
 @docs deviceCgroupPermission, healthStatus, ipcMode, launchType, logDriver, networkMode, pidMode, placementConstraintType
 @docs placementStrategyType, platformDeviceType, propagateTags, proxyConfigurationType, resourceType, scaleUnit, schedulingStrategy, scope
-@docs serviceField, settingName, sortOrder, stabilityStatus, tagKey, tagValue, targetType, taskDefinitionFamilyStatus, taskDefinitionField
+@docs serviceField, settingName, sortOrder, stabilityStatus, targetType, taskDefinitionFamilyStatus, taskDefinitionField
 @docs taskDefinitionPlacementConstraintType, taskDefinitionStatus, taskField, taskStopCode, transportProtocol, ulimitName
 
 -}
@@ -147,7 +147,6 @@ import Json.Decode exposing (Decoder, Value)
 import Json.Decode.Pipeline as Pipeline
 import Json.Encode exposing (Value)
 import Json.Encode.Optional as EncodeOpt
-import Refined exposing (Refined, StringError)
 
 
 {-| Configuration for this service.
@@ -2141,25 +2140,8 @@ type alias Tags =
 
 {-| The TagValue data model.
 -}
-type TagValue
-    = TagValue String
-
-
-{-| The TagValue data model.
--}
-tagValue : Refined String TagValue StringError
-tagValue =
-    let
-        guardFn val =
-            Refined.minLength 0 val
-                |> Result.andThen (Refined.maxLength 256)
-                |> Result.andThen (Refined.regexMatch "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$")
-                |> Result.map TagValue
-
-        unboxFn (TagValue val) =
-            val
-    in
-    Refined.define guardFn Json.Decode.string Json.Encode.string Refined.stringErrorToString unboxFn
+type alias TagValue =
+    String
 
 
 {-| The TagResourceResponse data model.
@@ -2182,25 +2164,8 @@ type alias TagKeys =
 
 {-| The TagKey data model.
 -}
-type TagKey
-    = TagKey String
-
-
-{-| The TagKey data model.
--}
-tagKey : Refined String TagKey StringError
-tagKey =
-    let
-        guardFn val =
-            Refined.minLength 1 val
-                |> Result.andThen (Refined.maxLength 128)
-                |> Result.andThen (Refined.regexMatch "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$")
-                |> Result.map TagKey
-
-        unboxFn (TagKey val) =
-            val
-    in
-    Refined.define guardFn Json.Decode.string Json.Encode.string Refined.stringErrorToString unboxFn
+type alias TagKey =
+    String
 
 
 {-| The Tag data model.
@@ -5541,7 +5506,7 @@ tagCodec =
 -}
 tagKeyCodec : Codec TagKey
 tagKeyCodec =
-    Codec.build (Refined.encoder tagKey) (Refined.decoder tagKey)
+    Codec.string
 
 
 {-| Encoder for TagKeys.
@@ -5555,7 +5520,7 @@ tagKeysEncoder val =
 -}
 tagValueCodec : Codec TagValue
 tagValueCodec =
-    Codec.build (Refined.encoder tagValue) (Refined.decoder tagValue)
+    Codec.string
 
 
 {-| Codec for Tags.

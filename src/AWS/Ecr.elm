@@ -26,10 +26,8 @@ module AWS.Ecr exposing
     , PutLifecyclePolicyRequest, PutLifecyclePolicyResponse, RegistryId, Repository, RepositoryList, RepositoryName, RepositoryNameList
     , RepositoryPolicyText, SetRepositoryPolicyRequest, SetRepositoryPolicyResponse, StartLifecyclePolicyPreviewRequest
     , StartLifecyclePolicyPreviewResponse, Tag, TagKey, TagKeyList, TagList, TagResourceRequest, TagResourceResponse, TagStatus(..), TagValue
-    , UntagResourceRequest, UntagResourceResponse, UploadId, UploadLayerPartRequest, UploadLayerPartResponse, Url, base64
-    , batchedOperationLayerDigest, imageActionType, imageCount, imageFailureCode, imageTag, imageTagMutability, layerAvailability
-    , layerDigest, layerFailureCode, lifecyclePolicyPreviewStatus, lifecyclePolicyRulePriority, lifecyclePolicyText
-    , lifecyclePreviewMaxResults, maxResults, registryId, repositoryName, repositoryPolicyText, tagStatus, uploadId
+    , UntagResourceRequest, UntagResourceResponse, UploadId, UploadLayerPartRequest, UploadLayerPartResponse, Url, imageActionType
+    , imageFailureCode, imageTagMutability, layerAvailability, layerFailureCode, lifecyclePolicyPreviewStatus, tagStatus
     )
 
 {-|
@@ -77,10 +75,8 @@ Amazon Elastic Container Registry (Amazon ECR) is a managed Docker registry serv
 @docs PutLifecyclePolicyRequest, PutLifecyclePolicyResponse, RegistryId, Repository, RepositoryList, RepositoryName, RepositoryNameList
 @docs RepositoryPolicyText, SetRepositoryPolicyRequest, SetRepositoryPolicyResponse, StartLifecyclePolicyPreviewRequest
 @docs StartLifecyclePolicyPreviewResponse, Tag, TagKey, TagKeyList, TagList, TagResourceRequest, TagResourceResponse, TagStatus, TagValue
-@docs UntagResourceRequest, UntagResourceResponse, UploadId, UploadLayerPartRequest, UploadLayerPartResponse, Url, base64
-@docs batchedOperationLayerDigest, imageActionType, imageCount, imageFailureCode, imageTag, imageTagMutability, layerAvailability
-@docs layerDigest, layerFailureCode, lifecyclePolicyPreviewStatus, lifecyclePolicyRulePriority, lifecyclePolicyText
-@docs lifecyclePreviewMaxResults, maxResults, registryId, repositoryName, repositoryPolicyText, tagStatus, uploadId
+@docs UntagResourceRequest, UntagResourceResponse, UploadId, UploadLayerPartRequest, UploadLayerPartResponse, Url, imageActionType
+@docs imageFailureCode, imageTagMutability, layerAvailability, layerFailureCode, lifecyclePolicyPreviewStatus, tagStatus
 
 -}
 
@@ -94,7 +90,6 @@ import Json.Decode exposing (Decoder, Value)
 import Json.Decode.Pipeline as Pipeline
 import Json.Encode exposing (Value)
 import Json.Encode.Optional as EncodeOpt
-import Refined exposing (IntError, Refined, StringError)
 
 
 {-| Configuration for this service.
@@ -992,23 +987,8 @@ type alias UploadLayerPartRequest =
 
 {-| The UploadId data model.
 -}
-type UploadId
-    = UploadId String
-
-
-{-| The UploadId data model.
--}
-uploadId : Refined String UploadId StringError
-uploadId =
-    let
-        guardFn val =
-            Refined.regexMatch "[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}" val
-                |> Result.map UploadId
-
-        unboxFn (UploadId val) =
-            val
-    in
-    Refined.define guardFn Json.Decode.string Json.Encode.string Refined.stringErrorToString unboxFn
+type alias UploadId =
+    String
 
 
 {-| The UntagResourceResponse data model.
@@ -1126,22 +1106,8 @@ type alias SetRepositoryPolicyRequest =
 
 {-| The RepositoryPolicyText data model.
 -}
-type RepositoryPolicyText
-    = RepositoryPolicyText String
-
-
-{-| The RepositoryPolicyText data model.
--}
-repositoryPolicyText : Refined String RepositoryPolicyText StringError
-repositoryPolicyText =
-    let
-        guardFn val =
-            Refined.minLength 0 val |> Result.andThen (Refined.maxLength 10240) |> Result.map RepositoryPolicyText
-
-        unboxFn (RepositoryPolicyText val) =
-            val
-    in
-    Refined.define guardFn Json.Decode.string Json.Encode.string Refined.stringErrorToString unboxFn
+type alias RepositoryPolicyText =
+    String
 
 
 {-| The RepositoryNameList data model.
@@ -1152,25 +1118,8 @@ type alias RepositoryNameList =
 
 {-| The RepositoryName data model.
 -}
-type RepositoryName
-    = RepositoryName String
-
-
-{-| The RepositoryName data model.
--}
-repositoryName : Refined String RepositoryName StringError
-repositoryName =
-    let
-        guardFn val =
-            Refined.minLength 2 val
-                |> Result.andThen (Refined.maxLength 256)
-                |> Result.andThen (Refined.regexMatch "(?:[a-z0-9]+(?:[._-][a-z0-9]+)*/)*[a-z0-9]+(?:[._-][a-z0-9]+)*")
-                |> Result.map RepositoryName
-
-        unboxFn (RepositoryName val) =
-            val
-    in
-    Refined.define guardFn Json.Decode.string Json.Encode.string Refined.stringErrorToString unboxFn
+type alias RepositoryName =
+    String
 
 
 {-| The RepositoryList data model.
@@ -1193,22 +1142,8 @@ type alias Repository =
 
 {-| The RegistryId data model.
 -}
-type RegistryId
-    = RegistryId String
-
-
-{-| The RegistryId data model.
--}
-registryId : Refined String RegistryId StringError
-registryId =
-    let
-        guardFn val =
-            Refined.regexMatch "[0-9]{12}" val |> Result.map RegistryId
-
-        unboxFn (RegistryId val) =
-            val
-    in
-    Refined.define guardFn Json.Decode.string Json.Encode.string Refined.stringErrorToString unboxFn
+type alias RegistryId =
+    String
 
 
 {-| The PutLifecyclePolicyResponse data model.
@@ -1295,22 +1230,8 @@ type alias MediaType =
 
 {-| The MaxResults data model.
 -}
-type MaxResults
-    = MaxResults Int
-
-
-{-| The MaxResults data model.
--}
-maxResults : Refined Int MaxResults IntError
-maxResults =
-    let
-        guardFn val =
-            Refined.gte 1 val |> Result.andThen (Refined.lte 1000) |> Result.map MaxResults
-
-        unboxFn (MaxResults val) =
-            val
-    in
-    Refined.define guardFn Json.Decode.int Json.Encode.int Refined.intErrorToString unboxFn
+type alias MaxResults =
+    Int
 
 
 {-| The ListTagsForResourceResponse data model.
@@ -1350,62 +1271,20 @@ type alias ListImagesFilter =
 
 {-| The LifecyclePreviewMaxResults data model.
 -}
-type LifecyclePreviewMaxResults
-    = LifecyclePreviewMaxResults Int
-
-
-{-| The LifecyclePreviewMaxResults data model.
--}
-lifecyclePreviewMaxResults : Refined Int LifecyclePreviewMaxResults IntError
-lifecyclePreviewMaxResults =
-    let
-        guardFn val =
-            Refined.gte 1 val |> Result.andThen (Refined.lte 100) |> Result.map LifecyclePreviewMaxResults
-
-        unboxFn (LifecyclePreviewMaxResults val) =
-            val
-    in
-    Refined.define guardFn Json.Decode.int Json.Encode.int Refined.intErrorToString unboxFn
+type alias LifecyclePreviewMaxResults =
+    Int
 
 
 {-| The LifecyclePolicyText data model.
 -}
-type LifecyclePolicyText
-    = LifecyclePolicyText String
-
-
-{-| The LifecyclePolicyText data model.
--}
-lifecyclePolicyText : Refined String LifecyclePolicyText StringError
-lifecyclePolicyText =
-    let
-        guardFn val =
-            Refined.minLength 100 val |> Result.andThen (Refined.maxLength 30720) |> Result.map LifecyclePolicyText
-
-        unboxFn (LifecyclePolicyText val) =
-            val
-    in
-    Refined.define guardFn Json.Decode.string Json.Encode.string Refined.stringErrorToString unboxFn
+type alias LifecyclePolicyText =
+    String
 
 
 {-| The LifecyclePolicyRulePriority data model.
 -}
-type LifecyclePolicyRulePriority
-    = LifecyclePolicyRulePriority Int
-
-
-{-| The LifecyclePolicyRulePriority data model.
--}
-lifecyclePolicyRulePriority : Refined Int LifecyclePolicyRulePriority IntError
-lifecyclePolicyRulePriority =
-    let
-        guardFn val =
-            Refined.gte 1 val |> Result.map LifecyclePolicyRulePriority
-
-        unboxFn (LifecyclePolicyRulePriority val) =
-            val
-    in
-    Refined.define guardFn Json.Decode.int Json.Encode.int Refined.intErrorToString unboxFn
+type alias LifecyclePolicyRulePriority =
+    Int
 
 
 {-| The LifecyclePolicyRuleAction data model.
@@ -1548,22 +1427,8 @@ type alias LayerDigestList =
 
 {-| The LayerDigest data model.
 -}
-type LayerDigest
-    = LayerDigest String
-
-
-{-| The LayerDigest data model.
--}
-layerDigest : Refined String LayerDigest StringError
-layerDigest =
-    let
-        guardFn val =
-            Refined.regexMatch "[a-zA-Z0-9-_+.]+:[a-fA-F0-9]+" val |> Result.map LayerDigest
-
-        unboxFn (LayerDigest val) =
-            val
-    in
-    Refined.define guardFn Json.Decode.string Json.Encode.string Refined.stringErrorToString unboxFn
+type alias LayerDigest =
+    String
 
 
 {-| The LayerAvailability data model.
@@ -1642,22 +1507,8 @@ type alias ImageTagList =
 
 {-| The ImageTag data model.
 -}
-type ImageTag
-    = ImageTag String
-
-
-{-| The ImageTag data model.
--}
-imageTag : Refined String ImageTag StringError
-imageTag =
-    let
-        guardFn val =
-            Refined.minLength 1 val |> Result.andThen (Refined.maxLength 300) |> Result.map ImageTag
-
-        unboxFn (ImageTag val) =
-            val
-    in
-    Refined.define guardFn Json.Decode.string Json.Encode.string Refined.stringErrorToString unboxFn
+type alias ImageTag =
+    String
 
 
 {-| The ImageSizeInBytes data model.
@@ -1774,22 +1625,8 @@ type alias ImageDetail =
 
 {-| The ImageCount data model.
 -}
-type ImageCount
-    = ImageCount Int
-
-
-{-| The ImageCount data model.
--}
-imageCount : Refined Int ImageCount IntError
-imageCount =
-    let
-        guardFn val =
-            Refined.gte 0 val |> Result.map ImageCount
-
-        unboxFn (ImageCount val) =
-            val
-    in
-    Refined.define guardFn Json.Decode.int Json.Encode.int Refined.intErrorToString unboxFn
+type alias ImageCount =
+    Int
 
 
 {-| The ImageActionType data model.
@@ -2048,22 +1885,8 @@ type alias BatchedOperationLayerDigestList =
 
 {-| The BatchedOperationLayerDigest data model.
 -}
-type BatchedOperationLayerDigest
-    = BatchedOperationLayerDigest String
-
-
-{-| The BatchedOperationLayerDigest data model.
--}
-batchedOperationLayerDigest : Refined String BatchedOperationLayerDigest StringError
-batchedOperationLayerDigest =
-    let
-        guardFn val =
-            Refined.minLength 0 val |> Result.andThen (Refined.maxLength 1000) |> Result.map BatchedOperationLayerDigest
-
-        unboxFn (BatchedOperationLayerDigest val) =
-            val
-    in
-    Refined.define guardFn Json.Decode.string Json.Encode.string Refined.stringErrorToString unboxFn
+type alias BatchedOperationLayerDigest =
+    String
 
 
 {-| The BatchGetImageResponse data model.
@@ -2108,22 +1931,8 @@ type alias BatchCheckLayerAvailabilityRequest =
 
 {-| The Base64 data model.
 -}
-type Base64
-    = Base64 String
-
-
-{-| The Base64 data model.
--}
-base64 : Refined String Base64 StringError
-base64 =
-    let
-        guardFn val =
-            Refined.regexMatch "^\\S+$" val |> Result.map Base64
-
-        unboxFn (Base64 val) =
-            val
-    in
-    Refined.define guardFn Json.Decode.string Json.Encode.string Refined.stringErrorToString unboxFn
+type alias Base64 =
+    String
 
 
 {-| The AuthorizationDataList data model.
@@ -2172,14 +1981,14 @@ authorizationDataListDecoder =
 -}
 base64Decoder : Decoder Base64
 base64Decoder =
-    Refined.decoder base64
+    Json.Decode.string
 
 
 {-| Codec for BatchedOperationLayerDigest.
 -}
 batchedOperationLayerDigestCodec : Codec BatchedOperationLayerDigest
 batchedOperationLayerDigestCodec =
-    Codec.build (Refined.encoder batchedOperationLayerDigest) (Refined.decoder batchedOperationLayerDigest)
+    Codec.string
 
 
 {-| Encoder for BatchedOperationLayerDigestList.
@@ -2253,7 +2062,7 @@ imageActionTypeDecoder =
 -}
 imageCountDecoder : Decoder ImageCount
 imageCountDecoder =
-    Refined.decoder imageCount
+    Json.Decode.int
 
 
 {-| Decoder for ImageDetail.
@@ -2356,7 +2165,7 @@ imageSizeInBytesDecoder =
 -}
 imageTagCodec : Codec ImageTag
 imageTagCodec =
-    Codec.build (Refined.encoder imageTag) (Refined.decoder imageTag)
+    Codec.string
 
 
 {-| Decoder for ImageTagList.
@@ -2395,7 +2204,7 @@ layerAvailabilityDecoder =
 -}
 layerDigestCodec : Codec LayerDigest
 layerDigestCodec =
-    Codec.build (Refined.encoder layerDigest) (Refined.decoder layerDigest)
+    Codec.string
 
 
 {-| Encoder for LayerDigestList.
@@ -2510,21 +2319,21 @@ lifecyclePolicyRuleActionDecoder =
 -}
 lifecyclePolicyRulePriorityDecoder : Decoder LifecyclePolicyRulePriority
 lifecyclePolicyRulePriorityDecoder =
-    Refined.decoder lifecyclePolicyRulePriority
+    Json.Decode.int
 
 
 {-| Codec for LifecyclePolicyText.
 -}
 lifecyclePolicyTextCodec : Codec LifecyclePolicyText
 lifecyclePolicyTextCodec =
-    Codec.build (Refined.encoder lifecyclePolicyText) (Refined.decoder lifecyclePolicyText)
+    Codec.string
 
 
 {-| Encoder for LifecyclePreviewMaxResults.
 -}
 lifecyclePreviewMaxResultsEncoder : LifecyclePreviewMaxResults -> Value
-lifecyclePreviewMaxResultsEncoder =
-    Refined.encoder lifecyclePreviewMaxResults
+lifecyclePreviewMaxResultsEncoder val =
+    Json.Encode.int val
 
 
 {-| Encoder for ListImagesFilter.
@@ -2537,8 +2346,8 @@ listImagesFilterEncoder val =
 {-| Encoder for MaxResults.
 -}
 maxResultsEncoder : MaxResults -> Value
-maxResultsEncoder =
-    Refined.encoder maxResults
+maxResultsEncoder val =
+    Json.Encode.int val
 
 
 {-| Codec for MediaType.
@@ -2587,7 +2396,7 @@ pushTimestampDecoder =
 -}
 registryIdCodec : Codec RegistryId
 registryIdCodec =
-    Codec.build (Refined.encoder registryId) (Refined.decoder registryId)
+    Codec.string
 
 
 {-| Decoder for Repository.
@@ -2614,7 +2423,7 @@ repositoryListDecoder =
 -}
 repositoryNameCodec : Codec RepositoryName
 repositoryNameCodec =
-    Codec.build (Refined.encoder repositoryName) (Refined.decoder repositoryName)
+    Codec.string
 
 
 {-| Encoder for RepositoryNameList.
@@ -2628,7 +2437,7 @@ repositoryNameListEncoder val =
 -}
 repositoryPolicyTextCodec : Codec RepositoryPolicyText
 repositoryPolicyTextCodec =
-    Codec.build (Refined.encoder repositoryPolicyText) (Refined.decoder repositoryPolicyText)
+    Codec.string
 
 
 {-| Codec for Tag.
@@ -2680,7 +2489,7 @@ tagValueCodec =
 -}
 uploadIdCodec : Codec UploadId
 uploadIdCodec =
-    Codec.build (Refined.encoder uploadId) (Refined.decoder uploadId)
+    Codec.string
 
 
 {-| Decoder for Url.
