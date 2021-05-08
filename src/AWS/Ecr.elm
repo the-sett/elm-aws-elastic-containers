@@ -5,29 +5,25 @@ module AWS.Ecr exposing
     , getLifecyclePolicy, getLifecyclePolicyPreview, getRepositoryPolicy, initiateLayerUpload, listImages, listTagsForResource, putImage
     , putImageTagMutability, putLifecyclePolicy, setRepositoryPolicy, startLifecyclePolicyPreview, tagResource, untagResource
     , uploadLayerPart
-    , Arn, AuthorizationData, AuthorizationDataList, Base64, BatchCheckLayerAvailabilityRequest, BatchCheckLayerAvailabilityResponse
-    , BatchDeleteImageRequest, BatchDeleteImageResponse, BatchGetImageRequest, BatchGetImageResponse, BatchedOperationLayerDigest
-    , BatchedOperationLayerDigestList, CompleteLayerUploadRequest, CompleteLayerUploadResponse, CreateRepositoryRequest
-    , CreateRepositoryResponse, CreationTimestamp, DeleteLifecyclePolicyRequest, DeleteLifecyclePolicyResponse
-    , DeleteRepositoryPolicyRequest, DeleteRepositoryPolicyResponse, DeleteRepositoryRequest, DeleteRepositoryResponse
-    , DescribeImagesFilter, DescribeImagesRequest, DescribeImagesResponse, DescribeRepositoriesRequest, DescribeRepositoriesResponse
-    , EvaluationTimestamp, ExpirationTimestamp, ForceFlag, GetAuthorizationTokenRegistryIdList, GetAuthorizationTokenRequest
+    , AuthorizationData, AuthorizationDataList, BatchCheckLayerAvailabilityRequest, BatchCheckLayerAvailabilityResponse
+    , BatchDeleteImageRequest, BatchDeleteImageResponse, BatchGetImageRequest, BatchGetImageResponse, BatchedOperationLayerDigestList
+    , CompleteLayerUploadRequest, CompleteLayerUploadResponse, CreateRepositoryRequest, CreateRepositoryResponse
+    , DeleteLifecyclePolicyRequest, DeleteLifecyclePolicyResponse, DeleteRepositoryPolicyRequest, DeleteRepositoryPolicyResponse
+    , DeleteRepositoryRequest, DeleteRepositoryResponse, DescribeImagesFilter, DescribeImagesRequest, DescribeImagesResponse
+    , DescribeRepositoriesRequest, DescribeRepositoriesResponse, GetAuthorizationTokenRegistryIdList, GetAuthorizationTokenRequest
     , GetAuthorizationTokenResponse, GetDownloadUrlForLayerRequest, GetDownloadUrlForLayerResponse, GetLifecyclePolicyPreviewRequest
     , GetLifecyclePolicyPreviewResponse, GetLifecyclePolicyRequest, GetLifecyclePolicyResponse, GetRepositoryPolicyRequest
-    , GetRepositoryPolicyResponse, Image, ImageActionType(..), ImageCount, ImageDetail, ImageDetailList, ImageDigest, ImageFailure
-    , ImageFailureCode(..), ImageFailureList, ImageFailureReason, ImageIdentifier, ImageIdentifierList, ImageList, ImageManifest
-    , ImageSizeInBytes, ImageTag, ImageTagList, ImageTagMutability(..), InitiateLayerUploadRequest, InitiateLayerUploadResponse, Layer
-    , LayerAvailability(..), LayerDigest, LayerDigestList, LayerFailure, LayerFailureCode(..), LayerFailureList, LayerFailureReason, LayerList
-    , LayerPartBlob, LayerSizeInBytes, LifecyclePolicyPreviewFilter, LifecyclePolicyPreviewResult, LifecyclePolicyPreviewResultList
-    , LifecyclePolicyPreviewStatus(..), LifecyclePolicyPreviewSummary, LifecyclePolicyRuleAction, LifecyclePolicyRulePriority
-    , LifecyclePolicyText, LifecyclePreviewMaxResults, ListImagesFilter, ListImagesRequest, ListImagesResponse
-    , ListTagsForResourceRequest, ListTagsForResourceResponse, MaxResults, MediaType, MediaTypeList, NextToken, PartSize, ProxyEndpoint
-    , PushTimestamp, PutImageRequest, PutImageResponse, PutImageTagMutabilityRequest, PutImageTagMutabilityResponse
-    , PutLifecyclePolicyRequest, PutLifecyclePolicyResponse, RegistryId, Repository, RepositoryList, RepositoryName, RepositoryNameList
-    , RepositoryPolicyText, SetRepositoryPolicyRequest, SetRepositoryPolicyResponse, StartLifecyclePolicyPreviewRequest
-    , StartLifecyclePolicyPreviewResponse, Tag, TagKey, TagKeyList, TagList, TagResourceRequest, TagResourceResponse, TagStatus(..), TagValue
-    , UntagResourceRequest, UntagResourceResponse, UploadId, UploadLayerPartRequest, UploadLayerPartResponse, Url, imageActionType
-    , imageFailureCode, imageTagMutability, layerAvailability, layerFailureCode, lifecyclePolicyPreviewStatus, tagStatus
+    , GetRepositoryPolicyResponse, Image, ImageActionType(..), ImageDetail, ImageDetailList, ImageFailure, ImageFailureCode(..), ImageFailureList
+    , ImageIdentifier, ImageIdentifierList, ImageList, ImageTagList, ImageTagMutability(..), InitiateLayerUploadRequest
+    , InitiateLayerUploadResponse, Layer, LayerAvailability(..), LayerDigestList, LayerFailure, LayerFailureCode(..), LayerFailureList, LayerList
+    , LifecyclePolicyPreviewFilter, LifecyclePolicyPreviewResult, LifecyclePolicyPreviewResultList, LifecyclePolicyPreviewStatus(..)
+    , LifecyclePolicyPreviewSummary, LifecyclePolicyRuleAction, ListImagesFilter, ListImagesRequest, ListImagesResponse
+    , ListTagsForResourceRequest, ListTagsForResourceResponse, MediaTypeList, PutImageRequest, PutImageResponse
+    , PutImageTagMutabilityRequest, PutImageTagMutabilityResponse, PutLifecyclePolicyRequest, PutLifecyclePolicyResponse, Repository
+    , RepositoryList, RepositoryNameList, SetRepositoryPolicyRequest, SetRepositoryPolicyResponse, StartLifecyclePolicyPreviewRequest
+    , StartLifecyclePolicyPreviewResponse, Tag, TagKeyList, TagList, TagResourceRequest, TagResourceResponse, TagStatus(..)
+    , UntagResourceRequest, UntagResourceResponse, UploadLayerPartRequest, UploadLayerPartResponse, imageActionType, imageFailureCode
+    , imageTagMutability, layerAvailability, layerFailureCode, lifecyclePolicyPreviewStatus, tagStatus
     )
 
 {-|
@@ -54,29 +50,25 @@ Amazon Elastic Container Registry (Amazon ECR) is a managed Docker registry serv
 
 # API data model.
 
-@docs Arn, AuthorizationData, AuthorizationDataList, Base64, BatchCheckLayerAvailabilityRequest, BatchCheckLayerAvailabilityResponse
-@docs BatchDeleteImageRequest, BatchDeleteImageResponse, BatchGetImageRequest, BatchGetImageResponse, BatchedOperationLayerDigest
-@docs BatchedOperationLayerDigestList, CompleteLayerUploadRequest, CompleteLayerUploadResponse, CreateRepositoryRequest
-@docs CreateRepositoryResponse, CreationTimestamp, DeleteLifecyclePolicyRequest, DeleteLifecyclePolicyResponse
-@docs DeleteRepositoryPolicyRequest, DeleteRepositoryPolicyResponse, DeleteRepositoryRequest, DeleteRepositoryResponse
-@docs DescribeImagesFilter, DescribeImagesRequest, DescribeImagesResponse, DescribeRepositoriesRequest, DescribeRepositoriesResponse
-@docs EvaluationTimestamp, ExpirationTimestamp, ForceFlag, GetAuthorizationTokenRegistryIdList, GetAuthorizationTokenRequest
+@docs AuthorizationData, AuthorizationDataList, BatchCheckLayerAvailabilityRequest, BatchCheckLayerAvailabilityResponse
+@docs BatchDeleteImageRequest, BatchDeleteImageResponse, BatchGetImageRequest, BatchGetImageResponse, BatchedOperationLayerDigestList
+@docs CompleteLayerUploadRequest, CompleteLayerUploadResponse, CreateRepositoryRequest, CreateRepositoryResponse
+@docs DeleteLifecyclePolicyRequest, DeleteLifecyclePolicyResponse, DeleteRepositoryPolicyRequest, DeleteRepositoryPolicyResponse
+@docs DeleteRepositoryRequest, DeleteRepositoryResponse, DescribeImagesFilter, DescribeImagesRequest, DescribeImagesResponse
+@docs DescribeRepositoriesRequest, DescribeRepositoriesResponse, GetAuthorizationTokenRegistryIdList, GetAuthorizationTokenRequest
 @docs GetAuthorizationTokenResponse, GetDownloadUrlForLayerRequest, GetDownloadUrlForLayerResponse, GetLifecyclePolicyPreviewRequest
 @docs GetLifecyclePolicyPreviewResponse, GetLifecyclePolicyRequest, GetLifecyclePolicyResponse, GetRepositoryPolicyRequest
-@docs GetRepositoryPolicyResponse, Image, ImageActionType, ImageCount, ImageDetail, ImageDetailList, ImageDigest, ImageFailure
-@docs ImageFailureCode, ImageFailureList, ImageFailureReason, ImageIdentifier, ImageIdentifierList, ImageList, ImageManifest
-@docs ImageSizeInBytes, ImageTag, ImageTagList, ImageTagMutability, InitiateLayerUploadRequest, InitiateLayerUploadResponse, Layer
-@docs LayerAvailability, LayerDigest, LayerDigestList, LayerFailure, LayerFailureCode, LayerFailureList, LayerFailureReason, LayerList
-@docs LayerPartBlob, LayerSizeInBytes, LifecyclePolicyPreviewFilter, LifecyclePolicyPreviewResult, LifecyclePolicyPreviewResultList
-@docs LifecyclePolicyPreviewStatus, LifecyclePolicyPreviewSummary, LifecyclePolicyRuleAction, LifecyclePolicyRulePriority
-@docs LifecyclePolicyText, LifecyclePreviewMaxResults, ListImagesFilter, ListImagesRequest, ListImagesResponse
-@docs ListTagsForResourceRequest, ListTagsForResourceResponse, MaxResults, MediaType, MediaTypeList, NextToken, PartSize, ProxyEndpoint
-@docs PushTimestamp, PutImageRequest, PutImageResponse, PutImageTagMutabilityRequest, PutImageTagMutabilityResponse
-@docs PutLifecyclePolicyRequest, PutLifecyclePolicyResponse, RegistryId, Repository, RepositoryList, RepositoryName, RepositoryNameList
-@docs RepositoryPolicyText, SetRepositoryPolicyRequest, SetRepositoryPolicyResponse, StartLifecyclePolicyPreviewRequest
-@docs StartLifecyclePolicyPreviewResponse, Tag, TagKey, TagKeyList, TagList, TagResourceRequest, TagResourceResponse, TagStatus, TagValue
-@docs UntagResourceRequest, UntagResourceResponse, UploadId, UploadLayerPartRequest, UploadLayerPartResponse, Url, imageActionType
-@docs imageFailureCode, imageTagMutability, layerAvailability, layerFailureCode, lifecyclePolicyPreviewStatus, tagStatus
+@docs GetRepositoryPolicyResponse, Image, ImageActionType, ImageDetail, ImageDetailList, ImageFailure, ImageFailureCode, ImageFailureList
+@docs ImageIdentifier, ImageIdentifierList, ImageList, ImageTagList, ImageTagMutability, InitiateLayerUploadRequest
+@docs InitiateLayerUploadResponse, Layer, LayerAvailability, LayerDigestList, LayerFailure, LayerFailureCode, LayerFailureList, LayerList
+@docs LifecyclePolicyPreviewFilter, LifecyclePolicyPreviewResult, LifecyclePolicyPreviewResultList, LifecyclePolicyPreviewStatus
+@docs LifecyclePolicyPreviewSummary, LifecyclePolicyRuleAction, ListImagesFilter, ListImagesRequest, ListImagesResponse
+@docs ListTagsForResourceRequest, ListTagsForResourceResponse, MediaTypeList, PutImageRequest, PutImageResponse
+@docs PutImageTagMutabilityRequest, PutImageTagMutabilityResponse, PutLifecyclePolicyRequest, PutLifecyclePolicyResponse, Repository
+@docs RepositoryList, RepositoryNameList, SetRepositoryPolicyRequest, SetRepositoryPolicyResponse, StartLifecyclePolicyPreviewRequest
+@docs StartLifecyclePolicyPreviewResponse, Tag, TagKeyList, TagList, TagResourceRequest, TagResourceResponse, TagStatus
+@docs UntagResourceRequest, UntagResourceResponse, UploadLayerPartRequest, UploadLayerPartResponse, imageActionType, imageFailureCode
+@docs imageTagMutability, layerAvailability, layerFailureCode, lifecyclePolicyPreviewStatus, tagStatus
 
 -}
 
@@ -112,12 +104,12 @@ uploadLayerPart : UploadLayerPartRequest -> AWS.Http.Request AWS.Http.AWSAppErro
 uploadLayerPart req =
     let
         encoder val =
-            [ ( "uploadId", val.uploadId ) |> EncodeOpt.field (Codec.encoder uploadIdCodec)
-            , ( "repositoryName", val.repositoryName ) |> EncodeOpt.field (Codec.encoder repositoryNameCodec)
-            , ( "registryId", val.registryId ) |> EncodeOpt.optionalField (Codec.encoder registryIdCodec)
-            , ( "partLastByte", val.partLastByte ) |> EncodeOpt.field (Codec.encoder partSizeCodec)
-            , ( "partFirstByte", val.partFirstByte ) |> EncodeOpt.field (Codec.encoder partSizeCodec)
-            , ( "layerPartBlob", val.layerPartBlob ) |> EncodeOpt.field layerPartBlobEncoder
+            [ ( "uploadId", val.uploadId ) |> EncodeOpt.field Json.Encode.string
+            , ( "repositoryName", val.repositoryName ) |> EncodeOpt.field Json.Encode.string
+            , ( "registryId", val.registryId ) |> EncodeOpt.optionalField Json.Encode.string
+            , ( "partLastByte", val.partLastByte ) |> EncodeOpt.field Json.Encode.int
+            , ( "partFirstByte", val.partFirstByte ) |> EncodeOpt.field Json.Encode.int
+            , ( "layerPartBlob", val.layerPartBlob ) |> EncodeOpt.field Json.Encode.string
             ]
                 |> EncodeOpt.objectMaySkip
 
@@ -137,10 +129,10 @@ uploadLayerPart req =
              )
                 |> Json.Decode.succeed
             )
-                |> Pipeline.optional "uploadId" (Json.Decode.maybe (Codec.decoder uploadIdCodec)) Nothing
-                |> Pipeline.optional "repositoryName" (Json.Decode.maybe (Codec.decoder repositoryNameCodec)) Nothing
-                |> Pipeline.optional "registryId" (Json.Decode.maybe (Codec.decoder registryIdCodec)) Nothing
-                |> Pipeline.optional "lastByteReceived" (Json.Decode.maybe (Codec.decoder partSizeCodec)) Nothing
+                |> Pipeline.optional "uploadId" (Json.Decode.maybe Json.Decode.string) Nothing
+                |> Pipeline.optional "repositoryName" (Json.Decode.maybe Json.Decode.string) Nothing
+                |> Pipeline.optional "registryId" (Json.Decode.maybe Json.Decode.string) Nothing
+                |> Pipeline.optional "lastByteReceived" (Json.Decode.maybe Json.Decode.int) Nothing
                 |> AWS.Http.jsonBodyDecoder
     in
     AWS.Http.request "UploadLayerPart" AWS.Http.POST url jsonBody decoder AWS.Http.awsAppErrDecoder
@@ -153,7 +145,7 @@ untagResource req =
     let
         encoder val =
             [ ( "tagKeys", val.tagKeys ) |> EncodeOpt.field tagKeyListEncoder
-            , ( "resourceArn", val.resourceArn ) |> EncodeOpt.field (Codec.encoder arnCodec)
+            , ( "resourceArn", val.resourceArn ) |> EncodeOpt.field Json.Encode.string
             ]
                 |> EncodeOpt.objectMaySkip
 
@@ -176,7 +168,7 @@ tagResource req =
     let
         encoder val =
             [ ( "tags", val.tags ) |> EncodeOpt.field (Codec.encoder tagListCodec)
-            , ( "resourceArn", val.resourceArn ) |> EncodeOpt.field (Codec.encoder arnCodec)
+            , ( "resourceArn", val.resourceArn ) |> EncodeOpt.field Json.Encode.string
             ]
                 |> EncodeOpt.objectMaySkip
 
@@ -198,10 +190,9 @@ startLifecyclePolicyPreview : StartLifecyclePolicyPreviewRequest -> AWS.Http.Req
 startLifecyclePolicyPreview req =
     let
         encoder val =
-            [ ( "repositoryName", val.repositoryName ) |> EncodeOpt.field (Codec.encoder repositoryNameCodec)
-            , ( "registryId", val.registryId ) |> EncodeOpt.optionalField (Codec.encoder registryIdCodec)
-            , ( "lifecyclePolicyText", val.lifecyclePolicyText )
-                |> EncodeOpt.optionalField (Codec.encoder lifecyclePolicyTextCodec)
+            [ ( "repositoryName", val.repositoryName ) |> EncodeOpt.field Json.Encode.string
+            , ( "registryId", val.registryId ) |> EncodeOpt.optionalField Json.Encode.string
+            , ( "lifecyclePolicyText", val.lifecyclePolicyText ) |> EncodeOpt.optionalField Json.Encode.string
             ]
                 |> EncodeOpt.objectMaySkip
 
@@ -222,12 +213,9 @@ startLifecyclePolicyPreview req =
                 |> Json.Decode.succeed
             )
                 |> Pipeline.optional "status" (Json.Decode.maybe lifecyclePolicyPreviewStatusDecoder) Nothing
-                |> Pipeline.optional "repositoryName" (Json.Decode.maybe (Codec.decoder repositoryNameCodec)) Nothing
-                |> Pipeline.optional "registryId" (Json.Decode.maybe (Codec.decoder registryIdCodec)) Nothing
-                |> Pipeline.optional
-                    "lifecyclePolicyText"
-                    (Json.Decode.maybe (Codec.decoder lifecyclePolicyTextCodec))
-                    Nothing
+                |> Pipeline.optional "repositoryName" (Json.Decode.maybe Json.Decode.string) Nothing
+                |> Pipeline.optional "registryId" (Json.Decode.maybe Json.Decode.string) Nothing
+                |> Pipeline.optional "lifecyclePolicyText" (Json.Decode.maybe Json.Decode.string) Nothing
                 |> AWS.Http.jsonBodyDecoder
     in
     AWS.Http.request "StartLifecyclePolicyPreview" AWS.Http.POST url jsonBody decoder AWS.Http.awsAppErrDecoder
@@ -239,10 +227,10 @@ setRepositoryPolicy : SetRepositoryPolicyRequest -> AWS.Http.Request AWS.Http.AW
 setRepositoryPolicy req =
     let
         encoder val =
-            [ ( "repositoryName", val.repositoryName ) |> EncodeOpt.field (Codec.encoder repositoryNameCodec)
-            , ( "registryId", val.registryId ) |> EncodeOpt.optionalField (Codec.encoder registryIdCodec)
-            , ( "policyText", val.policyText ) |> EncodeOpt.field (Codec.encoder repositoryPolicyTextCodec)
-            , ( "force", val.force ) |> EncodeOpt.optionalField forceFlagEncoder
+            [ ( "repositoryName", val.repositoryName ) |> EncodeOpt.field Json.Encode.string
+            , ( "registryId", val.registryId ) |> EncodeOpt.optionalField Json.Encode.string
+            , ( "policyText", val.policyText ) |> EncodeOpt.field Json.Encode.string
+            , ( "force", val.force ) |> EncodeOpt.optionalField Json.Encode.bool
             ]
                 |> EncodeOpt.objectMaySkip
 
@@ -258,9 +246,9 @@ setRepositoryPolicy req =
              )
                 |> Json.Decode.succeed
             )
-                |> Pipeline.optional "repositoryName" (Json.Decode.maybe (Codec.decoder repositoryNameCodec)) Nothing
-                |> Pipeline.optional "registryId" (Json.Decode.maybe (Codec.decoder registryIdCodec)) Nothing
-                |> Pipeline.optional "policyText" (Json.Decode.maybe (Codec.decoder repositoryPolicyTextCodec)) Nothing
+                |> Pipeline.optional "repositoryName" (Json.Decode.maybe Json.Decode.string) Nothing
+                |> Pipeline.optional "registryId" (Json.Decode.maybe Json.Decode.string) Nothing
+                |> Pipeline.optional "policyText" (Json.Decode.maybe Json.Decode.string) Nothing
                 |> AWS.Http.jsonBodyDecoder
     in
     AWS.Http.request "SetRepositoryPolicy" AWS.Http.POST url jsonBody decoder AWS.Http.awsAppErrDecoder
@@ -272,10 +260,9 @@ putLifecyclePolicy : PutLifecyclePolicyRequest -> AWS.Http.Request AWS.Http.AWSA
 putLifecyclePolicy req =
     let
         encoder val =
-            [ ( "repositoryName", val.repositoryName ) |> EncodeOpt.field (Codec.encoder repositoryNameCodec)
-            , ( "registryId", val.registryId ) |> EncodeOpt.optionalField (Codec.encoder registryIdCodec)
-            , ( "lifecyclePolicyText", val.lifecyclePolicyText )
-                |> EncodeOpt.field (Codec.encoder lifecyclePolicyTextCodec)
+            [ ( "repositoryName", val.repositoryName ) |> EncodeOpt.field Json.Encode.string
+            , ( "registryId", val.registryId ) |> EncodeOpt.optionalField Json.Encode.string
+            , ( "lifecyclePolicyText", val.lifecyclePolicyText ) |> EncodeOpt.field Json.Encode.string
             ]
                 |> EncodeOpt.objectMaySkip
 
@@ -294,12 +281,9 @@ putLifecyclePolicy req =
              )
                 |> Json.Decode.succeed
             )
-                |> Pipeline.optional "repositoryName" (Json.Decode.maybe (Codec.decoder repositoryNameCodec)) Nothing
-                |> Pipeline.optional "registryId" (Json.Decode.maybe (Codec.decoder registryIdCodec)) Nothing
-                |> Pipeline.optional
-                    "lifecyclePolicyText"
-                    (Json.Decode.maybe (Codec.decoder lifecyclePolicyTextCodec))
-                    Nothing
+                |> Pipeline.optional "repositoryName" (Json.Decode.maybe Json.Decode.string) Nothing
+                |> Pipeline.optional "registryId" (Json.Decode.maybe Json.Decode.string) Nothing
+                |> Pipeline.optional "lifecyclePolicyText" (Json.Decode.maybe Json.Decode.string) Nothing
                 |> AWS.Http.jsonBodyDecoder
     in
     AWS.Http.request "PutLifecyclePolicy" AWS.Http.POST url jsonBody decoder AWS.Http.awsAppErrDecoder
@@ -311,8 +295,8 @@ putImageTagMutability : PutImageTagMutabilityRequest -> AWS.Http.Request AWS.Htt
 putImageTagMutability req =
     let
         encoder val =
-            [ ( "repositoryName", val.repositoryName ) |> EncodeOpt.field (Codec.encoder repositoryNameCodec)
-            , ( "registryId", val.registryId ) |> EncodeOpt.optionalField (Codec.encoder registryIdCodec)
+            [ ( "repositoryName", val.repositoryName ) |> EncodeOpt.field Json.Encode.string
+            , ( "registryId", val.registryId ) |> EncodeOpt.optionalField Json.Encode.string
             , ( "imageTagMutability", val.imageTagMutability )
                 |> EncodeOpt.field (Codec.encoder imageTagMutabilityCodec)
             ]
@@ -333,8 +317,8 @@ putImageTagMutability req =
              )
                 |> Json.Decode.succeed
             )
-                |> Pipeline.optional "repositoryName" (Json.Decode.maybe (Codec.decoder repositoryNameCodec)) Nothing
-                |> Pipeline.optional "registryId" (Json.Decode.maybe (Codec.decoder registryIdCodec)) Nothing
+                |> Pipeline.optional "repositoryName" (Json.Decode.maybe Json.Decode.string) Nothing
+                |> Pipeline.optional "registryId" (Json.Decode.maybe Json.Decode.string) Nothing
                 |> Pipeline.optional
                     "imageTagMutability"
                     (Json.Decode.maybe (Codec.decoder imageTagMutabilityCodec))
@@ -353,10 +337,10 @@ putImage : PutImageRequest -> AWS.Http.Request AWS.Http.AWSAppError PutImageResp
 putImage req =
     let
         encoder val =
-            [ ( "repositoryName", val.repositoryName ) |> EncodeOpt.field (Codec.encoder repositoryNameCodec)
-            , ( "registryId", val.registryId ) |> EncodeOpt.optionalField (Codec.encoder registryIdCodec)
-            , ( "imageTag", val.imageTag ) |> EncodeOpt.optionalField (Codec.encoder imageTagCodec)
-            , ( "imageManifest", val.imageManifest ) |> EncodeOpt.field (Codec.encoder imageManifestCodec)
+            [ ( "repositoryName", val.repositoryName ) |> EncodeOpt.field Json.Encode.string
+            , ( "registryId", val.registryId ) |> EncodeOpt.optionalField Json.Encode.string
+            , ( "imageTag", val.imageTag ) |> EncodeOpt.optionalField Json.Encode.string
+            , ( "imageManifest", val.imageManifest ) |> EncodeOpt.field Json.Encode.string
             ]
                 |> EncodeOpt.objectMaySkip
 
@@ -380,8 +364,7 @@ listTagsForResource : ListTagsForResourceRequest -> AWS.Http.Request AWS.Http.AW
 listTagsForResource req =
     let
         encoder val =
-            [ ( "resourceArn", val.resourceArn ) |> EncodeOpt.field (Codec.encoder arnCodec) ]
-                |> EncodeOpt.objectMaySkip
+            [ ( "resourceArn", val.resourceArn ) |> EncodeOpt.field Json.Encode.string ] |> EncodeOpt.objectMaySkip
 
         jsonBody =
             req |> encoder |> AWS.Http.jsonBody
@@ -406,10 +389,10 @@ listImages : ListImagesRequest -> AWS.Http.Request AWS.Http.AWSAppError ListImag
 listImages req =
     let
         encoder val =
-            [ ( "repositoryName", val.repositoryName ) |> EncodeOpt.field (Codec.encoder repositoryNameCodec)
-            , ( "registryId", val.registryId ) |> EncodeOpt.optionalField (Codec.encoder registryIdCodec)
-            , ( "nextToken", val.nextToken ) |> EncodeOpt.optionalField (Codec.encoder nextTokenCodec)
-            , ( "maxResults", val.maxResults ) |> EncodeOpt.optionalField maxResultsEncoder
+            [ ( "repositoryName", val.repositoryName ) |> EncodeOpt.field Json.Encode.string
+            , ( "registryId", val.registryId ) |> EncodeOpt.optionalField Json.Encode.string
+            , ( "nextToken", val.nextToken ) |> EncodeOpt.optionalField Json.Encode.string
+            , ( "maxResults", val.maxResults ) |> EncodeOpt.optionalField Json.Encode.int
             , ( "filter", val.filter ) |> EncodeOpt.optionalField listImagesFilterEncoder
             ]
                 |> EncodeOpt.objectMaySkip
@@ -422,7 +405,7 @@ listImages req =
 
         decoder =
             ((\nextTokenFld imageIdsFld -> { imageIds = imageIdsFld, nextToken = nextTokenFld }) |> Json.Decode.succeed)
-                |> Pipeline.optional "nextToken" (Json.Decode.maybe (Codec.decoder nextTokenCodec)) Nothing
+                |> Pipeline.optional "nextToken" (Json.Decode.maybe Json.Decode.string) Nothing
                 |> Pipeline.optional "imageIds" (Json.Decode.maybe (Codec.decoder imageIdentifierListCodec)) Nothing
                 |> AWS.Http.jsonBodyDecoder
     in
@@ -438,8 +421,8 @@ initiateLayerUpload : InitiateLayerUploadRequest -> AWS.Http.Request AWS.Http.AW
 initiateLayerUpload req =
     let
         encoder val =
-            [ ( "repositoryName", val.repositoryName ) |> EncodeOpt.field (Codec.encoder repositoryNameCodec)
-            , ( "registryId", val.registryId ) |> EncodeOpt.optionalField (Codec.encoder registryIdCodec)
+            [ ( "repositoryName", val.repositoryName ) |> EncodeOpt.field Json.Encode.string
+            , ( "registryId", val.registryId ) |> EncodeOpt.optionalField Json.Encode.string
             ]
                 |> EncodeOpt.objectMaySkip
 
@@ -451,8 +434,8 @@ initiateLayerUpload req =
 
         decoder =
             ((\uploadIdFld partSizeFld -> { partSize = partSizeFld, uploadId = uploadIdFld }) |> Json.Decode.succeed)
-                |> Pipeline.optional "uploadId" (Json.Decode.maybe (Codec.decoder uploadIdCodec)) Nothing
-                |> Pipeline.optional "partSize" (Json.Decode.maybe (Codec.decoder partSizeCodec)) Nothing
+                |> Pipeline.optional "uploadId" (Json.Decode.maybe Json.Decode.string) Nothing
+                |> Pipeline.optional "partSize" (Json.Decode.maybe Json.Decode.int) Nothing
                 |> AWS.Http.jsonBodyDecoder
     in
     AWS.Http.request "InitiateLayerUpload" AWS.Http.POST url jsonBody decoder AWS.Http.awsAppErrDecoder
@@ -464,8 +447,8 @@ getRepositoryPolicy : GetRepositoryPolicyRequest -> AWS.Http.Request AWS.Http.AW
 getRepositoryPolicy req =
     let
         encoder val =
-            [ ( "repositoryName", val.repositoryName ) |> EncodeOpt.field (Codec.encoder repositoryNameCodec)
-            , ( "registryId", val.registryId ) |> EncodeOpt.optionalField (Codec.encoder registryIdCodec)
+            [ ( "repositoryName", val.repositoryName ) |> EncodeOpt.field Json.Encode.string
+            , ( "registryId", val.registryId ) |> EncodeOpt.optionalField Json.Encode.string
             ]
                 |> EncodeOpt.objectMaySkip
 
@@ -481,9 +464,9 @@ getRepositoryPolicy req =
              )
                 |> Json.Decode.succeed
             )
-                |> Pipeline.optional "repositoryName" (Json.Decode.maybe (Codec.decoder repositoryNameCodec)) Nothing
-                |> Pipeline.optional "registryId" (Json.Decode.maybe (Codec.decoder registryIdCodec)) Nothing
-                |> Pipeline.optional "policyText" (Json.Decode.maybe (Codec.decoder repositoryPolicyTextCodec)) Nothing
+                |> Pipeline.optional "repositoryName" (Json.Decode.maybe Json.Decode.string) Nothing
+                |> Pipeline.optional "registryId" (Json.Decode.maybe Json.Decode.string) Nothing
+                |> Pipeline.optional "policyText" (Json.Decode.maybe Json.Decode.string) Nothing
                 |> AWS.Http.jsonBodyDecoder
     in
     AWS.Http.request "GetRepositoryPolicy" AWS.Http.POST url jsonBody decoder AWS.Http.awsAppErrDecoder
@@ -495,10 +478,10 @@ getLifecyclePolicyPreview : GetLifecyclePolicyPreviewRequest -> AWS.Http.Request
 getLifecyclePolicyPreview req =
     let
         encoder val =
-            [ ( "repositoryName", val.repositoryName ) |> EncodeOpt.field (Codec.encoder repositoryNameCodec)
-            , ( "registryId", val.registryId ) |> EncodeOpt.optionalField (Codec.encoder registryIdCodec)
-            , ( "nextToken", val.nextToken ) |> EncodeOpt.optionalField (Codec.encoder nextTokenCodec)
-            , ( "maxResults", val.maxResults ) |> EncodeOpt.optionalField lifecyclePreviewMaxResultsEncoder
+            [ ( "repositoryName", val.repositoryName ) |> EncodeOpt.field Json.Encode.string
+            , ( "registryId", val.registryId ) |> EncodeOpt.optionalField Json.Encode.string
+            , ( "nextToken", val.nextToken ) |> EncodeOpt.optionalField Json.Encode.string
+            , ( "maxResults", val.maxResults ) |> EncodeOpt.optionalField Json.Encode.int
             , ( "imageIds", val.imageIds ) |> EncodeOpt.optionalField (Codec.encoder imageIdentifierListCodec)
             , ( "filter", val.filter ) |> EncodeOpt.optionalField lifecyclePolicyPreviewFilterEncoder
             ]
@@ -525,17 +508,14 @@ getLifecyclePolicyPreview req =
             )
                 |> Pipeline.optional "summary" (Json.Decode.maybe lifecyclePolicyPreviewSummaryDecoder) Nothing
                 |> Pipeline.optional "status" (Json.Decode.maybe lifecyclePolicyPreviewStatusDecoder) Nothing
-                |> Pipeline.optional "repositoryName" (Json.Decode.maybe (Codec.decoder repositoryNameCodec)) Nothing
-                |> Pipeline.optional "registryId" (Json.Decode.maybe (Codec.decoder registryIdCodec)) Nothing
+                |> Pipeline.optional "repositoryName" (Json.Decode.maybe Json.Decode.string) Nothing
+                |> Pipeline.optional "registryId" (Json.Decode.maybe Json.Decode.string) Nothing
                 |> Pipeline.optional
                     "previewResults"
                     (Json.Decode.maybe lifecyclePolicyPreviewResultListDecoder)
                     Nothing
-                |> Pipeline.optional "nextToken" (Json.Decode.maybe (Codec.decoder nextTokenCodec)) Nothing
-                |> Pipeline.optional
-                    "lifecyclePolicyText"
-                    (Json.Decode.maybe (Codec.decoder lifecyclePolicyTextCodec))
-                    Nothing
+                |> Pipeline.optional "nextToken" (Json.Decode.maybe Json.Decode.string) Nothing
+                |> Pipeline.optional "lifecyclePolicyText" (Json.Decode.maybe Json.Decode.string) Nothing
                 |> AWS.Http.jsonBodyDecoder
     in
     AWS.Http.request "GetLifecyclePolicyPreview" AWS.Http.POST url jsonBody decoder AWS.Http.awsAppErrDecoder
@@ -547,8 +527,8 @@ getLifecyclePolicy : GetLifecyclePolicyRequest -> AWS.Http.Request AWS.Http.AWSA
 getLifecyclePolicy req =
     let
         encoder val =
-            [ ( "repositoryName", val.repositoryName ) |> EncodeOpt.field (Codec.encoder repositoryNameCodec)
-            , ( "registryId", val.registryId ) |> EncodeOpt.optionalField (Codec.encoder registryIdCodec)
+            [ ( "repositoryName", val.repositoryName ) |> EncodeOpt.field Json.Encode.string
+            , ( "registryId", val.registryId ) |> EncodeOpt.optionalField Json.Encode.string
             ]
                 |> EncodeOpt.objectMaySkip
 
@@ -568,13 +548,10 @@ getLifecyclePolicy req =
              )
                 |> Json.Decode.succeed
             )
-                |> Pipeline.optional "repositoryName" (Json.Decode.maybe (Codec.decoder repositoryNameCodec)) Nothing
-                |> Pipeline.optional "registryId" (Json.Decode.maybe (Codec.decoder registryIdCodec)) Nothing
-                |> Pipeline.optional
-                    "lifecyclePolicyText"
-                    (Json.Decode.maybe (Codec.decoder lifecyclePolicyTextCodec))
-                    Nothing
-                |> Pipeline.optional "lastEvaluatedAt" (Json.Decode.maybe evaluationTimestampDecoder) Nothing
+                |> Pipeline.optional "repositoryName" (Json.Decode.maybe Json.Decode.string) Nothing
+                |> Pipeline.optional "registryId" (Json.Decode.maybe Json.Decode.string) Nothing
+                |> Pipeline.optional "lifecyclePolicyText" (Json.Decode.maybe Json.Decode.string) Nothing
+                |> Pipeline.optional "lastEvaluatedAt" (Json.Decode.maybe Json.Decode.string) Nothing
                 |> AWS.Http.jsonBodyDecoder
     in
     AWS.Http.request "GetLifecyclePolicy" AWS.Http.POST url jsonBody decoder AWS.Http.awsAppErrDecoder
@@ -589,9 +566,9 @@ getDownloadUrlForLayer : GetDownloadUrlForLayerRequest -> AWS.Http.Request AWS.H
 getDownloadUrlForLayer req =
     let
         encoder val =
-            [ ( "repositoryName", val.repositoryName ) |> EncodeOpt.field (Codec.encoder repositoryNameCodec)
-            , ( "registryId", val.registryId ) |> EncodeOpt.optionalField (Codec.encoder registryIdCodec)
-            , ( "layerDigest", val.layerDigest ) |> EncodeOpt.field (Codec.encoder layerDigestCodec)
+            [ ( "repositoryName", val.repositoryName ) |> EncodeOpt.field Json.Encode.string
+            , ( "registryId", val.registryId ) |> EncodeOpt.optionalField Json.Encode.string
+            , ( "layerDigest", val.layerDigest ) |> EncodeOpt.field Json.Encode.string
             ]
                 |> EncodeOpt.objectMaySkip
 
@@ -605,8 +582,8 @@ getDownloadUrlForLayer req =
             ((\layerDigestFld downloadUrlFld -> { downloadUrl = downloadUrlFld, layerDigest = layerDigestFld })
                 |> Json.Decode.succeed
             )
-                |> Pipeline.optional "layerDigest" (Json.Decode.maybe (Codec.decoder layerDigestCodec)) Nothing
-                |> Pipeline.optional "downloadUrl" (Json.Decode.maybe urlDecoder) Nothing
+                |> Pipeline.optional "layerDigest" (Json.Decode.maybe Json.Decode.string) Nothing
+                |> Pipeline.optional "downloadUrl" (Json.Decode.maybe Json.Decode.string) Nothing
                 |> AWS.Http.jsonBodyDecoder
     in
     AWS.Http.request "GetDownloadUrlForLayer" AWS.Http.POST url jsonBody decoder AWS.Http.awsAppErrDecoder
@@ -645,9 +622,9 @@ describeRepositories req =
     let
         encoder val =
             [ ( "repositoryNames", val.repositoryNames ) |> EncodeOpt.optionalField repositoryNameListEncoder
-            , ( "registryId", val.registryId ) |> EncodeOpt.optionalField (Codec.encoder registryIdCodec)
-            , ( "nextToken", val.nextToken ) |> EncodeOpt.optionalField (Codec.encoder nextTokenCodec)
-            , ( "maxResults", val.maxResults ) |> EncodeOpt.optionalField maxResultsEncoder
+            , ( "registryId", val.registryId ) |> EncodeOpt.optionalField Json.Encode.string
+            , ( "nextToken", val.nextToken ) |> EncodeOpt.optionalField Json.Encode.string
+            , ( "maxResults", val.maxResults ) |> EncodeOpt.optionalField Json.Encode.int
             ]
                 |> EncodeOpt.objectMaySkip
 
@@ -662,7 +639,7 @@ describeRepositories req =
                 |> Json.Decode.succeed
             )
                 |> Pipeline.optional "repositories" (Json.Decode.maybe repositoryListDecoder) Nothing
-                |> Pipeline.optional "nextToken" (Json.Decode.maybe (Codec.decoder nextTokenCodec)) Nothing
+                |> Pipeline.optional "nextToken" (Json.Decode.maybe Json.Decode.string) Nothing
                 |> AWS.Http.jsonBodyDecoder
     in
     AWS.Http.request "DescribeRepositories" AWS.Http.POST url jsonBody decoder AWS.Http.awsAppErrDecoder
@@ -677,10 +654,10 @@ describeImages : DescribeImagesRequest -> AWS.Http.Request AWS.Http.AWSAppError 
 describeImages req =
     let
         encoder val =
-            [ ( "repositoryName", val.repositoryName ) |> EncodeOpt.field (Codec.encoder repositoryNameCodec)
-            , ( "registryId", val.registryId ) |> EncodeOpt.optionalField (Codec.encoder registryIdCodec)
-            , ( "nextToken", val.nextToken ) |> EncodeOpt.optionalField (Codec.encoder nextTokenCodec)
-            , ( "maxResults", val.maxResults ) |> EncodeOpt.optionalField maxResultsEncoder
+            [ ( "repositoryName", val.repositoryName ) |> EncodeOpt.field Json.Encode.string
+            , ( "registryId", val.registryId ) |> EncodeOpt.optionalField Json.Encode.string
+            , ( "nextToken", val.nextToken ) |> EncodeOpt.optionalField Json.Encode.string
+            , ( "maxResults", val.maxResults ) |> EncodeOpt.optionalField Json.Encode.int
             , ( "imageIds", val.imageIds ) |> EncodeOpt.optionalField (Codec.encoder imageIdentifierListCodec)
             , ( "filter", val.filter ) |> EncodeOpt.optionalField describeImagesFilterEncoder
             ]
@@ -696,7 +673,7 @@ describeImages req =
             ((\nextTokenFld imageDetailsFld -> { imageDetails = imageDetailsFld, nextToken = nextTokenFld })
                 |> Json.Decode.succeed
             )
-                |> Pipeline.optional "nextToken" (Json.Decode.maybe (Codec.decoder nextTokenCodec)) Nothing
+                |> Pipeline.optional "nextToken" (Json.Decode.maybe Json.Decode.string) Nothing
                 |> Pipeline.optional "imageDetails" (Json.Decode.maybe imageDetailListDecoder) Nothing
                 |> AWS.Http.jsonBodyDecoder
     in
@@ -709,8 +686,8 @@ deleteRepositoryPolicy : DeleteRepositoryPolicyRequest -> AWS.Http.Request AWS.H
 deleteRepositoryPolicy req =
     let
         encoder val =
-            [ ( "repositoryName", val.repositoryName ) |> EncodeOpt.field (Codec.encoder repositoryNameCodec)
-            , ( "registryId", val.registryId ) |> EncodeOpt.optionalField (Codec.encoder registryIdCodec)
+            [ ( "repositoryName", val.repositoryName ) |> EncodeOpt.field Json.Encode.string
+            , ( "registryId", val.registryId ) |> EncodeOpt.optionalField Json.Encode.string
             ]
                 |> EncodeOpt.objectMaySkip
 
@@ -726,9 +703,9 @@ deleteRepositoryPolicy req =
              )
                 |> Json.Decode.succeed
             )
-                |> Pipeline.optional "repositoryName" (Json.Decode.maybe (Codec.decoder repositoryNameCodec)) Nothing
-                |> Pipeline.optional "registryId" (Json.Decode.maybe (Codec.decoder registryIdCodec)) Nothing
-                |> Pipeline.optional "policyText" (Json.Decode.maybe (Codec.decoder repositoryPolicyTextCodec)) Nothing
+                |> Pipeline.optional "repositoryName" (Json.Decode.maybe Json.Decode.string) Nothing
+                |> Pipeline.optional "registryId" (Json.Decode.maybe Json.Decode.string) Nothing
+                |> Pipeline.optional "policyText" (Json.Decode.maybe Json.Decode.string) Nothing
                 |> AWS.Http.jsonBodyDecoder
     in
     AWS.Http.request "DeleteRepositoryPolicy" AWS.Http.POST url jsonBody decoder AWS.Http.awsAppErrDecoder
@@ -740,9 +717,9 @@ deleteRepository : DeleteRepositoryRequest -> AWS.Http.Request AWS.Http.AWSAppEr
 deleteRepository req =
     let
         encoder val =
-            [ ( "repositoryName", val.repositoryName ) |> EncodeOpt.field (Codec.encoder repositoryNameCodec)
-            , ( "registryId", val.registryId ) |> EncodeOpt.optionalField (Codec.encoder registryIdCodec)
-            , ( "force", val.force ) |> EncodeOpt.optionalField forceFlagEncoder
+            [ ( "repositoryName", val.repositoryName ) |> EncodeOpt.field Json.Encode.string
+            , ( "registryId", val.registryId ) |> EncodeOpt.optionalField Json.Encode.string
+            , ( "force", val.force ) |> EncodeOpt.optionalField Json.Encode.bool
             ]
                 |> EncodeOpt.objectMaySkip
 
@@ -766,8 +743,8 @@ deleteLifecyclePolicy : DeleteLifecyclePolicyRequest -> AWS.Http.Request AWS.Htt
 deleteLifecyclePolicy req =
     let
         encoder val =
-            [ ( "repositoryName", val.repositoryName ) |> EncodeOpt.field (Codec.encoder repositoryNameCodec)
-            , ( "registryId", val.registryId ) |> EncodeOpt.optionalField (Codec.encoder registryIdCodec)
+            [ ( "repositoryName", val.repositoryName ) |> EncodeOpt.field Json.Encode.string
+            , ( "registryId", val.registryId ) |> EncodeOpt.optionalField Json.Encode.string
             ]
                 |> EncodeOpt.objectMaySkip
 
@@ -787,13 +764,10 @@ deleteLifecyclePolicy req =
              )
                 |> Json.Decode.succeed
             )
-                |> Pipeline.optional "repositoryName" (Json.Decode.maybe (Codec.decoder repositoryNameCodec)) Nothing
-                |> Pipeline.optional "registryId" (Json.Decode.maybe (Codec.decoder registryIdCodec)) Nothing
-                |> Pipeline.optional
-                    "lifecyclePolicyText"
-                    (Json.Decode.maybe (Codec.decoder lifecyclePolicyTextCodec))
-                    Nothing
-                |> Pipeline.optional "lastEvaluatedAt" (Json.Decode.maybe evaluationTimestampDecoder) Nothing
+                |> Pipeline.optional "repositoryName" (Json.Decode.maybe Json.Decode.string) Nothing
+                |> Pipeline.optional "registryId" (Json.Decode.maybe Json.Decode.string) Nothing
+                |> Pipeline.optional "lifecyclePolicyText" (Json.Decode.maybe Json.Decode.string) Nothing
+                |> Pipeline.optional "lastEvaluatedAt" (Json.Decode.maybe Json.Decode.string) Nothing
                 |> AWS.Http.jsonBodyDecoder
     in
     AWS.Http.request "DeleteLifecyclePolicy" AWS.Http.POST url jsonBody decoder AWS.Http.awsAppErrDecoder
@@ -806,7 +780,7 @@ createRepository req =
     let
         encoder val =
             [ ( "tags", val.tags ) |> EncodeOpt.optionalField (Codec.encoder tagListCodec)
-            , ( "repositoryName", val.repositoryName ) |> EncodeOpt.field (Codec.encoder repositoryNameCodec)
+            , ( "repositoryName", val.repositoryName ) |> EncodeOpt.field Json.Encode.string
             , ( "imageTagMutability", val.imageTagMutability )
                 |> EncodeOpt.optionalField (Codec.encoder imageTagMutabilityCodec)
             ]
@@ -835,9 +809,9 @@ completeLayerUpload : CompleteLayerUploadRequest -> AWS.Http.Request AWS.Http.AW
 completeLayerUpload req =
     let
         encoder val =
-            [ ( "uploadId", val.uploadId ) |> EncodeOpt.field (Codec.encoder uploadIdCodec)
-            , ( "repositoryName", val.repositoryName ) |> EncodeOpt.field (Codec.encoder repositoryNameCodec)
-            , ( "registryId", val.registryId ) |> EncodeOpt.optionalField (Codec.encoder registryIdCodec)
+            [ ( "uploadId", val.uploadId ) |> EncodeOpt.field Json.Encode.string
+            , ( "repositoryName", val.repositoryName ) |> EncodeOpt.field Json.Encode.string
+            , ( "registryId", val.registryId ) |> EncodeOpt.optionalField Json.Encode.string
             , ( "layerDigests", val.layerDigests ) |> EncodeOpt.field layerDigestListEncoder
             ]
                 |> EncodeOpt.objectMaySkip
@@ -858,10 +832,10 @@ completeLayerUpload req =
              )
                 |> Json.Decode.succeed
             )
-                |> Pipeline.optional "uploadId" (Json.Decode.maybe (Codec.decoder uploadIdCodec)) Nothing
-                |> Pipeline.optional "repositoryName" (Json.Decode.maybe (Codec.decoder repositoryNameCodec)) Nothing
-                |> Pipeline.optional "registryId" (Json.Decode.maybe (Codec.decoder registryIdCodec)) Nothing
-                |> Pipeline.optional "layerDigest" (Json.Decode.maybe (Codec.decoder layerDigestCodec)) Nothing
+                |> Pipeline.optional "uploadId" (Json.Decode.maybe Json.Decode.string) Nothing
+                |> Pipeline.optional "repositoryName" (Json.Decode.maybe Json.Decode.string) Nothing
+                |> Pipeline.optional "registryId" (Json.Decode.maybe Json.Decode.string) Nothing
+                |> Pipeline.optional "layerDigest" (Json.Decode.maybe Json.Decode.string) Nothing
                 |> AWS.Http.jsonBodyDecoder
     in
     AWS.Http.request "CompleteLayerUpload" AWS.Http.POST url jsonBody decoder AWS.Http.awsAppErrDecoder
@@ -873,8 +847,8 @@ batchGetImage : BatchGetImageRequest -> AWS.Http.Request AWS.Http.AWSAppError Ba
 batchGetImage req =
     let
         encoder val =
-            [ ( "repositoryName", val.repositoryName ) |> EncodeOpt.field (Codec.encoder repositoryNameCodec)
-            , ( "registryId", val.registryId ) |> EncodeOpt.optionalField (Codec.encoder registryIdCodec)
+            [ ( "repositoryName", val.repositoryName ) |> EncodeOpt.field Json.Encode.string
+            , ( "registryId", val.registryId ) |> EncodeOpt.optionalField Json.Encode.string
             , ( "imageIds", val.imageIds ) |> EncodeOpt.field (Codec.encoder imageIdentifierListCodec)
             , ( "acceptedMediaTypes", val.acceptedMediaTypes ) |> EncodeOpt.optionalField mediaTypeListEncoder
             ]
@@ -906,8 +880,8 @@ batchDeleteImage : BatchDeleteImageRequest -> AWS.Http.Request AWS.Http.AWSAppEr
 batchDeleteImage req =
     let
         encoder val =
-            [ ( "repositoryName", val.repositoryName ) |> EncodeOpt.field (Codec.encoder repositoryNameCodec)
-            , ( "registryId", val.registryId ) |> EncodeOpt.optionalField (Codec.encoder registryIdCodec)
+            [ ( "repositoryName", val.repositoryName ) |> EncodeOpt.field Json.Encode.string
+            , ( "registryId", val.registryId ) |> EncodeOpt.optionalField Json.Encode.string
             , ( "imageIds", val.imageIds ) |> EncodeOpt.field (Codec.encoder imageIdentifierListCodec)
             ]
                 |> EncodeOpt.objectMaySkip
@@ -936,8 +910,8 @@ batchCheckLayerAvailability : BatchCheckLayerAvailabilityRequest -> AWS.Http.Req
 batchCheckLayerAvailability req =
     let
         encoder val =
-            [ ( "repositoryName", val.repositoryName ) |> EncodeOpt.field (Codec.encoder repositoryNameCodec)
-            , ( "registryId", val.registryId ) |> EncodeOpt.optionalField (Codec.encoder registryIdCodec)
+            [ ( "repositoryName", val.repositoryName ) |> EncodeOpt.field Json.Encode.string
+            , ( "registryId", val.registryId ) |> EncodeOpt.optionalField Json.Encode.string
             , ( "layerDigests", val.layerDigests ) |> EncodeOpt.field batchedOperationLayerDigestListEncoder
             ]
                 |> EncodeOpt.objectMaySkip
@@ -957,38 +931,22 @@ batchCheckLayerAvailability req =
     AWS.Http.request "BatchCheckLayerAvailability" AWS.Http.POST url jsonBody decoder AWS.Http.awsAppErrDecoder
 
 
-{-| The Url data model.
--}
-type alias Url =
-    String
-
-
 {-| The UploadLayerPartResponse data model.
 -}
 type alias UploadLayerPartResponse =
-    { lastByteReceived : Maybe PartSize
-    , registryId : Maybe RegistryId
-    , repositoryName : Maybe RepositoryName
-    , uploadId : Maybe UploadId
-    }
+    { lastByteReceived : Maybe Int, registryId : Maybe String, repositoryName : Maybe String, uploadId : Maybe String }
 
 
 {-| The UploadLayerPartRequest data model.
 -}
 type alias UploadLayerPartRequest =
-    { layerPartBlob : LayerPartBlob
-    , partFirstByte : PartSize
-    , partLastByte : PartSize
-    , registryId : Maybe RegistryId
-    , repositoryName : RepositoryName
-    , uploadId : UploadId
+    { layerPartBlob : String
+    , partFirstByte : Int
+    , partLastByte : Int
+    , registryId : Maybe String
+    , repositoryName : String
+    , uploadId : String
     }
-
-
-{-| The UploadId data model.
--}
-type alias UploadId =
-    String
 
 
 {-| The UntagResourceResponse data model.
@@ -1000,13 +958,7 @@ type alias UntagResourceResponse =
 {-| The UntagResourceRequest data model.
 -}
 type alias UntagResourceRequest =
-    { resourceArn : Arn, tagKeys : TagKeyList }
-
-
-{-| The TagValue data model.
--}
-type alias TagValue =
-    String
+    { resourceArn : String, tagKeys : TagKeyList }
 
 
 {-| The TagStatus data model.
@@ -1045,7 +997,7 @@ type alias TagResourceResponse =
 {-| The TagResourceRequest data model.
 -}
 type alias TagResourceRequest =
-    { resourceArn : Arn, tags : TagList }
+    { resourceArn : String, tags : TagList }
 
 
 {-| The TagList data model.
@@ -1057,27 +1009,21 @@ type alias TagList =
 {-| The TagKeyList data model.
 -}
 type alias TagKeyList =
-    List TagKey
-
-
-{-| The TagKey data model.
--}
-type alias TagKey =
-    String
+    List String
 
 
 {-| The Tag data model.
 -}
 type alias Tag =
-    { key : Maybe TagKey, value : Maybe TagValue }
+    { key : Maybe String, value : Maybe String }
 
 
 {-| The StartLifecyclePolicyPreviewResponse data model.
 -}
 type alias StartLifecyclePolicyPreviewResponse =
-    { lifecyclePolicyText : Maybe LifecyclePolicyText
-    , registryId : Maybe RegistryId
-    , repositoryName : Maybe RepositoryName
+    { lifecyclePolicyText : Maybe String
+    , registryId : Maybe String
+    , repositoryName : Maybe String
     , status : Maybe LifecyclePolicyPreviewStatus
     }
 
@@ -1085,41 +1031,25 @@ type alias StartLifecyclePolicyPreviewResponse =
 {-| The StartLifecyclePolicyPreviewRequest data model.
 -}
 type alias StartLifecyclePolicyPreviewRequest =
-    { lifecyclePolicyText : Maybe LifecyclePolicyText, registryId : Maybe RegistryId, repositoryName : RepositoryName }
+    { lifecyclePolicyText : Maybe String, registryId : Maybe String, repositoryName : String }
 
 
 {-| The SetRepositoryPolicyResponse data model.
 -}
 type alias SetRepositoryPolicyResponse =
-    { policyText : Maybe RepositoryPolicyText, registryId : Maybe RegistryId, repositoryName : Maybe RepositoryName }
+    { policyText : Maybe String, registryId : Maybe String, repositoryName : Maybe String }
 
 
 {-| The SetRepositoryPolicyRequest data model.
 -}
 type alias SetRepositoryPolicyRequest =
-    { force : Maybe ForceFlag
-    , policyText : RepositoryPolicyText
-    , registryId : Maybe RegistryId
-    , repositoryName : RepositoryName
-    }
-
-
-{-| The RepositoryPolicyText data model.
--}
-type alias RepositoryPolicyText =
-    String
+    { force : Maybe Bool, policyText : String, registryId : Maybe String, repositoryName : String }
 
 
 {-| The RepositoryNameList data model.
 -}
 type alias RepositoryNameList =
-    List RepositoryName
-
-
-{-| The RepositoryName data model.
--}
-type alias RepositoryName =
-    String
+    List String
 
 
 {-| The RepositoryList data model.
@@ -1131,49 +1061,37 @@ type alias RepositoryList =
 {-| The Repository data model.
 -}
 type alias Repository =
-    { createdAt : Maybe CreationTimestamp
+    { createdAt : Maybe String
     , imageTagMutability : Maybe ImageTagMutability
-    , registryId : Maybe RegistryId
-    , repositoryArn : Maybe Arn
-    , repositoryName : Maybe RepositoryName
-    , repositoryUri : Maybe Url
+    , registryId : Maybe String
+    , repositoryArn : Maybe String
+    , repositoryName : Maybe String
+    , repositoryUri : Maybe String
     }
-
-
-{-| The RegistryId data model.
--}
-type alias RegistryId =
-    String
 
 
 {-| The PutLifecyclePolicyResponse data model.
 -}
 type alias PutLifecyclePolicyResponse =
-    { lifecyclePolicyText : Maybe LifecyclePolicyText
-    , registryId : Maybe RegistryId
-    , repositoryName : Maybe RepositoryName
-    }
+    { lifecyclePolicyText : Maybe String, registryId : Maybe String, repositoryName : Maybe String }
 
 
 {-| The PutLifecyclePolicyRequest data model.
 -}
 type alias PutLifecyclePolicyRequest =
-    { lifecyclePolicyText : LifecyclePolicyText, registryId : Maybe RegistryId, repositoryName : RepositoryName }
+    { lifecyclePolicyText : String, registryId : Maybe String, repositoryName : String }
 
 
 {-| The PutImageTagMutabilityResponse data model.
 -}
 type alias PutImageTagMutabilityResponse =
-    { imageTagMutability : Maybe ImageTagMutability
-    , registryId : Maybe RegistryId
-    , repositoryName : Maybe RepositoryName
-    }
+    { imageTagMutability : Maybe ImageTagMutability, registryId : Maybe String, repositoryName : Maybe String }
 
 
 {-| The PutImageTagMutabilityRequest data model.
 -}
 type alias PutImageTagMutabilityRequest =
-    { imageTagMutability : ImageTagMutability, registryId : Maybe RegistryId, repositoryName : RepositoryName }
+    { imageTagMutability : ImageTagMutability, registryId : Maybe String, repositoryName : String }
 
 
 {-| The PutImageResponse data model.
@@ -1185,53 +1103,13 @@ type alias PutImageResponse =
 {-| The PutImageRequest data model.
 -}
 type alias PutImageRequest =
-    { imageManifest : ImageManifest
-    , imageTag : Maybe ImageTag
-    , registryId : Maybe RegistryId
-    , repositoryName : RepositoryName
-    }
-
-
-{-| The PushTimestamp data model.
--}
-type alias PushTimestamp =
-    String
-
-
-{-| The ProxyEndpoint data model.
--}
-type alias ProxyEndpoint =
-    String
-
-
-{-| The PartSize data model.
--}
-type alias PartSize =
-    Int
-
-
-{-| The NextToken data model.
--}
-type alias NextToken =
-    String
+    { imageManifest : String, imageTag : Maybe String, registryId : Maybe String, repositoryName : String }
 
 
 {-| The MediaTypeList data model.
 -}
 type alias MediaTypeList =
-    List MediaType
-
-
-{-| The MediaType data model.
--}
-type alias MediaType =
-    String
-
-
-{-| The MaxResults data model.
--}
-type alias MaxResults =
-    Int
+    List String
 
 
 {-| The ListTagsForResourceResponse data model.
@@ -1243,23 +1121,23 @@ type alias ListTagsForResourceResponse =
 {-| The ListTagsForResourceRequest data model.
 -}
 type alias ListTagsForResourceRequest =
-    { resourceArn : Arn }
+    { resourceArn : String }
 
 
 {-| The ListImagesResponse data model.
 -}
 type alias ListImagesResponse =
-    { imageIds : Maybe ImageIdentifierList, nextToken : Maybe NextToken }
+    { imageIds : Maybe ImageIdentifierList, nextToken : Maybe String }
 
 
 {-| The ListImagesRequest data model.
 -}
 type alias ListImagesRequest =
     { filter : Maybe ListImagesFilter
-    , maxResults : Maybe MaxResults
-    , nextToken : Maybe NextToken
-    , registryId : Maybe RegistryId
-    , repositoryName : RepositoryName
+    , maxResults : Maybe Int
+    , nextToken : Maybe String
+    , registryId : Maybe String
+    , repositoryName : String
     }
 
 
@@ -1267,24 +1145,6 @@ type alias ListImagesRequest =
 -}
 type alias ListImagesFilter =
     { tagStatus : Maybe TagStatus }
-
-
-{-| The LifecyclePreviewMaxResults data model.
--}
-type alias LifecyclePreviewMaxResults =
-    Int
-
-
-{-| The LifecyclePolicyText data model.
--}
-type alias LifecyclePolicyText =
-    String
-
-
-{-| The LifecyclePolicyRulePriority data model.
--}
-type alias LifecyclePolicyRulePriority =
-    Int
 
 
 {-| The LifecyclePolicyRuleAction data model.
@@ -1296,7 +1156,7 @@ type alias LifecyclePolicyRuleAction =
 {-| The LifecyclePolicyPreviewSummary data model.
 -}
 type alias LifecyclePolicyPreviewSummary =
-    { expiringImageTotalCount : Maybe ImageCount }
+    { expiringImageTotalCount : Maybe Int }
 
 
 {-| The LifecyclePolicyPreviewStatus data model.
@@ -1344,9 +1204,9 @@ type alias LifecyclePolicyPreviewResultList =
 -}
 type alias LifecyclePolicyPreviewResult =
     { action : Maybe LifecyclePolicyRuleAction
-    , appliedRulePriority : Maybe LifecyclePolicyRulePriority
-    , imageDigest : Maybe ImageDigest
-    , imagePushedAt : Maybe PushTimestamp
+    , appliedRulePriority : Maybe Int
+    , imageDigest : Maybe String
+    , imagePushedAt : Maybe String
     , imageTags : Maybe ImageTagList
     }
 
@@ -1357,28 +1217,10 @@ type alias LifecyclePolicyPreviewFilter =
     { tagStatus : Maybe TagStatus }
 
 
-{-| The LayerSizeInBytes data model.
--}
-type alias LayerSizeInBytes =
-    Int
-
-
-{-| The LayerPartBlob data model.
--}
-type alias LayerPartBlob =
-    String
-
-
 {-| The LayerList data model.
 -}
 type alias LayerList =
     List Layer
-
-
-{-| The LayerFailureReason data model.
--}
-type alias LayerFailureReason =
-    String
 
 
 {-| The LayerFailureList data model.
@@ -1413,22 +1255,13 @@ layerFailureCode =
 {-| The LayerFailure data model.
 -}
 type alias LayerFailure =
-    { failureCode : Maybe LayerFailureCode
-    , failureReason : Maybe LayerFailureReason
-    , layerDigest : Maybe BatchedOperationLayerDigest
-    }
+    { failureCode : Maybe LayerFailureCode, failureReason : Maybe String, layerDigest : Maybe String }
 
 
 {-| The LayerDigestList data model.
 -}
 type alias LayerDigestList =
-    List LayerDigest
-
-
-{-| The LayerDigest data model.
--}
-type alias LayerDigest =
-    String
+    List String
 
 
 {-| The LayerAvailability data model.
@@ -1458,22 +1291,22 @@ layerAvailability =
 -}
 type alias Layer =
     { layerAvailability : Maybe LayerAvailability
-    , layerDigest : Maybe LayerDigest
-    , layerSize : Maybe LayerSizeInBytes
-    , mediaType : Maybe MediaType
+    , layerDigest : Maybe String
+    , layerSize : Maybe Int
+    , mediaType : Maybe String
     }
 
 
 {-| The InitiateLayerUploadResponse data model.
 -}
 type alias InitiateLayerUploadResponse =
-    { partSize : Maybe PartSize, uploadId : Maybe UploadId }
+    { partSize : Maybe Int, uploadId : Maybe String }
 
 
 {-| The InitiateLayerUploadRequest data model.
 -}
 type alias InitiateLayerUploadRequest =
-    { registryId : Maybe RegistryId, repositoryName : RepositoryName }
+    { registryId : Maybe String, repositoryName : String }
 
 
 {-| The ImageTagMutability data model.
@@ -1502,25 +1335,7 @@ imageTagMutability =
 {-| The ImageTagList data model.
 -}
 type alias ImageTagList =
-    List ImageTag
-
-
-{-| The ImageTag data model.
--}
-type alias ImageTag =
-    String
-
-
-{-| The ImageSizeInBytes data model.
--}
-type alias ImageSizeInBytes =
-    Int
-
-
-{-| The ImageManifest data model.
--}
-type alias ImageManifest =
-    String
+    List String
 
 
 {-| The ImageList data model.
@@ -1538,13 +1353,7 @@ type alias ImageIdentifierList =
 {-| The ImageIdentifier data model.
 -}
 type alias ImageIdentifier =
-    { imageDigest : Maybe ImageDigest, imageTag : Maybe ImageTag }
-
-
-{-| The ImageFailureReason data model.
--}
-type alias ImageFailureReason =
-    String
+    { imageDigest : Maybe String, imageTag : Maybe String }
 
 
 {-| The ImageFailureList data model.
@@ -1596,13 +1405,7 @@ imageFailureCode =
 {-| The ImageFailure data model.
 -}
 type alias ImageFailure =
-    { failureCode : Maybe ImageFailureCode, failureReason : Maybe ImageFailureReason, imageId : Maybe ImageIdentifier }
-
-
-{-| The ImageDigest data model.
--}
-type alias ImageDigest =
-    String
+    { failureCode : Maybe ImageFailureCode, failureReason : Maybe String, imageId : Maybe ImageIdentifier }
 
 
 {-| The ImageDetailList data model.
@@ -1614,19 +1417,13 @@ type alias ImageDetailList =
 {-| The ImageDetail data model.
 -}
 type alias ImageDetail =
-    { imageDigest : Maybe ImageDigest
-    , imagePushedAt : Maybe PushTimestamp
-    , imageSizeInBytes : Maybe ImageSizeInBytes
+    { imageDigest : Maybe String
+    , imagePushedAt : Maybe String
+    , imageSizeInBytes : Maybe Int
     , imageTags : Maybe ImageTagList
-    , registryId : Maybe RegistryId
-    , repositoryName : Maybe RepositoryName
+    , registryId : Maybe String
+    , repositoryName : Maybe String
     }
-
-
-{-| The ImageCount data model.
--}
-type alias ImageCount =
-    Int
 
 
 {-| The ImageActionType data model.
@@ -1652,48 +1449,48 @@ imageActionType =
 -}
 type alias Image =
     { imageId : Maybe ImageIdentifier
-    , imageManifest : Maybe ImageManifest
-    , registryId : Maybe RegistryId
-    , repositoryName : Maybe RepositoryName
+    , imageManifest : Maybe String
+    , registryId : Maybe String
+    , repositoryName : Maybe String
     }
 
 
 {-| The GetRepositoryPolicyResponse data model.
 -}
 type alias GetRepositoryPolicyResponse =
-    { policyText : Maybe RepositoryPolicyText, registryId : Maybe RegistryId, repositoryName : Maybe RepositoryName }
+    { policyText : Maybe String, registryId : Maybe String, repositoryName : Maybe String }
 
 
 {-| The GetRepositoryPolicyRequest data model.
 -}
 type alias GetRepositoryPolicyRequest =
-    { registryId : Maybe RegistryId, repositoryName : RepositoryName }
+    { registryId : Maybe String, repositoryName : String }
 
 
 {-| The GetLifecyclePolicyResponse data model.
 -}
 type alias GetLifecyclePolicyResponse =
-    { lastEvaluatedAt : Maybe EvaluationTimestamp
-    , lifecyclePolicyText : Maybe LifecyclePolicyText
-    , registryId : Maybe RegistryId
-    , repositoryName : Maybe RepositoryName
+    { lastEvaluatedAt : Maybe String
+    , lifecyclePolicyText : Maybe String
+    , registryId : Maybe String
+    , repositoryName : Maybe String
     }
 
 
 {-| The GetLifecyclePolicyRequest data model.
 -}
 type alias GetLifecyclePolicyRequest =
-    { registryId : Maybe RegistryId, repositoryName : RepositoryName }
+    { registryId : Maybe String, repositoryName : String }
 
 
 {-| The GetLifecyclePolicyPreviewResponse data model.
 -}
 type alias GetLifecyclePolicyPreviewResponse =
-    { lifecyclePolicyText : Maybe LifecyclePolicyText
-    , nextToken : Maybe NextToken
+    { lifecyclePolicyText : Maybe String
+    , nextToken : Maybe String
     , previewResults : Maybe LifecyclePolicyPreviewResultList
-    , registryId : Maybe RegistryId
-    , repositoryName : Maybe RepositoryName
+    , registryId : Maybe String
+    , repositoryName : Maybe String
     , status : Maybe LifecyclePolicyPreviewStatus
     , summary : Maybe LifecyclePolicyPreviewSummary
     }
@@ -1704,23 +1501,23 @@ type alias GetLifecyclePolicyPreviewResponse =
 type alias GetLifecyclePolicyPreviewRequest =
     { filter : Maybe LifecyclePolicyPreviewFilter
     , imageIds : Maybe ImageIdentifierList
-    , maxResults : Maybe LifecyclePreviewMaxResults
-    , nextToken : Maybe NextToken
-    , registryId : Maybe RegistryId
-    , repositoryName : RepositoryName
+    , maxResults : Maybe Int
+    , nextToken : Maybe String
+    , registryId : Maybe String
+    , repositoryName : String
     }
 
 
 {-| The GetDownloadUrlForLayerResponse data model.
 -}
 type alias GetDownloadUrlForLayerResponse =
-    { downloadUrl : Maybe Url, layerDigest : Maybe LayerDigest }
+    { downloadUrl : Maybe String, layerDigest : Maybe String }
 
 
 {-| The GetDownloadUrlForLayerRequest data model.
 -}
 type alias GetDownloadUrlForLayerRequest =
-    { layerDigest : LayerDigest, registryId : Maybe RegistryId, repositoryName : RepositoryName }
+    { layerDigest : String, registryId : Maybe String, repositoryName : String }
 
 
 {-| The GetAuthorizationTokenResponse data model.
@@ -1738,39 +1535,21 @@ type alias GetAuthorizationTokenRequest =
 {-| The GetAuthorizationTokenRegistryIdList data model.
 -}
 type alias GetAuthorizationTokenRegistryIdList =
-    List RegistryId
-
-
-{-| The ForceFlag data model.
--}
-type alias ForceFlag =
-    Bool
-
-
-{-| The ExpirationTimestamp data model.
--}
-type alias ExpirationTimestamp =
-    String
-
-
-{-| The EvaluationTimestamp data model.
--}
-type alias EvaluationTimestamp =
-    String
+    List String
 
 
 {-| The DescribeRepositoriesResponse data model.
 -}
 type alias DescribeRepositoriesResponse =
-    { nextToken : Maybe NextToken, repositories : Maybe RepositoryList }
+    { nextToken : Maybe String, repositories : Maybe RepositoryList }
 
 
 {-| The DescribeRepositoriesRequest data model.
 -}
 type alias DescribeRepositoriesRequest =
-    { maxResults : Maybe MaxResults
-    , nextToken : Maybe NextToken
-    , registryId : Maybe RegistryId
+    { maxResults : Maybe Int
+    , nextToken : Maybe String
+    , registryId : Maybe String
     , repositoryNames : Maybe RepositoryNameList
     }
 
@@ -1778,7 +1557,7 @@ type alias DescribeRepositoriesRequest =
 {-| The DescribeImagesResponse data model.
 -}
 type alias DescribeImagesResponse =
-    { imageDetails : Maybe ImageDetailList, nextToken : Maybe NextToken }
+    { imageDetails : Maybe ImageDetailList, nextToken : Maybe String }
 
 
 {-| The DescribeImagesRequest data model.
@@ -1786,10 +1565,10 @@ type alias DescribeImagesResponse =
 type alias DescribeImagesRequest =
     { filter : Maybe DescribeImagesFilter
     , imageIds : Maybe ImageIdentifierList
-    , maxResults : Maybe MaxResults
-    , nextToken : Maybe NextToken
-    , registryId : Maybe RegistryId
-    , repositoryName : RepositoryName
+    , maxResults : Maybe Int
+    , nextToken : Maybe String
+    , registryId : Maybe String
+    , repositoryName : String
     }
 
 
@@ -1808,41 +1587,35 @@ type alias DeleteRepositoryResponse =
 {-| The DeleteRepositoryRequest data model.
 -}
 type alias DeleteRepositoryRequest =
-    { force : Maybe ForceFlag, registryId : Maybe RegistryId, repositoryName : RepositoryName }
+    { force : Maybe Bool, registryId : Maybe String, repositoryName : String }
 
 
 {-| The DeleteRepositoryPolicyResponse data model.
 -}
 type alias DeleteRepositoryPolicyResponse =
-    { policyText : Maybe RepositoryPolicyText, registryId : Maybe RegistryId, repositoryName : Maybe RepositoryName }
+    { policyText : Maybe String, registryId : Maybe String, repositoryName : Maybe String }
 
 
 {-| The DeleteRepositoryPolicyRequest data model.
 -}
 type alias DeleteRepositoryPolicyRequest =
-    { registryId : Maybe RegistryId, repositoryName : RepositoryName }
+    { registryId : Maybe String, repositoryName : String }
 
 
 {-| The DeleteLifecyclePolicyResponse data model.
 -}
 type alias DeleteLifecyclePolicyResponse =
-    { lastEvaluatedAt : Maybe EvaluationTimestamp
-    , lifecyclePolicyText : Maybe LifecyclePolicyText
-    , registryId : Maybe RegistryId
-    , repositoryName : Maybe RepositoryName
+    { lastEvaluatedAt : Maybe String
+    , lifecyclePolicyText : Maybe String
+    , registryId : Maybe String
+    , repositoryName : Maybe String
     }
 
 
 {-| The DeleteLifecyclePolicyRequest data model.
 -}
 type alias DeleteLifecyclePolicyRequest =
-    { registryId : Maybe RegistryId, repositoryName : RepositoryName }
-
-
-{-| The CreationTimestamp data model.
--}
-type alias CreationTimestamp =
-    String
+    { registryId : Maybe String, repositoryName : String }
 
 
 {-| The CreateRepositoryResponse data model.
@@ -1854,39 +1627,25 @@ type alias CreateRepositoryResponse =
 {-| The CreateRepositoryRequest data model.
 -}
 type alias CreateRepositoryRequest =
-    { imageTagMutability : Maybe ImageTagMutability, repositoryName : RepositoryName, tags : Maybe TagList }
+    { imageTagMutability : Maybe ImageTagMutability, repositoryName : String, tags : Maybe TagList }
 
 
 {-| The CompleteLayerUploadResponse data model.
 -}
 type alias CompleteLayerUploadResponse =
-    { layerDigest : Maybe LayerDigest
-    , registryId : Maybe RegistryId
-    , repositoryName : Maybe RepositoryName
-    , uploadId : Maybe UploadId
-    }
+    { layerDigest : Maybe String, registryId : Maybe String, repositoryName : Maybe String, uploadId : Maybe String }
 
 
 {-| The CompleteLayerUploadRequest data model.
 -}
 type alias CompleteLayerUploadRequest =
-    { layerDigests : LayerDigestList
-    , registryId : Maybe RegistryId
-    , repositoryName : RepositoryName
-    , uploadId : UploadId
-    }
+    { layerDigests : LayerDigestList, registryId : Maybe String, repositoryName : String, uploadId : String }
 
 
 {-| The BatchedOperationLayerDigestList data model.
 -}
 type alias BatchedOperationLayerDigestList =
-    List BatchedOperationLayerDigest
-
-
-{-| The BatchedOperationLayerDigest data model.
--}
-type alias BatchedOperationLayerDigest =
-    String
+    List String
 
 
 {-| The BatchGetImageResponse data model.
@@ -1900,8 +1659,8 @@ type alias BatchGetImageResponse =
 type alias BatchGetImageRequest =
     { acceptedMediaTypes : Maybe MediaTypeList
     , imageIds : ImageIdentifierList
-    , registryId : Maybe RegistryId
-    , repositoryName : RepositoryName
+    , registryId : Maybe String
+    , repositoryName : String
     }
 
 
@@ -1914,7 +1673,7 @@ type alias BatchDeleteImageResponse =
 {-| The BatchDeleteImageRequest data model.
 -}
 type alias BatchDeleteImageRequest =
-    { imageIds : ImageIdentifierList, registryId : Maybe RegistryId, repositoryName : RepositoryName }
+    { imageIds : ImageIdentifierList, registryId : Maybe String, repositoryName : String }
 
 
 {-| The BatchCheckLayerAvailabilityResponse data model.
@@ -1926,13 +1685,7 @@ type alias BatchCheckLayerAvailabilityResponse =
 {-| The BatchCheckLayerAvailabilityRequest data model.
 -}
 type alias BatchCheckLayerAvailabilityRequest =
-    { layerDigests : BatchedOperationLayerDigestList, registryId : Maybe RegistryId, repositoryName : RepositoryName }
-
-
-{-| The Base64 data model.
--}
-type alias Base64 =
-    String
+    { layerDigests : BatchedOperationLayerDigestList, registryId : Maybe String, repositoryName : String }
 
 
 {-| The AuthorizationDataList data model.
@@ -1944,20 +1697,7 @@ type alias AuthorizationDataList =
 {-| The AuthorizationData data model.
 -}
 type alias AuthorizationData =
-    { authorizationToken : Maybe Base64, expiresAt : Maybe ExpirationTimestamp, proxyEndpoint : Maybe ProxyEndpoint }
-
-
-{-| The Arn data model.
--}
-type alias Arn =
-    String
-
-
-{-| Codec for Arn.
--}
-arnCodec : Codec Arn
-arnCodec =
-    Codec.string
+    { authorizationToken : Maybe String, expiresAt : Maybe String, proxyEndpoint : Maybe String }
 
 
 {-| Decoder for AuthorizationData.
@@ -1965,9 +1705,9 @@ arnCodec =
 authorizationDataDecoder : Decoder AuthorizationData
 authorizationDataDecoder =
     Json.Decode.succeed AuthorizationData
-        |> Pipeline.optional "authorizationToken" (Json.Decode.maybe base64Decoder) Nothing
-        |> Pipeline.optional "expiresAt" (Json.Decode.maybe expirationTimestampDecoder) Nothing
-        |> Pipeline.optional "proxyEndpoint" (Json.Decode.maybe proxyEndpointDecoder) Nothing
+        |> Pipeline.optional "authorizationToken" (Json.Decode.maybe Json.Decode.string) Nothing
+        |> Pipeline.optional "expiresAt" (Json.Decode.maybe Json.Decode.string) Nothing
+        |> Pipeline.optional "proxyEndpoint" (Json.Decode.maybe Json.Decode.string) Nothing
 
 
 {-| Decoder for AuthorizationDataList.
@@ -1977,32 +1717,11 @@ authorizationDataListDecoder =
     Json.Decode.list authorizationDataDecoder
 
 
-{-| Decoder for Base64.
--}
-base64Decoder : Decoder Base64
-base64Decoder =
-    Json.Decode.string
-
-
-{-| Codec for BatchedOperationLayerDigest.
--}
-batchedOperationLayerDigestCodec : Codec BatchedOperationLayerDigest
-batchedOperationLayerDigestCodec =
-    Codec.string
-
-
 {-| Encoder for BatchedOperationLayerDigestList.
 -}
 batchedOperationLayerDigestListEncoder : BatchedOperationLayerDigestList -> Value
 batchedOperationLayerDigestListEncoder val =
-    Json.Encode.list (Codec.encoder batchedOperationLayerDigestCodec) val
-
-
-{-| Decoder for CreationTimestamp.
--}
-creationTimestampDecoder : Decoder CreationTimestamp
-creationTimestampDecoder =
-    Json.Decode.string
+    Json.Encode.list Json.Encode.string val
 
 
 {-| Encoder for DescribeImagesFilter.
@@ -2012,32 +1731,11 @@ describeImagesFilterEncoder val =
     [ ( "tagStatus", val.tagStatus ) |> EncodeOpt.optionalField tagStatusEncoder ] |> EncodeOpt.objectMaySkip
 
 
-{-| Decoder for EvaluationTimestamp.
--}
-evaluationTimestampDecoder : Decoder EvaluationTimestamp
-evaluationTimestampDecoder =
-    Json.Decode.string
-
-
-{-| Decoder for ExpirationTimestamp.
--}
-expirationTimestampDecoder : Decoder ExpirationTimestamp
-expirationTimestampDecoder =
-    Json.Decode.string
-
-
-{-| Encoder for ForceFlag.
--}
-forceFlagEncoder : ForceFlag -> Value
-forceFlagEncoder val =
-    Json.Encode.bool val
-
-
 {-| Encoder for GetAuthorizationTokenRegistryIdList.
 -}
 getAuthorizationTokenRegistryIdListEncoder : GetAuthorizationTokenRegistryIdList -> Value
 getAuthorizationTokenRegistryIdListEncoder val =
-    Json.Encode.list (Codec.encoder registryIdCodec) val
+    Json.Encode.list Json.Encode.string val
 
 
 {-| Decoder for Image.
@@ -2046,9 +1744,9 @@ imageDecoder : Decoder Image
 imageDecoder =
     Json.Decode.succeed Image
         |> Pipeline.optional "imageId" (Json.Decode.maybe (Codec.decoder imageIdentifierCodec)) Nothing
-        |> Pipeline.optional "imageManifest" (Json.Decode.maybe (Codec.decoder imageManifestCodec)) Nothing
-        |> Pipeline.optional "registryId" (Json.Decode.maybe (Codec.decoder registryIdCodec)) Nothing
-        |> Pipeline.optional "repositoryName" (Json.Decode.maybe (Codec.decoder repositoryNameCodec)) Nothing
+        |> Pipeline.optional "imageManifest" (Json.Decode.maybe Json.Decode.string) Nothing
+        |> Pipeline.optional "registryId" (Json.Decode.maybe Json.Decode.string) Nothing
+        |> Pipeline.optional "repositoryName" (Json.Decode.maybe Json.Decode.string) Nothing
 
 
 {-| Decoder for ImageActionType.
@@ -2058,24 +1756,17 @@ imageActionTypeDecoder =
     Enum.decoder imageActionType
 
 
-{-| Decoder for ImageCount.
--}
-imageCountDecoder : Decoder ImageCount
-imageCountDecoder =
-    Json.Decode.int
-
-
 {-| Decoder for ImageDetail.
 -}
 imageDetailDecoder : Decoder ImageDetail
 imageDetailDecoder =
     Json.Decode.succeed ImageDetail
-        |> Pipeline.optional "imageDigest" (Json.Decode.maybe (Codec.decoder imageDigestCodec)) Nothing
-        |> Pipeline.optional "imagePushedAt" (Json.Decode.maybe pushTimestampDecoder) Nothing
-        |> Pipeline.optional "imageSizeInBytes" (Json.Decode.maybe imageSizeInBytesDecoder) Nothing
+        |> Pipeline.optional "imageDigest" (Json.Decode.maybe Json.Decode.string) Nothing
+        |> Pipeline.optional "imagePushedAt" (Json.Decode.maybe Json.Decode.string) Nothing
+        |> Pipeline.optional "imageSizeInBytes" (Json.Decode.maybe Json.Decode.int) Nothing
         |> Pipeline.optional "imageTags" (Json.Decode.maybe imageTagListDecoder) Nothing
-        |> Pipeline.optional "registryId" (Json.Decode.maybe (Codec.decoder registryIdCodec)) Nothing
-        |> Pipeline.optional "repositoryName" (Json.Decode.maybe (Codec.decoder repositoryNameCodec)) Nothing
+        |> Pipeline.optional "registryId" (Json.Decode.maybe Json.Decode.string) Nothing
+        |> Pipeline.optional "repositoryName" (Json.Decode.maybe Json.Decode.string) Nothing
 
 
 {-| Decoder for ImageDetailList.
@@ -2085,20 +1776,13 @@ imageDetailListDecoder =
     Json.Decode.list imageDetailDecoder
 
 
-{-| Codec for ImageDigest.
--}
-imageDigestCodec : Codec ImageDigest
-imageDigestCodec =
-    Codec.string
-
-
 {-| Decoder for ImageFailure.
 -}
 imageFailureDecoder : Decoder ImageFailure
 imageFailureDecoder =
     Json.Decode.succeed ImageFailure
         |> Pipeline.optional "failureCode" (Json.Decode.maybe imageFailureCodeDecoder) Nothing
-        |> Pipeline.optional "failureReason" (Json.Decode.maybe imageFailureReasonDecoder) Nothing
+        |> Pipeline.optional "failureReason" (Json.Decode.maybe Json.Decode.string) Nothing
         |> Pipeline.optional "imageId" (Json.Decode.maybe (Codec.decoder imageIdentifierCodec)) Nothing
 
 
@@ -2116,20 +1800,13 @@ imageFailureListDecoder =
     Json.Decode.list imageFailureDecoder
 
 
-{-| Decoder for ImageFailureReason.
--}
-imageFailureReasonDecoder : Decoder ImageFailureReason
-imageFailureReasonDecoder =
-    Json.Decode.string
-
-
 {-| Codec for ImageIdentifier.
 -}
 imageIdentifierCodec : Codec ImageIdentifier
 imageIdentifierCodec =
     Codec.object ImageIdentifier
-        |> Codec.optionalField "imageDigest" .imageDigest imageDigestCodec
-        |> Codec.optionalField "imageTag" .imageTag imageTagCodec
+        |> Codec.optionalField "imageDigest" .imageDigest Codec.string
+        |> Codec.optionalField "imageTag" .imageTag Codec.string
         |> Codec.buildObject
 
 
@@ -2147,32 +1824,11 @@ imageListDecoder =
     Json.Decode.list imageDecoder
 
 
-{-| Codec for ImageManifest.
--}
-imageManifestCodec : Codec ImageManifest
-imageManifestCodec =
-    Codec.string
-
-
-{-| Decoder for ImageSizeInBytes.
--}
-imageSizeInBytesDecoder : Decoder ImageSizeInBytes
-imageSizeInBytesDecoder =
-    Json.Decode.int
-
-
-{-| Codec for ImageTag.
--}
-imageTagCodec : Codec ImageTag
-imageTagCodec =
-    Codec.string
-
-
 {-| Decoder for ImageTagList.
 -}
 imageTagListDecoder : Decoder ImageTagList
 imageTagListDecoder =
-    Json.Decode.list (Codec.decoder imageTagCodec)
+    Json.Decode.list Json.Decode.string
 
 
 {-| Codec for ImageTagMutability.
@@ -2188,9 +1844,9 @@ layerDecoder : Decoder Layer
 layerDecoder =
     Json.Decode.succeed Layer
         |> Pipeline.optional "layerAvailability" (Json.Decode.maybe layerAvailabilityDecoder) Nothing
-        |> Pipeline.optional "layerDigest" (Json.Decode.maybe (Codec.decoder layerDigestCodec)) Nothing
-        |> Pipeline.optional "layerSize" (Json.Decode.maybe layerSizeInBytesDecoder) Nothing
-        |> Pipeline.optional "mediaType" (Json.Decode.maybe (Codec.decoder mediaTypeCodec)) Nothing
+        |> Pipeline.optional "layerDigest" (Json.Decode.maybe Json.Decode.string) Nothing
+        |> Pipeline.optional "layerSize" (Json.Decode.maybe Json.Decode.int) Nothing
+        |> Pipeline.optional "mediaType" (Json.Decode.maybe Json.Decode.string) Nothing
 
 
 {-| Decoder for LayerAvailability.
@@ -2200,18 +1856,11 @@ layerAvailabilityDecoder =
     Enum.decoder layerAvailability
 
 
-{-| Codec for LayerDigest.
--}
-layerDigestCodec : Codec LayerDigest
-layerDigestCodec =
-    Codec.string
-
-
 {-| Encoder for LayerDigestList.
 -}
 layerDigestListEncoder : LayerDigestList -> Value
 layerDigestListEncoder val =
-    Json.Encode.list (Codec.encoder layerDigestCodec) val
+    Json.Encode.list Json.Encode.string val
 
 
 {-| Decoder for LayerFailure.
@@ -2220,8 +1869,8 @@ layerFailureDecoder : Decoder LayerFailure
 layerFailureDecoder =
     Json.Decode.succeed LayerFailure
         |> Pipeline.optional "failureCode" (Json.Decode.maybe layerFailureCodeDecoder) Nothing
-        |> Pipeline.optional "failureReason" (Json.Decode.maybe layerFailureReasonDecoder) Nothing
-        |> Pipeline.optional "layerDigest" (Json.Decode.maybe (Codec.decoder batchedOperationLayerDigestCodec)) Nothing
+        |> Pipeline.optional "failureReason" (Json.Decode.maybe Json.Decode.string) Nothing
+        |> Pipeline.optional "layerDigest" (Json.Decode.maybe Json.Decode.string) Nothing
 
 
 {-| Decoder for LayerFailureCode.
@@ -2238,32 +1887,11 @@ layerFailureListDecoder =
     Json.Decode.list layerFailureDecoder
 
 
-{-| Decoder for LayerFailureReason.
--}
-layerFailureReasonDecoder : Decoder LayerFailureReason
-layerFailureReasonDecoder =
-    Json.Decode.string
-
-
 {-| Decoder for LayerList.
 -}
 layerListDecoder : Decoder LayerList
 layerListDecoder =
     Json.Decode.list layerDecoder
-
-
-{-| Encoder for LayerPartBlob.
--}
-layerPartBlobEncoder : LayerPartBlob -> Value
-layerPartBlobEncoder val =
-    Json.Encode.string val
-
-
-{-| Decoder for LayerSizeInBytes.
--}
-layerSizeInBytesDecoder : Decoder LayerSizeInBytes
-layerSizeInBytesDecoder =
-    Json.Decode.int
 
 
 {-| Encoder for LifecyclePolicyPreviewFilter.
@@ -2279,9 +1907,9 @@ lifecyclePolicyPreviewResultDecoder : Decoder LifecyclePolicyPreviewResult
 lifecyclePolicyPreviewResultDecoder =
     Json.Decode.succeed LifecyclePolicyPreviewResult
         |> Pipeline.optional "action" (Json.Decode.maybe lifecyclePolicyRuleActionDecoder) Nothing
-        |> Pipeline.optional "appliedRulePriority" (Json.Decode.maybe lifecyclePolicyRulePriorityDecoder) Nothing
-        |> Pipeline.optional "imageDigest" (Json.Decode.maybe (Codec.decoder imageDigestCodec)) Nothing
-        |> Pipeline.optional "imagePushedAt" (Json.Decode.maybe pushTimestampDecoder) Nothing
+        |> Pipeline.optional "appliedRulePriority" (Json.Decode.maybe Json.Decode.int) Nothing
+        |> Pipeline.optional "imageDigest" (Json.Decode.maybe Json.Decode.string) Nothing
+        |> Pipeline.optional "imagePushedAt" (Json.Decode.maybe Json.Decode.string) Nothing
         |> Pipeline.optional "imageTags" (Json.Decode.maybe imageTagListDecoder) Nothing
 
 
@@ -2304,7 +1932,7 @@ lifecyclePolicyPreviewStatusDecoder =
 lifecyclePolicyPreviewSummaryDecoder : Decoder LifecyclePolicyPreviewSummary
 lifecyclePolicyPreviewSummaryDecoder =
     Json.Decode.succeed LifecyclePolicyPreviewSummary
-        |> Pipeline.optional "expiringImageTotalCount" (Json.Decode.maybe imageCountDecoder) Nothing
+        |> Pipeline.optional "expiringImageTotalCount" (Json.Decode.maybe Json.Decode.int) Nothing
 
 
 {-| Decoder for LifecyclePolicyRuleAction.
@@ -2315,27 +1943,6 @@ lifecyclePolicyRuleActionDecoder =
         |> Pipeline.optional "type" (Json.Decode.maybe imageActionTypeDecoder) Nothing
 
 
-{-| Decoder for LifecyclePolicyRulePriority.
--}
-lifecyclePolicyRulePriorityDecoder : Decoder LifecyclePolicyRulePriority
-lifecyclePolicyRulePriorityDecoder =
-    Json.Decode.int
-
-
-{-| Codec for LifecyclePolicyText.
--}
-lifecyclePolicyTextCodec : Codec LifecyclePolicyText
-lifecyclePolicyTextCodec =
-    Codec.string
-
-
-{-| Encoder for LifecyclePreviewMaxResults.
--}
-lifecyclePreviewMaxResultsEncoder : LifecyclePreviewMaxResults -> Value
-lifecyclePreviewMaxResultsEncoder val =
-    Json.Encode.int val
-
-
 {-| Encoder for ListImagesFilter.
 -}
 listImagesFilterEncoder : ListImagesFilter -> Value
@@ -2343,60 +1950,11 @@ listImagesFilterEncoder val =
     [ ( "tagStatus", val.tagStatus ) |> EncodeOpt.optionalField tagStatusEncoder ] |> EncodeOpt.objectMaySkip
 
 
-{-| Encoder for MaxResults.
--}
-maxResultsEncoder : MaxResults -> Value
-maxResultsEncoder val =
-    Json.Encode.int val
-
-
-{-| Codec for MediaType.
--}
-mediaTypeCodec : Codec MediaType
-mediaTypeCodec =
-    Codec.string
-
-
 {-| Encoder for MediaTypeList.
 -}
 mediaTypeListEncoder : MediaTypeList -> Value
 mediaTypeListEncoder val =
-    Json.Encode.list (Codec.encoder mediaTypeCodec) val
-
-
-{-| Codec for NextToken.
--}
-nextTokenCodec : Codec NextToken
-nextTokenCodec =
-    Codec.string
-
-
-{-| Codec for PartSize.
--}
-partSizeCodec : Codec PartSize
-partSizeCodec =
-    Codec.int
-
-
-{-| Decoder for ProxyEndpoint.
--}
-proxyEndpointDecoder : Decoder ProxyEndpoint
-proxyEndpointDecoder =
-    Json.Decode.string
-
-
-{-| Decoder for PushTimestamp.
--}
-pushTimestampDecoder : Decoder PushTimestamp
-pushTimestampDecoder =
-    Json.Decode.string
-
-
-{-| Codec for RegistryId.
--}
-registryIdCodec : Codec RegistryId
-registryIdCodec =
-    Codec.string
+    Json.Encode.list Json.Encode.string val
 
 
 {-| Decoder for Repository.
@@ -2404,12 +1962,12 @@ registryIdCodec =
 repositoryDecoder : Decoder Repository
 repositoryDecoder =
     Json.Decode.succeed Repository
-        |> Pipeline.optional "createdAt" (Json.Decode.maybe creationTimestampDecoder) Nothing
+        |> Pipeline.optional "createdAt" (Json.Decode.maybe Json.Decode.string) Nothing
         |> Pipeline.optional "imageTagMutability" (Json.Decode.maybe (Codec.decoder imageTagMutabilityCodec)) Nothing
-        |> Pipeline.optional "registryId" (Json.Decode.maybe (Codec.decoder registryIdCodec)) Nothing
-        |> Pipeline.optional "repositoryArn" (Json.Decode.maybe (Codec.decoder arnCodec)) Nothing
-        |> Pipeline.optional "repositoryName" (Json.Decode.maybe (Codec.decoder repositoryNameCodec)) Nothing
-        |> Pipeline.optional "repositoryUri" (Json.Decode.maybe urlDecoder) Nothing
+        |> Pipeline.optional "registryId" (Json.Decode.maybe Json.Decode.string) Nothing
+        |> Pipeline.optional "repositoryArn" (Json.Decode.maybe Json.Decode.string) Nothing
+        |> Pipeline.optional "repositoryName" (Json.Decode.maybe Json.Decode.string) Nothing
+        |> Pipeline.optional "repositoryUri" (Json.Decode.maybe Json.Decode.string) Nothing
 
 
 {-| Decoder for RepositoryList.
@@ -2419,25 +1977,11 @@ repositoryListDecoder =
     Json.Decode.list repositoryDecoder
 
 
-{-| Codec for RepositoryName.
--}
-repositoryNameCodec : Codec RepositoryName
-repositoryNameCodec =
-    Codec.string
-
-
 {-| Encoder for RepositoryNameList.
 -}
 repositoryNameListEncoder : RepositoryNameList -> Value
 repositoryNameListEncoder val =
-    Json.Encode.list (Codec.encoder repositoryNameCodec) val
-
-
-{-| Codec for RepositoryPolicyText.
--}
-repositoryPolicyTextCodec : Codec RepositoryPolicyText
-repositoryPolicyTextCodec =
-    Codec.string
+    Json.Encode.list Json.Encode.string val
 
 
 {-| Codec for Tag.
@@ -2445,23 +1989,16 @@ repositoryPolicyTextCodec =
 tagCodec : Codec Tag
 tagCodec =
     Codec.object Tag
-        |> Codec.optionalField "Key" .key tagKeyCodec
-        |> Codec.optionalField "Value" .value tagValueCodec
+        |> Codec.optionalField "Key" .key Codec.string
+        |> Codec.optionalField "Value" .value Codec.string
         |> Codec.buildObject
-
-
-{-| Codec for TagKey.
--}
-tagKeyCodec : Codec TagKey
-tagKeyCodec =
-    Codec.string
 
 
 {-| Encoder for TagKeyList.
 -}
 tagKeyListEncoder : TagKeyList -> Value
 tagKeyListEncoder val =
-    Json.Encode.list (Codec.encoder tagKeyCodec) val
+    Json.Encode.list Json.Encode.string val
 
 
 {-| Codec for TagList.
@@ -2476,24 +2013,3 @@ tagListCodec =
 tagStatusEncoder : TagStatus -> Value
 tagStatusEncoder =
     Enum.encoder tagStatus
-
-
-{-| Codec for TagValue.
--}
-tagValueCodec : Codec TagValue
-tagValueCodec =
-    Codec.string
-
-
-{-| Codec for UploadId.
--}
-uploadIdCodec : Codec UploadId
-uploadIdCodec =
-    Codec.string
-
-
-{-| Decoder for Url.
--}
-urlDecoder : Decoder Url
-urlDecoder =
-    Json.Decode.string

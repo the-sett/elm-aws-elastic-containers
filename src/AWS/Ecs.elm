@@ -8,52 +8,51 @@ module AWS.Ecs exposing
     , stopTask, submitAttachmentStateChanges, submitContainerStateChange, submitTaskStateChange, tagResource, untagResource
     , updateContainerAgent, updateContainerInstancesState, updateService, updateServicePrimaryTaskSet, updateTaskSet
     , AgentUpdateStatus(..), AssignPublicIp(..), Attachment, AttachmentDetails, AttachmentStateChange, AttachmentStateChanges, Attachments
-    , Attribute, Attributes, AwsVpcConfiguration, Boolean, BoxedBoolean, BoxedInteger, Cluster, ClusterField(..), ClusterFieldList, ClusterSetting
-    , ClusterSettingName(..), ClusterSettings, Clusters, Compatibility(..), CompatibilityList, Connectivity(..), Container, ContainerCondition(..)
-    , ContainerDefinition, ContainerDefinitions, ContainerDependencies, ContainerDependency, ContainerInstance, ContainerInstanceField(..)
-    , ContainerInstanceFieldList, ContainerInstanceStatus(..), ContainerInstances, ContainerOverride, ContainerOverrides
-    , ContainerStateChange, ContainerStateChanges, Containers, CreateClusterRequest, CreateClusterResponse, CreateServiceRequest
-    , CreateServiceResponse, CreateTaskSetRequest, CreateTaskSetResponse, DeleteAccountSettingRequest, DeleteAccountSettingResponse
-    , DeleteAttributesRequest, DeleteAttributesResponse, DeleteClusterRequest, DeleteClusterResponse, DeleteServiceRequest
-    , DeleteServiceResponse, DeleteTaskSetRequest, DeleteTaskSetResponse, Deployment, DeploymentConfiguration, DeploymentController
-    , DeploymentControllerType(..), Deployments, DeregisterContainerInstanceRequest, DeregisterContainerInstanceResponse
-    , DeregisterTaskDefinitionRequest, DeregisterTaskDefinitionResponse, DescribeClustersRequest, DescribeClustersResponse
-    , DescribeContainerInstancesRequest, DescribeContainerInstancesResponse, DescribeServicesRequest, DescribeServicesResponse
-    , DescribeTaskDefinitionRequest, DescribeTaskDefinitionResponse, DescribeTaskSetsRequest, DescribeTaskSetsResponse
-    , DescribeTasksRequest, DescribeTasksResponse, DesiredStatus(..), Device, DeviceCgroupPermission(..), DeviceCgroupPermissions, DevicesList
-    , DiscoverPollEndpointRequest, DiscoverPollEndpointResponse, DockerLabelsMap, DockerVolumeConfiguration, Double
-    , EnvironmentVariables, Failure, Failures, GpuIds, HealthCheck, HealthStatus(..), HostEntry, HostEntryList, HostVolumeProperties, Integer, IpcMode(..)
-    , KernelCapabilities, KeyValuePair, LaunchType(..), LinuxParameters, ListAccountSettingsRequest, ListAccountSettingsResponse
-    , ListAttributesRequest, ListAttributesResponse, ListClustersRequest, ListClustersResponse, ListContainerInstancesRequest
-    , ListContainerInstancesResponse, ListServicesRequest, ListServicesResponse, ListTagsForResourceRequest
-    , ListTagsForResourceResponse, ListTaskDefinitionFamiliesRequest, ListTaskDefinitionFamiliesResponse, ListTaskDefinitionsRequest
-    , ListTaskDefinitionsResponse, ListTasksRequest, ListTasksResponse, LoadBalancer, LoadBalancers, LogConfiguration
-    , LogConfigurationOptionsMap, LogDriver(..), Long, MountPoint, MountPointList, NetworkBinding, NetworkBindings, NetworkConfiguration
-    , NetworkInterface, NetworkInterfaces, NetworkMode(..), PidMode(..), PlacementConstraint, PlacementConstraintType(..), PlacementConstraints
-    , PlacementStrategies, PlacementStrategy, PlacementStrategyType(..), PlatformDevice, PlatformDeviceType(..), PlatformDevices, PortMapping
-    , PortMappingList, PropagateTags(..), ProxyConfiguration, ProxyConfigurationProperties, ProxyConfigurationType(..)
-    , PutAccountSettingDefaultRequest, PutAccountSettingDefaultResponse, PutAccountSettingRequest, PutAccountSettingResponse
-    , PutAttributesRequest, PutAttributesResponse, RegisterContainerInstanceRequest, RegisterContainerInstanceResponse
-    , RegisterTaskDefinitionRequest, RegisterTaskDefinitionResponse, RepositoryCredentials, RequiresAttributes, Resource
-    , ResourceRequirement, ResourceRequirements, ResourceType(..), Resources, RunTaskRequest, RunTaskResponse, Scale, ScaleUnit(..)
-    , SchedulingStrategy(..), Scope(..), Secret, SecretList, Service, ServiceEvent, ServiceEvents, ServiceField(..), ServiceFieldList, ServiceRegistries
-    , ServiceRegistry, Services, Setting, SettingName(..), Settings, SortOrder(..), StabilityStatus(..), StartTaskRequest, StartTaskResponse, Statistics
-    , StopTaskRequest, StopTaskResponse, StringList, StringMap, String_, SubmitAttachmentStateChangesRequest
+    , Attribute, Attributes, AwsVpcConfiguration, Cluster, ClusterField(..), ClusterFieldList, ClusterSetting, ClusterSettingName(..), ClusterSettings
+    , Clusters, Compatibility(..), CompatibilityList, Connectivity(..), Container, ContainerCondition(..), ContainerDefinition, ContainerDefinitions
+    , ContainerDependencies, ContainerDependency, ContainerInstance, ContainerInstanceField(..), ContainerInstanceFieldList
+    , ContainerInstanceStatus(..), ContainerInstances, ContainerOverride, ContainerOverrides, ContainerStateChange, ContainerStateChanges
+    , Containers, CreateClusterRequest, CreateClusterResponse, CreateServiceRequest, CreateServiceResponse, CreateTaskSetRequest
+    , CreateTaskSetResponse, DeleteAccountSettingRequest, DeleteAccountSettingResponse, DeleteAttributesRequest
+    , DeleteAttributesResponse, DeleteClusterRequest, DeleteClusterResponse, DeleteServiceRequest, DeleteServiceResponse
+    , DeleteTaskSetRequest, DeleteTaskSetResponse, Deployment, DeploymentConfiguration, DeploymentController, DeploymentControllerType(..)
+    , Deployments, DeregisterContainerInstanceRequest, DeregisterContainerInstanceResponse, DeregisterTaskDefinitionRequest
+    , DeregisterTaskDefinitionResponse, DescribeClustersRequest, DescribeClustersResponse, DescribeContainerInstancesRequest
+    , DescribeContainerInstancesResponse, DescribeServicesRequest, DescribeServicesResponse, DescribeTaskDefinitionRequest
+    , DescribeTaskDefinitionResponse, DescribeTaskSetsRequest, DescribeTaskSetsResponse, DescribeTasksRequest, DescribeTasksResponse
+    , DesiredStatus(..), Device, DeviceCgroupPermission(..), DeviceCgroupPermissions, DevicesList, DiscoverPollEndpointRequest
+    , DiscoverPollEndpointResponse, DockerLabelsMap, DockerVolumeConfiguration, EnvironmentVariables, Failure, Failures, GpuIds, HealthCheck
+    , HealthStatus(..), HostEntry, HostEntryList, HostVolumeProperties, IpcMode(..), KernelCapabilities, KeyValuePair, LaunchType(..), LinuxParameters
+    , ListAccountSettingsRequest, ListAccountSettingsResponse, ListAttributesRequest, ListAttributesResponse, ListClustersRequest
+    , ListClustersResponse, ListContainerInstancesRequest, ListContainerInstancesResponse, ListServicesRequest, ListServicesResponse
+    , ListTagsForResourceRequest, ListTagsForResourceResponse, ListTaskDefinitionFamiliesRequest, ListTaskDefinitionFamiliesResponse
+    , ListTaskDefinitionsRequest, ListTaskDefinitionsResponse, ListTasksRequest, ListTasksResponse, LoadBalancer, LoadBalancers
+    , LogConfiguration, LogConfigurationOptionsMap, LogDriver(..), MountPoint, MountPointList, NetworkBinding, NetworkBindings
+    , NetworkConfiguration, NetworkInterface, NetworkInterfaces, NetworkMode(..), PidMode(..), PlacementConstraint, PlacementConstraintType(..)
+    , PlacementConstraints, PlacementStrategies, PlacementStrategy, PlacementStrategyType(..), PlatformDevice, PlatformDeviceType(..)
+    , PlatformDevices, PortMapping, PortMappingList, PropagateTags(..), ProxyConfiguration, ProxyConfigurationProperties
+    , ProxyConfigurationType(..), PutAccountSettingDefaultRequest, PutAccountSettingDefaultResponse, PutAccountSettingRequest
+    , PutAccountSettingResponse, PutAttributesRequest, PutAttributesResponse, RegisterContainerInstanceRequest
+    , RegisterContainerInstanceResponse, RegisterTaskDefinitionRequest, RegisterTaskDefinitionResponse, RepositoryCredentials
+    , RequiresAttributes, Resource, ResourceRequirement, ResourceRequirements, ResourceType(..), Resources, RunTaskRequest, RunTaskResponse, Scale
+    , ScaleUnit(..), SchedulingStrategy(..), Scope(..), Secret, SecretList, Service, ServiceEvent, ServiceEvents, ServiceField(..), ServiceFieldList
+    , ServiceRegistries, ServiceRegistry, Services, Setting, SettingName(..), Settings, SortOrder(..), StabilityStatus(..), StartTaskRequest
+    , StartTaskResponse, Statistics, StopTaskRequest, StopTaskResponse, StringList, StringMap, SubmitAttachmentStateChangesRequest
     , SubmitAttachmentStateChangesResponse, SubmitContainerStateChangeRequest, SubmitContainerStateChangeResponse
-    , SubmitTaskStateChangeRequest, SubmitTaskStateChangeResponse, SystemControl, SystemControls, Tag, TagKey, TagKeys, TagResourceRequest
-    , TagResourceResponse, TagValue, Tags, TargetType(..), Task, TaskDefinition, TaskDefinitionFamilyStatus(..), TaskDefinitionField(..)
-    , TaskDefinitionFieldList, TaskDefinitionPlacementConstraint, TaskDefinitionPlacementConstraintType(..)
-    , TaskDefinitionPlacementConstraints, TaskDefinitionStatus(..), TaskField(..), TaskFieldList, TaskOverride, TaskSet, TaskSets, TaskStopCode(..), Tasks
-    , Timestamp, Tmpfs, TmpfsList, TransportProtocol(..), Ulimit, UlimitList, UlimitName(..), UntagResourceRequest, UntagResourceResponse
-    , UpdateContainerAgentRequest, UpdateContainerAgentResponse, UpdateContainerInstancesStateRequest
-    , UpdateContainerInstancesStateResponse, UpdateServicePrimaryTaskSetRequest, UpdateServicePrimaryTaskSetResponse
-    , UpdateServiceRequest, UpdateServiceResponse, UpdateTaskSetRequest, UpdateTaskSetResponse, VersionInfo, Volume, VolumeFrom
-    , VolumeFromList, VolumeList, agentUpdateStatus, assignPublicIp, clusterField, clusterSettingName, compatibility, connectivity
-    , containerCondition, containerInstanceField, containerInstanceStatus, deploymentControllerType, desiredStatus
-    , deviceCgroupPermission, healthStatus, ipcMode, launchType, logDriver, networkMode, pidMode, placementConstraintType
-    , placementStrategyType, platformDeviceType, propagateTags, proxyConfigurationType, resourceType, scaleUnit, schedulingStrategy, scope
-    , serviceField, settingName, sortOrder, stabilityStatus, targetType, taskDefinitionFamilyStatus, taskDefinitionField
-    , taskDefinitionPlacementConstraintType, taskDefinitionStatus, taskField, taskStopCode, transportProtocol, ulimitName
+    , SubmitTaskStateChangeRequest, SubmitTaskStateChangeResponse, SystemControl, SystemControls, Tag, TagKeys, TagResourceRequest
+    , TagResourceResponse, Tags, TargetType(..), Task, TaskDefinition, TaskDefinitionFamilyStatus(..), TaskDefinitionField(..), TaskDefinitionFieldList
+    , TaskDefinitionPlacementConstraint, TaskDefinitionPlacementConstraintType(..), TaskDefinitionPlacementConstraints
+    , TaskDefinitionStatus(..), TaskField(..), TaskFieldList, TaskOverride, TaskSet, TaskSets, TaskStopCode(..), Tasks, Tmpfs, TmpfsList, TransportProtocol(..)
+    , Ulimit, UlimitList, UlimitName(..), UntagResourceRequest, UntagResourceResponse, UpdateContainerAgentRequest
+    , UpdateContainerAgentResponse, UpdateContainerInstancesStateRequest, UpdateContainerInstancesStateResponse
+    , UpdateServicePrimaryTaskSetRequest, UpdateServicePrimaryTaskSetResponse, UpdateServiceRequest, UpdateServiceResponse
+    , UpdateTaskSetRequest, UpdateTaskSetResponse, VersionInfo, Volume, VolumeFrom, VolumeFromList, VolumeList, agentUpdateStatus
+    , assignPublicIp, clusterField, clusterSettingName, compatibility, connectivity, containerCondition, containerInstanceField
+    , containerInstanceStatus, deploymentControllerType, desiredStatus, deviceCgroupPermission, healthStatus, ipcMode, launchType, logDriver
+    , networkMode, pidMode, placementConstraintType, placementStrategyType, platformDeviceType, propagateTags, proxyConfigurationType
+    , resourceType, scaleUnit, schedulingStrategy, scope, serviceField, settingName, sortOrder, stabilityStatus, targetType
+    , taskDefinitionFamilyStatus, taskDefinitionField, taskDefinitionPlacementConstraintType, taskDefinitionStatus, taskField
+    , taskStopCode, transportProtocol, ulimitName
     )
 
 {-|
@@ -87,52 +86,51 @@ You can use Amazon ECS to schedule the placement of containers across your clust
 # API data model.
 
 @docs AgentUpdateStatus, AssignPublicIp, Attachment, AttachmentDetails, AttachmentStateChange, AttachmentStateChanges, Attachments
-@docs Attribute, Attributes, AwsVpcConfiguration, Boolean, BoxedBoolean, BoxedInteger, Cluster, ClusterField, ClusterFieldList, ClusterSetting
-@docs ClusterSettingName, ClusterSettings, Clusters, Compatibility, CompatibilityList, Connectivity, Container, ContainerCondition
-@docs ContainerDefinition, ContainerDefinitions, ContainerDependencies, ContainerDependency, ContainerInstance, ContainerInstanceField
-@docs ContainerInstanceFieldList, ContainerInstanceStatus, ContainerInstances, ContainerOverride, ContainerOverrides
-@docs ContainerStateChange, ContainerStateChanges, Containers, CreateClusterRequest, CreateClusterResponse, CreateServiceRequest
-@docs CreateServiceResponse, CreateTaskSetRequest, CreateTaskSetResponse, DeleteAccountSettingRequest, DeleteAccountSettingResponse
-@docs DeleteAttributesRequest, DeleteAttributesResponse, DeleteClusterRequest, DeleteClusterResponse, DeleteServiceRequest
-@docs DeleteServiceResponse, DeleteTaskSetRequest, DeleteTaskSetResponse, Deployment, DeploymentConfiguration, DeploymentController
-@docs DeploymentControllerType, Deployments, DeregisterContainerInstanceRequest, DeregisterContainerInstanceResponse
-@docs DeregisterTaskDefinitionRequest, DeregisterTaskDefinitionResponse, DescribeClustersRequest, DescribeClustersResponse
-@docs DescribeContainerInstancesRequest, DescribeContainerInstancesResponse, DescribeServicesRequest, DescribeServicesResponse
-@docs DescribeTaskDefinitionRequest, DescribeTaskDefinitionResponse, DescribeTaskSetsRequest, DescribeTaskSetsResponse
-@docs DescribeTasksRequest, DescribeTasksResponse, DesiredStatus, Device, DeviceCgroupPermission, DeviceCgroupPermissions, DevicesList
-@docs DiscoverPollEndpointRequest, DiscoverPollEndpointResponse, DockerLabelsMap, DockerVolumeConfiguration, Double
-@docs EnvironmentVariables, Failure, Failures, GpuIds, HealthCheck, HealthStatus, HostEntry, HostEntryList, HostVolumeProperties, Integer, IpcMode
-@docs KernelCapabilities, KeyValuePair, LaunchType, LinuxParameters, ListAccountSettingsRequest, ListAccountSettingsResponse
-@docs ListAttributesRequest, ListAttributesResponse, ListClustersRequest, ListClustersResponse, ListContainerInstancesRequest
-@docs ListContainerInstancesResponse, ListServicesRequest, ListServicesResponse, ListTagsForResourceRequest
-@docs ListTagsForResourceResponse, ListTaskDefinitionFamiliesRequest, ListTaskDefinitionFamiliesResponse, ListTaskDefinitionsRequest
-@docs ListTaskDefinitionsResponse, ListTasksRequest, ListTasksResponse, LoadBalancer, LoadBalancers, LogConfiguration
-@docs LogConfigurationOptionsMap, LogDriver, Long, MountPoint, MountPointList, NetworkBinding, NetworkBindings, NetworkConfiguration
-@docs NetworkInterface, NetworkInterfaces, NetworkMode, PidMode, PlacementConstraint, PlacementConstraintType, PlacementConstraints
-@docs PlacementStrategies, PlacementStrategy, PlacementStrategyType, PlatformDevice, PlatformDeviceType, PlatformDevices, PortMapping
-@docs PortMappingList, PropagateTags, ProxyConfiguration, ProxyConfigurationProperties, ProxyConfigurationType
-@docs PutAccountSettingDefaultRequest, PutAccountSettingDefaultResponse, PutAccountSettingRequest, PutAccountSettingResponse
-@docs PutAttributesRequest, PutAttributesResponse, RegisterContainerInstanceRequest, RegisterContainerInstanceResponse
-@docs RegisterTaskDefinitionRequest, RegisterTaskDefinitionResponse, RepositoryCredentials, RequiresAttributes, Resource
-@docs ResourceRequirement, ResourceRequirements, ResourceType, Resources, RunTaskRequest, RunTaskResponse, Scale, ScaleUnit
-@docs SchedulingStrategy, Scope, Secret, SecretList, Service, ServiceEvent, ServiceEvents, ServiceField, ServiceFieldList, ServiceRegistries
-@docs ServiceRegistry, Services, Setting, SettingName, Settings, SortOrder, StabilityStatus, StartTaskRequest, StartTaskResponse, Statistics
-@docs StopTaskRequest, StopTaskResponse, StringList, StringMap, String_, SubmitAttachmentStateChangesRequest
+@docs Attribute, Attributes, AwsVpcConfiguration, Cluster, ClusterField, ClusterFieldList, ClusterSetting, ClusterSettingName, ClusterSettings
+@docs Clusters, Compatibility, CompatibilityList, Connectivity, Container, ContainerCondition, ContainerDefinition, ContainerDefinitions
+@docs ContainerDependencies, ContainerDependency, ContainerInstance, ContainerInstanceField, ContainerInstanceFieldList
+@docs ContainerInstanceStatus, ContainerInstances, ContainerOverride, ContainerOverrides, ContainerStateChange, ContainerStateChanges
+@docs Containers, CreateClusterRequest, CreateClusterResponse, CreateServiceRequest, CreateServiceResponse, CreateTaskSetRequest
+@docs CreateTaskSetResponse, DeleteAccountSettingRequest, DeleteAccountSettingResponse, DeleteAttributesRequest
+@docs DeleteAttributesResponse, DeleteClusterRequest, DeleteClusterResponse, DeleteServiceRequest, DeleteServiceResponse
+@docs DeleteTaskSetRequest, DeleteTaskSetResponse, Deployment, DeploymentConfiguration, DeploymentController, DeploymentControllerType
+@docs Deployments, DeregisterContainerInstanceRequest, DeregisterContainerInstanceResponse, DeregisterTaskDefinitionRequest
+@docs DeregisterTaskDefinitionResponse, DescribeClustersRequest, DescribeClustersResponse, DescribeContainerInstancesRequest
+@docs DescribeContainerInstancesResponse, DescribeServicesRequest, DescribeServicesResponse, DescribeTaskDefinitionRequest
+@docs DescribeTaskDefinitionResponse, DescribeTaskSetsRequest, DescribeTaskSetsResponse, DescribeTasksRequest, DescribeTasksResponse
+@docs DesiredStatus, Device, DeviceCgroupPermission, DeviceCgroupPermissions, DevicesList, DiscoverPollEndpointRequest
+@docs DiscoverPollEndpointResponse, DockerLabelsMap, DockerVolumeConfiguration, EnvironmentVariables, Failure, Failures, GpuIds, HealthCheck
+@docs HealthStatus, HostEntry, HostEntryList, HostVolumeProperties, IpcMode, KernelCapabilities, KeyValuePair, LaunchType, LinuxParameters
+@docs ListAccountSettingsRequest, ListAccountSettingsResponse, ListAttributesRequest, ListAttributesResponse, ListClustersRequest
+@docs ListClustersResponse, ListContainerInstancesRequest, ListContainerInstancesResponse, ListServicesRequest, ListServicesResponse
+@docs ListTagsForResourceRequest, ListTagsForResourceResponse, ListTaskDefinitionFamiliesRequest, ListTaskDefinitionFamiliesResponse
+@docs ListTaskDefinitionsRequest, ListTaskDefinitionsResponse, ListTasksRequest, ListTasksResponse, LoadBalancer, LoadBalancers
+@docs LogConfiguration, LogConfigurationOptionsMap, LogDriver, MountPoint, MountPointList, NetworkBinding, NetworkBindings
+@docs NetworkConfiguration, NetworkInterface, NetworkInterfaces, NetworkMode, PidMode, PlacementConstraint, PlacementConstraintType
+@docs PlacementConstraints, PlacementStrategies, PlacementStrategy, PlacementStrategyType, PlatformDevice, PlatformDeviceType
+@docs PlatformDevices, PortMapping, PortMappingList, PropagateTags, ProxyConfiguration, ProxyConfigurationProperties
+@docs ProxyConfigurationType, PutAccountSettingDefaultRequest, PutAccountSettingDefaultResponse, PutAccountSettingRequest
+@docs PutAccountSettingResponse, PutAttributesRequest, PutAttributesResponse, RegisterContainerInstanceRequest
+@docs RegisterContainerInstanceResponse, RegisterTaskDefinitionRequest, RegisterTaskDefinitionResponse, RepositoryCredentials
+@docs RequiresAttributes, Resource, ResourceRequirement, ResourceRequirements, ResourceType, Resources, RunTaskRequest, RunTaskResponse, Scale
+@docs ScaleUnit, SchedulingStrategy, Scope, Secret, SecretList, Service, ServiceEvent, ServiceEvents, ServiceField, ServiceFieldList
+@docs ServiceRegistries, ServiceRegistry, Services, Setting, SettingName, Settings, SortOrder, StabilityStatus, StartTaskRequest
+@docs StartTaskResponse, Statistics, StopTaskRequest, StopTaskResponse, StringList, StringMap, SubmitAttachmentStateChangesRequest
 @docs SubmitAttachmentStateChangesResponse, SubmitContainerStateChangeRequest, SubmitContainerStateChangeResponse
-@docs SubmitTaskStateChangeRequest, SubmitTaskStateChangeResponse, SystemControl, SystemControls, Tag, TagKey, TagKeys, TagResourceRequest
-@docs TagResourceResponse, TagValue, Tags, TargetType, Task, TaskDefinition, TaskDefinitionFamilyStatus, TaskDefinitionField
-@docs TaskDefinitionFieldList, TaskDefinitionPlacementConstraint, TaskDefinitionPlacementConstraintType
-@docs TaskDefinitionPlacementConstraints, TaskDefinitionStatus, TaskField, TaskFieldList, TaskOverride, TaskSet, TaskSets, TaskStopCode, Tasks
-@docs Timestamp, Tmpfs, TmpfsList, TransportProtocol, Ulimit, UlimitList, UlimitName, UntagResourceRequest, UntagResourceResponse
-@docs UpdateContainerAgentRequest, UpdateContainerAgentResponse, UpdateContainerInstancesStateRequest
-@docs UpdateContainerInstancesStateResponse, UpdateServicePrimaryTaskSetRequest, UpdateServicePrimaryTaskSetResponse
-@docs UpdateServiceRequest, UpdateServiceResponse, UpdateTaskSetRequest, UpdateTaskSetResponse, VersionInfo, Volume, VolumeFrom
-@docs VolumeFromList, VolumeList, agentUpdateStatus, assignPublicIp, clusterField, clusterSettingName, compatibility, connectivity
-@docs containerCondition, containerInstanceField, containerInstanceStatus, deploymentControllerType, desiredStatus
-@docs deviceCgroupPermission, healthStatus, ipcMode, launchType, logDriver, networkMode, pidMode, placementConstraintType
-@docs placementStrategyType, platformDeviceType, propagateTags, proxyConfigurationType, resourceType, scaleUnit, schedulingStrategy, scope
-@docs serviceField, settingName, sortOrder, stabilityStatus, targetType, taskDefinitionFamilyStatus, taskDefinitionField
-@docs taskDefinitionPlacementConstraintType, taskDefinitionStatus, taskField, taskStopCode, transportProtocol, ulimitName
+@docs SubmitTaskStateChangeRequest, SubmitTaskStateChangeResponse, SystemControl, SystemControls, Tag, TagKeys, TagResourceRequest
+@docs TagResourceResponse, Tags, TargetType, Task, TaskDefinition, TaskDefinitionFamilyStatus, TaskDefinitionField, TaskDefinitionFieldList
+@docs TaskDefinitionPlacementConstraint, TaskDefinitionPlacementConstraintType, TaskDefinitionPlacementConstraints
+@docs TaskDefinitionStatus, TaskField, TaskFieldList, TaskOverride, TaskSet, TaskSets, TaskStopCode, Tasks, Tmpfs, TmpfsList, TransportProtocol
+@docs Ulimit, UlimitList, UlimitName, UntagResourceRequest, UntagResourceResponse, UpdateContainerAgentRequest
+@docs UpdateContainerAgentResponse, UpdateContainerInstancesStateRequest, UpdateContainerInstancesStateResponse
+@docs UpdateServicePrimaryTaskSetRequest, UpdateServicePrimaryTaskSetResponse, UpdateServiceRequest, UpdateServiceResponse
+@docs UpdateTaskSetRequest, UpdateTaskSetResponse, VersionInfo, Volume, VolumeFrom, VolumeFromList, VolumeList, agentUpdateStatus
+@docs assignPublicIp, clusterField, clusterSettingName, compatibility, connectivity, containerCondition, containerInstanceField
+@docs containerInstanceStatus, deploymentControllerType, desiredStatus, deviceCgroupPermission, healthStatus, ipcMode, launchType, logDriver
+@docs networkMode, pidMode, placementConstraintType, placementStrategyType, platformDeviceType, propagateTags, proxyConfigurationType
+@docs resourceType, scaleUnit, schedulingStrategy, scope, serviceField, settingName, sortOrder, stabilityStatus, targetType
+@docs taskDefinitionFamilyStatus, taskDefinitionField, taskDefinitionPlacementConstraintType, taskDefinitionStatus, taskField
+@docs taskStopCode, transportProtocol, ulimitName
 
 -}
 
@@ -165,10 +163,10 @@ updateTaskSet : UpdateTaskSetRequest -> AWS.Http.Request AWS.Http.AWSAppError Up
 updateTaskSet req =
     let
         encoder val =
-            [ ( "taskSet", val.taskSet ) |> EncodeOpt.field (Codec.encoder stringCodec)
-            , ( "service", val.service ) |> EncodeOpt.field (Codec.encoder stringCodec)
+            [ ( "taskSet", val.taskSet ) |> EncodeOpt.field Json.Encode.string
+            , ( "service", val.service ) |> EncodeOpt.field Json.Encode.string
             , ( "scale", val.scale ) |> EncodeOpt.field (Codec.encoder scaleCodec)
-            , ( "cluster", val.cluster ) |> EncodeOpt.field (Codec.encoder stringCodec)
+            , ( "cluster", val.cluster ) |> EncodeOpt.field Json.Encode.string
             ]
                 |> EncodeOpt.objectMaySkip
 
@@ -192,9 +190,9 @@ updateServicePrimaryTaskSet : UpdateServicePrimaryTaskSetRequest -> AWS.Http.Req
 updateServicePrimaryTaskSet req =
     let
         encoder val =
-            [ ( "service", val.service ) |> EncodeOpt.field (Codec.encoder stringCodec)
-            , ( "primaryTaskSet", val.primaryTaskSet ) |> EncodeOpt.field (Codec.encoder stringCodec)
-            , ( "cluster", val.cluster ) |> EncodeOpt.field (Codec.encoder stringCodec)
+            [ ( "service", val.service ) |> EncodeOpt.field Json.Encode.string
+            , ( "primaryTaskSet", val.primaryTaskSet ) |> EncodeOpt.field Json.Encode.string
+            , ( "cluster", val.cluster ) |> EncodeOpt.field Json.Encode.string
             ]
                 |> EncodeOpt.objectMaySkip
 
@@ -245,18 +243,18 @@ updateService : UpdateServiceRequest -> AWS.Http.Request AWS.Http.AWSAppError Up
 updateService req =
     let
         encoder val =
-            [ ( "taskDefinition", val.taskDefinition ) |> EncodeOpt.optionalField (Codec.encoder stringCodec)
-            , ( "service", val.service ) |> EncodeOpt.field (Codec.encoder stringCodec)
-            , ( "platformVersion", val.platformVersion ) |> EncodeOpt.optionalField (Codec.encoder stringCodec)
+            [ ( "taskDefinition", val.taskDefinition ) |> EncodeOpt.optionalField Json.Encode.string
+            , ( "service", val.service ) |> EncodeOpt.field Json.Encode.string
+            , ( "platformVersion", val.platformVersion ) |> EncodeOpt.optionalField Json.Encode.string
             , ( "networkConfiguration", val.networkConfiguration )
                 |> EncodeOpt.optionalField (Codec.encoder networkConfigurationCodec)
             , ( "healthCheckGracePeriodSeconds", val.healthCheckGracePeriodSeconds )
-                |> EncodeOpt.optionalField (Codec.encoder boxedIntegerCodec)
-            , ( "forceNewDeployment", val.forceNewDeployment ) |> EncodeOpt.optionalField (Codec.encoder booleanCodec)
-            , ( "desiredCount", val.desiredCount ) |> EncodeOpt.optionalField (Codec.encoder boxedIntegerCodec)
+                |> EncodeOpt.optionalField Json.Encode.int
+            , ( "forceNewDeployment", val.forceNewDeployment ) |> EncodeOpt.optionalField Json.Encode.bool
+            , ( "desiredCount", val.desiredCount ) |> EncodeOpt.optionalField Json.Encode.int
             , ( "deploymentConfiguration", val.deploymentConfiguration )
                 |> EncodeOpt.optionalField (Codec.encoder deploymentConfigurationCodec)
-            , ( "cluster", val.cluster ) |> EncodeOpt.optionalField (Codec.encoder stringCodec)
+            , ( "cluster", val.cluster ) |> EncodeOpt.optionalField Json.Encode.string
             ]
                 |> EncodeOpt.objectMaySkip
 
@@ -299,7 +297,7 @@ updateContainerInstancesState req =
         encoder val =
             [ ( "status", val.status ) |> EncodeOpt.field containerInstanceStatusEncoder
             , ( "containerInstances", val.containerInstances ) |> EncodeOpt.field (Codec.encoder stringListCodec)
-            , ( "cluster", val.cluster ) |> EncodeOpt.optionalField (Codec.encoder stringCodec)
+            , ( "cluster", val.cluster ) |> EncodeOpt.optionalField Json.Encode.string
             ]
                 |> EncodeOpt.objectMaySkip
 
@@ -331,8 +329,8 @@ updateContainerAgent : UpdateContainerAgentRequest -> AWS.Http.Request AWS.Http.
 updateContainerAgent req =
     let
         encoder val =
-            [ ( "containerInstance", val.containerInstance ) |> EncodeOpt.field (Codec.encoder stringCodec)
-            , ( "cluster", val.cluster ) |> EncodeOpt.optionalField (Codec.encoder stringCodec)
+            [ ( "containerInstance", val.containerInstance ) |> EncodeOpt.field Json.Encode.string
+            , ( "cluster", val.cluster ) |> EncodeOpt.optionalField Json.Encode.string
             ]
                 |> EncodeOpt.objectMaySkip
 
@@ -357,7 +355,7 @@ untagResource req =
     let
         encoder val =
             [ ( "tagKeys", val.tagKeys ) |> EncodeOpt.field tagKeysEncoder
-            , ( "resourceArn", val.resourceArn ) |> EncodeOpt.field (Codec.encoder stringCodec)
+            , ( "resourceArn", val.resourceArn ) |> EncodeOpt.field Json.Encode.string
             ]
                 |> EncodeOpt.objectMaySkip
 
@@ -380,7 +378,7 @@ tagResource req =
     let
         encoder val =
             [ ( "tags", val.tags ) |> EncodeOpt.field (Codec.encoder tagsCodec)
-            , ( "resourceArn", val.resourceArn ) |> EncodeOpt.field (Codec.encoder stringCodec)
+            , ( "resourceArn", val.resourceArn ) |> EncodeOpt.field Json.Encode.string
             ]
                 |> EncodeOpt.objectMaySkip
 
@@ -405,14 +403,14 @@ submitTaskStateChange : SubmitTaskStateChangeRequest -> AWS.Http.Request AWS.Htt
 submitTaskStateChange req =
     let
         encoder val =
-            [ ( "task", val.task ) |> EncodeOpt.optionalField (Codec.encoder stringCodec)
-            , ( "status", val.status ) |> EncodeOpt.optionalField (Codec.encoder stringCodec)
-            , ( "reason", val.reason ) |> EncodeOpt.optionalField (Codec.encoder stringCodec)
-            , ( "pullStoppedAt", val.pullStoppedAt ) |> EncodeOpt.optionalField (Codec.encoder timestampCodec)
-            , ( "pullStartedAt", val.pullStartedAt ) |> EncodeOpt.optionalField (Codec.encoder timestampCodec)
-            , ( "executionStoppedAt", val.executionStoppedAt ) |> EncodeOpt.optionalField (Codec.encoder timestampCodec)
+            [ ( "task", val.task ) |> EncodeOpt.optionalField Json.Encode.string
+            , ( "status", val.status ) |> EncodeOpt.optionalField Json.Encode.string
+            , ( "reason", val.reason ) |> EncodeOpt.optionalField Json.Encode.string
+            , ( "pullStoppedAt", val.pullStoppedAt ) |> EncodeOpt.optionalField Json.Encode.string
+            , ( "pullStartedAt", val.pullStartedAt ) |> EncodeOpt.optionalField Json.Encode.string
+            , ( "executionStoppedAt", val.executionStoppedAt ) |> EncodeOpt.optionalField Json.Encode.string
             , ( "containers", val.containers ) |> EncodeOpt.optionalField containerStateChangesEncoder
-            , ( "cluster", val.cluster ) |> EncodeOpt.optionalField (Codec.encoder stringCodec)
+            , ( "cluster", val.cluster ) |> EncodeOpt.optionalField Json.Encode.string
             , ( "attachments", val.attachments ) |> EncodeOpt.optionalField attachmentStateChangesEncoder
             ]
                 |> EncodeOpt.objectMaySkip
@@ -425,7 +423,7 @@ submitTaskStateChange req =
 
         decoder =
             ((\acknowledgmentFld -> { acknowledgment = acknowledgmentFld }) |> Json.Decode.succeed)
-                |> Pipeline.optional "acknowledgment" (Json.Decode.maybe (Codec.decoder stringCodec)) Nothing
+                |> Pipeline.optional "acknowledgment" (Json.Decode.maybe Json.Decode.string) Nothing
                 |> AWS.Http.jsonBodyDecoder
     in
     AWS.Http.request "SubmitTaskStateChange" AWS.Http.POST url jsonBody decoder AWS.Http.awsAppErrDecoder
@@ -440,13 +438,13 @@ submitContainerStateChange : SubmitContainerStateChangeRequest -> AWS.Http.Reque
 submitContainerStateChange req =
     let
         encoder val =
-            [ ( "task", val.task ) |> EncodeOpt.optionalField (Codec.encoder stringCodec)
-            , ( "status", val.status ) |> EncodeOpt.optionalField (Codec.encoder stringCodec)
-            , ( "reason", val.reason ) |> EncodeOpt.optionalField (Codec.encoder stringCodec)
+            [ ( "task", val.task ) |> EncodeOpt.optionalField Json.Encode.string
+            , ( "status", val.status ) |> EncodeOpt.optionalField Json.Encode.string
+            , ( "reason", val.reason ) |> EncodeOpt.optionalField Json.Encode.string
             , ( "networkBindings", val.networkBindings ) |> EncodeOpt.optionalField (Codec.encoder networkBindingsCodec)
-            , ( "exitCode", val.exitCode ) |> EncodeOpt.optionalField (Codec.encoder boxedIntegerCodec)
-            , ( "containerName", val.containerName ) |> EncodeOpt.optionalField (Codec.encoder stringCodec)
-            , ( "cluster", val.cluster ) |> EncodeOpt.optionalField (Codec.encoder stringCodec)
+            , ( "exitCode", val.exitCode ) |> EncodeOpt.optionalField Json.Encode.int
+            , ( "containerName", val.containerName ) |> EncodeOpt.optionalField Json.Encode.string
+            , ( "cluster", val.cluster ) |> EncodeOpt.optionalField Json.Encode.string
             ]
                 |> EncodeOpt.objectMaySkip
 
@@ -458,7 +456,7 @@ submitContainerStateChange req =
 
         decoder =
             ((\acknowledgmentFld -> { acknowledgment = acknowledgmentFld }) |> Json.Decode.succeed)
-                |> Pipeline.optional "acknowledgment" (Json.Decode.maybe (Codec.decoder stringCodec)) Nothing
+                |> Pipeline.optional "acknowledgment" (Json.Decode.maybe Json.Decode.string) Nothing
                 |> AWS.Http.jsonBodyDecoder
     in
     AWS.Http.request "SubmitContainerStateChange" AWS.Http.POST url jsonBody decoder AWS.Http.awsAppErrDecoder
@@ -473,7 +471,7 @@ submitAttachmentStateChanges : SubmitAttachmentStateChangesRequest -> AWS.Http.R
 submitAttachmentStateChanges req =
     let
         encoder val =
-            [ ( "cluster", val.cluster ) |> EncodeOpt.optionalField (Codec.encoder stringCodec)
+            [ ( "cluster", val.cluster ) |> EncodeOpt.optionalField Json.Encode.string
             , ( "attachments", val.attachments ) |> EncodeOpt.field attachmentStateChangesEncoder
             ]
                 |> EncodeOpt.objectMaySkip
@@ -486,7 +484,7 @@ submitAttachmentStateChanges req =
 
         decoder =
             ((\acknowledgmentFld -> { acknowledgment = acknowledgmentFld }) |> Json.Decode.succeed)
-                |> Pipeline.optional "acknowledgment" (Json.Decode.maybe (Codec.decoder stringCodec)) Nothing
+                |> Pipeline.optional "acknowledgment" (Json.Decode.maybe Json.Decode.string) Nothing
                 |> AWS.Http.jsonBodyDecoder
     in
     AWS.Http.request "SubmitAttachmentStateChanges" AWS.Http.POST url jsonBody decoder AWS.Http.awsAppErrDecoder
@@ -503,9 +501,9 @@ stopTask : StopTaskRequest -> AWS.Http.Request AWS.Http.AWSAppError StopTaskResp
 stopTask req =
     let
         encoder val =
-            [ ( "task", val.task ) |> EncodeOpt.field (Codec.encoder stringCodec)
-            , ( "reason", val.reason ) |> EncodeOpt.optionalField (Codec.encoder stringCodec)
-            , ( "cluster", val.cluster ) |> EncodeOpt.optionalField (Codec.encoder stringCodec)
+            [ ( "task", val.task ) |> EncodeOpt.field Json.Encode.string
+            , ( "reason", val.reason ) |> EncodeOpt.optionalField Json.Encode.string
+            , ( "cluster", val.cluster ) |> EncodeOpt.optionalField Json.Encode.string
             ]
                 |> EncodeOpt.objectMaySkip
 
@@ -532,18 +530,17 @@ startTask : StartTaskRequest -> AWS.Http.Request AWS.Http.AWSAppError StartTaskR
 startTask req =
     let
         encoder val =
-            [ ( "taskDefinition", val.taskDefinition ) |> EncodeOpt.field (Codec.encoder stringCodec)
+            [ ( "taskDefinition", val.taskDefinition ) |> EncodeOpt.field Json.Encode.string
             , ( "tags", val.tags ) |> EncodeOpt.optionalField (Codec.encoder tagsCodec)
-            , ( "startedBy", val.startedBy ) |> EncodeOpt.optionalField (Codec.encoder stringCodec)
+            , ( "startedBy", val.startedBy ) |> EncodeOpt.optionalField Json.Encode.string
             , ( "propagateTags", val.propagateTags ) |> EncodeOpt.optionalField (Codec.encoder propagateTagsCodec)
             , ( "overrides", val.overrides ) |> EncodeOpt.optionalField (Codec.encoder taskOverrideCodec)
             , ( "networkConfiguration", val.networkConfiguration )
                 |> EncodeOpt.optionalField (Codec.encoder networkConfigurationCodec)
-            , ( "group", val.group ) |> EncodeOpt.optionalField (Codec.encoder stringCodec)
-            , ( "enableECSManagedTags", val.enableEcsmanagedTags )
-                |> EncodeOpt.optionalField (Codec.encoder booleanCodec)
+            , ( "group", val.group ) |> EncodeOpt.optionalField Json.Encode.string
+            , ( "enableECSManagedTags", val.enableEcsmanagedTags ) |> EncodeOpt.optionalField Json.Encode.bool
             , ( "containerInstances", val.containerInstances ) |> EncodeOpt.field (Codec.encoder stringListCodec)
-            , ( "cluster", val.cluster ) |> EncodeOpt.optionalField (Codec.encoder stringCodec)
+            , ( "cluster", val.cluster ) |> EncodeOpt.optionalField Json.Encode.string
             ]
                 |> EncodeOpt.objectMaySkip
 
@@ -579,11 +576,11 @@ runTask : RunTaskRequest -> AWS.Http.Request AWS.Http.AWSAppError RunTaskRespons
 runTask req =
     let
         encoder val =
-            [ ( "taskDefinition", val.taskDefinition ) |> EncodeOpt.field (Codec.encoder stringCodec)
+            [ ( "taskDefinition", val.taskDefinition ) |> EncodeOpt.field Json.Encode.string
             , ( "tags", val.tags ) |> EncodeOpt.optionalField (Codec.encoder tagsCodec)
-            , ( "startedBy", val.startedBy ) |> EncodeOpt.optionalField (Codec.encoder stringCodec)
+            , ( "startedBy", val.startedBy ) |> EncodeOpt.optionalField Json.Encode.string
             , ( "propagateTags", val.propagateTags ) |> EncodeOpt.optionalField (Codec.encoder propagateTagsCodec)
-            , ( "platformVersion", val.platformVersion ) |> EncodeOpt.optionalField (Codec.encoder stringCodec)
+            , ( "platformVersion", val.platformVersion ) |> EncodeOpt.optionalField Json.Encode.string
             , ( "placementStrategy", val.placementStrategy )
                 |> EncodeOpt.optionalField (Codec.encoder placementStrategiesCodec)
             , ( "placementConstraints", val.placementConstraints )
@@ -592,11 +589,10 @@ runTask req =
             , ( "networkConfiguration", val.networkConfiguration )
                 |> EncodeOpt.optionalField (Codec.encoder networkConfigurationCodec)
             , ( "launchType", val.launchType ) |> EncodeOpt.optionalField (Codec.encoder launchTypeCodec)
-            , ( "group", val.group ) |> EncodeOpt.optionalField (Codec.encoder stringCodec)
-            , ( "enableECSManagedTags", val.enableEcsmanagedTags )
-                |> EncodeOpt.optionalField (Codec.encoder booleanCodec)
-            , ( "count", val.count ) |> EncodeOpt.optionalField (Codec.encoder boxedIntegerCodec)
-            , ( "cluster", val.cluster ) |> EncodeOpt.optionalField (Codec.encoder stringCodec)
+            , ( "group", val.group ) |> EncodeOpt.optionalField Json.Encode.string
+            , ( "enableECSManagedTags", val.enableEcsmanagedTags ) |> EncodeOpt.optionalField Json.Encode.bool
+            , ( "count", val.count ) |> EncodeOpt.optionalField Json.Encode.int
+            , ( "cluster", val.cluster ) |> EncodeOpt.optionalField Json.Encode.string
             ]
                 |> EncodeOpt.objectMaySkip
 
@@ -627,7 +623,7 @@ registerTaskDefinition req =
     let
         encoder val =
             [ ( "volumes", val.volumes ) |> EncodeOpt.optionalField (Codec.encoder volumeListCodec)
-            , ( "taskRoleArn", val.taskRoleArn ) |> EncodeOpt.optionalField (Codec.encoder stringCodec)
+            , ( "taskRoleArn", val.taskRoleArn ) |> EncodeOpt.optionalField Json.Encode.string
             , ( "tags", val.tags ) |> EncodeOpt.optionalField (Codec.encoder tagsCodec)
             , ( "requiresCompatibilities", val.requiresCompatibilities )
                 |> EncodeOpt.optionalField (Codec.encoder compatibilityListCodec)
@@ -637,11 +633,11 @@ registerTaskDefinition req =
                 |> EncodeOpt.optionalField (Codec.encoder taskDefinitionPlacementConstraintsCodec)
             , ( "pidMode", val.pidMode ) |> EncodeOpt.optionalField (Codec.encoder pidModeCodec)
             , ( "networkMode", val.networkMode ) |> EncodeOpt.optionalField (Codec.encoder networkModeCodec)
-            , ( "memory", val.memory ) |> EncodeOpt.optionalField (Codec.encoder stringCodec)
+            , ( "memory", val.memory ) |> EncodeOpt.optionalField Json.Encode.string
             , ( "ipcMode", val.ipcMode ) |> EncodeOpt.optionalField (Codec.encoder ipcModeCodec)
-            , ( "family", val.family ) |> EncodeOpt.field (Codec.encoder stringCodec)
-            , ( "executionRoleArn", val.executionRoleArn ) |> EncodeOpt.optionalField (Codec.encoder stringCodec)
-            , ( "cpu", val.cpu ) |> EncodeOpt.optionalField (Codec.encoder stringCodec)
+            , ( "family", val.family ) |> EncodeOpt.field Json.Encode.string
+            , ( "executionRoleArn", val.executionRoleArn ) |> EncodeOpt.optionalField Json.Encode.string
+            , ( "cpu", val.cpu ) |> EncodeOpt.optionalField Json.Encode.string
             , ( "containerDefinitions", val.containerDefinitions )
                 |> EncodeOpt.field (Codec.encoder containerDefinitionsCodec)
             ]
@@ -678,12 +674,10 @@ registerContainerInstance req =
             , ( "tags", val.tags ) |> EncodeOpt.optionalField (Codec.encoder tagsCodec)
             , ( "platformDevices", val.platformDevices ) |> EncodeOpt.optionalField platformDevicesEncoder
             , ( "instanceIdentityDocumentSignature", val.instanceIdentityDocumentSignature )
-                |> EncodeOpt.optionalField (Codec.encoder stringCodec)
-            , ( "instanceIdentityDocument", val.instanceIdentityDocument )
-                |> EncodeOpt.optionalField (Codec.encoder stringCodec)
-            , ( "containerInstanceArn", val.containerInstanceArn )
-                |> EncodeOpt.optionalField (Codec.encoder stringCodec)
-            , ( "cluster", val.cluster ) |> EncodeOpt.optionalField (Codec.encoder stringCodec)
+                |> EncodeOpt.optionalField Json.Encode.string
+            , ( "instanceIdentityDocument", val.instanceIdentityDocument ) |> EncodeOpt.optionalField Json.Encode.string
+            , ( "containerInstanceArn", val.containerInstanceArn ) |> EncodeOpt.optionalField Json.Encode.string
+            , ( "cluster", val.cluster ) |> EncodeOpt.optionalField Json.Encode.string
             , ( "attributes", val.attributes ) |> EncodeOpt.optionalField (Codec.encoder attributesCodec)
             ]
                 |> EncodeOpt.objectMaySkip
@@ -708,7 +702,7 @@ putAttributes : PutAttributesRequest -> AWS.Http.Request AWS.Http.AWSAppError Pu
 putAttributes req =
     let
         encoder val =
-            [ ( "cluster", val.cluster ) |> EncodeOpt.optionalField (Codec.encoder stringCodec)
+            [ ( "cluster", val.cluster ) |> EncodeOpt.optionalField Json.Encode.string
             , ( "attributes", val.attributes ) |> EncodeOpt.field (Codec.encoder attributesCodec)
             ]
                 |> EncodeOpt.objectMaySkip
@@ -733,7 +727,7 @@ putAccountSettingDefault : PutAccountSettingDefaultRequest -> AWS.Http.Request A
 putAccountSettingDefault req =
     let
         encoder val =
-            [ ( "value", val.value ) |> EncodeOpt.field (Codec.encoder stringCodec)
+            [ ( "value", val.value ) |> EncodeOpt.field Json.Encode.string
             , ( "name", val.name ) |> EncodeOpt.field (Codec.encoder settingNameCodec)
             ]
                 |> EncodeOpt.objectMaySkip
@@ -765,8 +759,8 @@ putAccountSetting : PutAccountSettingRequest -> AWS.Http.Request AWS.Http.AWSApp
 putAccountSetting req =
     let
         encoder val =
-            [ ( "value", val.value ) |> EncodeOpt.field (Codec.encoder stringCodec)
-            , ( "principalArn", val.principalArn ) |> EncodeOpt.optionalField (Codec.encoder stringCodec)
+            [ ( "value", val.value ) |> EncodeOpt.field Json.Encode.string
+            , ( "principalArn", val.principalArn ) |> EncodeOpt.optionalField Json.Encode.string
             , ( "name", val.name ) |> EncodeOpt.field (Codec.encoder settingNameCodec)
             ]
                 |> EncodeOpt.objectMaySkip
@@ -794,15 +788,15 @@ listTasks : ListTasksRequest -> AWS.Http.Request AWS.Http.AWSAppError ListTasksR
 listTasks req =
     let
         encoder val =
-            [ ( "startedBy", val.startedBy ) |> EncodeOpt.optionalField (Codec.encoder stringCodec)
-            , ( "serviceName", val.serviceName ) |> EncodeOpt.optionalField (Codec.encoder stringCodec)
-            , ( "nextToken", val.nextToken ) |> EncodeOpt.optionalField (Codec.encoder stringCodec)
-            , ( "maxResults", val.maxResults ) |> EncodeOpt.optionalField (Codec.encoder boxedIntegerCodec)
+            [ ( "startedBy", val.startedBy ) |> EncodeOpt.optionalField Json.Encode.string
+            , ( "serviceName", val.serviceName ) |> EncodeOpt.optionalField Json.Encode.string
+            , ( "nextToken", val.nextToken ) |> EncodeOpt.optionalField Json.Encode.string
+            , ( "maxResults", val.maxResults ) |> EncodeOpt.optionalField Json.Encode.int
             , ( "launchType", val.launchType ) |> EncodeOpt.optionalField (Codec.encoder launchTypeCodec)
-            , ( "family", val.family ) |> EncodeOpt.optionalField (Codec.encoder stringCodec)
+            , ( "family", val.family ) |> EncodeOpt.optionalField Json.Encode.string
             , ( "desiredStatus", val.desiredStatus ) |> EncodeOpt.optionalField desiredStatusEncoder
-            , ( "containerInstance", val.containerInstance ) |> EncodeOpt.optionalField (Codec.encoder stringCodec)
-            , ( "cluster", val.cluster ) |> EncodeOpt.optionalField (Codec.encoder stringCodec)
+            , ( "containerInstance", val.containerInstance ) |> EncodeOpt.optionalField Json.Encode.string
+            , ( "cluster", val.cluster ) |> EncodeOpt.optionalField Json.Encode.string
             ]
                 |> EncodeOpt.objectMaySkip
 
@@ -815,7 +809,7 @@ listTasks req =
         decoder =
             ((\taskArnsFld nextTokenFld -> { nextToken = nextTokenFld, taskArns = taskArnsFld }) |> Json.Decode.succeed)
                 |> Pipeline.optional "taskArns" (Json.Decode.maybe (Codec.decoder stringListCodec)) Nothing
-                |> Pipeline.optional "nextToken" (Json.Decode.maybe (Codec.decoder stringCodec)) Nothing
+                |> Pipeline.optional "nextToken" (Json.Decode.maybe Json.Decode.string) Nothing
                 |> AWS.Http.jsonBodyDecoder
     in
     AWS.Http.request "ListTasks" AWS.Http.POST url jsonBody decoder AWS.Http.awsAppErrDecoder
@@ -829,9 +823,9 @@ listTaskDefinitions req =
         encoder val =
             [ ( "status", val.status ) |> EncodeOpt.optionalField (Codec.encoder taskDefinitionStatusCodec)
             , ( "sort", val.sort ) |> EncodeOpt.optionalField sortOrderEncoder
-            , ( "nextToken", val.nextToken ) |> EncodeOpt.optionalField (Codec.encoder stringCodec)
-            , ( "maxResults", val.maxResults ) |> EncodeOpt.optionalField (Codec.encoder boxedIntegerCodec)
-            , ( "familyPrefix", val.familyPrefix ) |> EncodeOpt.optionalField (Codec.encoder stringCodec)
+            , ( "nextToken", val.nextToken ) |> EncodeOpt.optionalField Json.Encode.string
+            , ( "maxResults", val.maxResults ) |> EncodeOpt.optionalField Json.Encode.int
+            , ( "familyPrefix", val.familyPrefix ) |> EncodeOpt.optionalField Json.Encode.string
             ]
                 |> EncodeOpt.objectMaySkip
 
@@ -848,7 +842,7 @@ listTaskDefinitions req =
                 |> Json.Decode.succeed
             )
                 |> Pipeline.optional "taskDefinitionArns" (Json.Decode.maybe (Codec.decoder stringListCodec)) Nothing
-                |> Pipeline.optional "nextToken" (Json.Decode.maybe (Codec.decoder stringCodec)) Nothing
+                |> Pipeline.optional "nextToken" (Json.Decode.maybe Json.Decode.string) Nothing
                 |> AWS.Http.jsonBodyDecoder
     in
     AWS.Http.request "ListTaskDefinitions" AWS.Http.POST url jsonBody decoder AWS.Http.awsAppErrDecoder
@@ -864,9 +858,9 @@ listTaskDefinitionFamilies req =
     let
         encoder val =
             [ ( "status", val.status ) |> EncodeOpt.optionalField taskDefinitionFamilyStatusEncoder
-            , ( "nextToken", val.nextToken ) |> EncodeOpt.optionalField (Codec.encoder stringCodec)
-            , ( "maxResults", val.maxResults ) |> EncodeOpt.optionalField (Codec.encoder boxedIntegerCodec)
-            , ( "familyPrefix", val.familyPrefix ) |> EncodeOpt.optionalField (Codec.encoder stringCodec)
+            , ( "nextToken", val.nextToken ) |> EncodeOpt.optionalField Json.Encode.string
+            , ( "maxResults", val.maxResults ) |> EncodeOpt.optionalField Json.Encode.int
+            , ( "familyPrefix", val.familyPrefix ) |> EncodeOpt.optionalField Json.Encode.string
             ]
                 |> EncodeOpt.objectMaySkip
 
@@ -878,7 +872,7 @@ listTaskDefinitionFamilies req =
 
         decoder =
             ((\nextTokenFld familiesFld -> { families = familiesFld, nextToken = nextTokenFld }) |> Json.Decode.succeed)
-                |> Pipeline.optional "nextToken" (Json.Decode.maybe (Codec.decoder stringCodec)) Nothing
+                |> Pipeline.optional "nextToken" (Json.Decode.maybe Json.Decode.string) Nothing
                 |> Pipeline.optional "families" (Json.Decode.maybe (Codec.decoder stringListCodec)) Nothing
                 |> AWS.Http.jsonBodyDecoder
     in
@@ -891,8 +885,7 @@ listTagsForResource : ListTagsForResourceRequest -> AWS.Http.Request AWS.Http.AW
 listTagsForResource req =
     let
         encoder val =
-            [ ( "resourceArn", val.resourceArn ) |> EncodeOpt.field (Codec.encoder stringCodec) ]
-                |> EncodeOpt.objectMaySkip
+            [ ( "resourceArn", val.resourceArn ) |> EncodeOpt.field Json.Encode.string ] |> EncodeOpt.objectMaySkip
 
         jsonBody =
             req |> encoder |> AWS.Http.jsonBody
@@ -916,10 +909,10 @@ listServices req =
         encoder val =
             [ ( "schedulingStrategy", val.schedulingStrategy )
                 |> EncodeOpt.optionalField (Codec.encoder schedulingStrategyCodec)
-            , ( "nextToken", val.nextToken ) |> EncodeOpt.optionalField (Codec.encoder stringCodec)
-            , ( "maxResults", val.maxResults ) |> EncodeOpt.optionalField (Codec.encoder boxedIntegerCodec)
+            , ( "nextToken", val.nextToken ) |> EncodeOpt.optionalField Json.Encode.string
+            , ( "maxResults", val.maxResults ) |> EncodeOpt.optionalField Json.Encode.int
             , ( "launchType", val.launchType ) |> EncodeOpt.optionalField (Codec.encoder launchTypeCodec)
-            , ( "cluster", val.cluster ) |> EncodeOpt.optionalField (Codec.encoder stringCodec)
+            , ( "cluster", val.cluster ) |> EncodeOpt.optionalField Json.Encode.string
             ]
                 |> EncodeOpt.objectMaySkip
 
@@ -934,7 +927,7 @@ listServices req =
                 |> Json.Decode.succeed
             )
                 |> Pipeline.optional "serviceArns" (Json.Decode.maybe (Codec.decoder stringListCodec)) Nothing
-                |> Pipeline.optional "nextToken" (Json.Decode.maybe (Codec.decoder stringCodec)) Nothing
+                |> Pipeline.optional "nextToken" (Json.Decode.maybe Json.Decode.string) Nothing
                 |> AWS.Http.jsonBodyDecoder
     in
     AWS.Http.request "ListServices" AWS.Http.POST url jsonBody decoder AWS.Http.awsAppErrDecoder
@@ -947,10 +940,10 @@ listContainerInstances req =
     let
         encoder val =
             [ ( "status", val.status ) |> EncodeOpt.optionalField containerInstanceStatusEncoder
-            , ( "nextToken", val.nextToken ) |> EncodeOpt.optionalField (Codec.encoder stringCodec)
-            , ( "maxResults", val.maxResults ) |> EncodeOpt.optionalField (Codec.encoder boxedIntegerCodec)
-            , ( "filter", val.filter ) |> EncodeOpt.optionalField (Codec.encoder stringCodec)
-            , ( "cluster", val.cluster ) |> EncodeOpt.optionalField (Codec.encoder stringCodec)
+            , ( "nextToken", val.nextToken ) |> EncodeOpt.optionalField Json.Encode.string
+            , ( "maxResults", val.maxResults ) |> EncodeOpt.optionalField Json.Encode.int
+            , ( "filter", val.filter ) |> EncodeOpt.optionalField Json.Encode.string
+            , ( "cluster", val.cluster ) |> EncodeOpt.optionalField Json.Encode.string
             ]
                 |> EncodeOpt.objectMaySkip
 
@@ -966,7 +959,7 @@ listContainerInstances req =
              )
                 |> Json.Decode.succeed
             )
-                |> Pipeline.optional "nextToken" (Json.Decode.maybe (Codec.decoder stringCodec)) Nothing
+                |> Pipeline.optional "nextToken" (Json.Decode.maybe Json.Decode.string) Nothing
                 |> Pipeline.optional "containerInstanceArns" (Json.Decode.maybe (Codec.decoder stringListCodec)) Nothing
                 |> AWS.Http.jsonBodyDecoder
     in
@@ -979,8 +972,8 @@ listClusters : ListClustersRequest -> AWS.Http.Request AWS.Http.AWSAppError List
 listClusters req =
     let
         encoder val =
-            [ ( "nextToken", val.nextToken ) |> EncodeOpt.optionalField (Codec.encoder stringCodec)
-            , ( "maxResults", val.maxResults ) |> EncodeOpt.optionalField (Codec.encoder boxedIntegerCodec)
+            [ ( "nextToken", val.nextToken ) |> EncodeOpt.optionalField Json.Encode.string
+            , ( "maxResults", val.maxResults ) |> EncodeOpt.optionalField Json.Encode.int
             ]
                 |> EncodeOpt.objectMaySkip
 
@@ -994,7 +987,7 @@ listClusters req =
             ((\nextTokenFld clusterArnsFld -> { clusterArns = clusterArnsFld, nextToken = nextTokenFld })
                 |> Json.Decode.succeed
             )
-                |> Pipeline.optional "nextToken" (Json.Decode.maybe (Codec.decoder stringCodec)) Nothing
+                |> Pipeline.optional "nextToken" (Json.Decode.maybe Json.Decode.string) Nothing
                 |> Pipeline.optional "clusterArns" (Json.Decode.maybe (Codec.decoder stringListCodec)) Nothing
                 |> AWS.Http.jsonBodyDecoder
     in
@@ -1008,11 +1001,11 @@ listAttributes req =
     let
         encoder val =
             [ ( "targetType", val.targetType ) |> EncodeOpt.field (Codec.encoder targetTypeCodec)
-            , ( "nextToken", val.nextToken ) |> EncodeOpt.optionalField (Codec.encoder stringCodec)
-            , ( "maxResults", val.maxResults ) |> EncodeOpt.optionalField (Codec.encoder boxedIntegerCodec)
-            , ( "cluster", val.cluster ) |> EncodeOpt.optionalField (Codec.encoder stringCodec)
-            , ( "attributeValue", val.attributeValue ) |> EncodeOpt.optionalField (Codec.encoder stringCodec)
-            , ( "attributeName", val.attributeName ) |> EncodeOpt.optionalField (Codec.encoder stringCodec)
+            , ( "nextToken", val.nextToken ) |> EncodeOpt.optionalField Json.Encode.string
+            , ( "maxResults", val.maxResults ) |> EncodeOpt.optionalField Json.Encode.int
+            , ( "cluster", val.cluster ) |> EncodeOpt.optionalField Json.Encode.string
+            , ( "attributeValue", val.attributeValue ) |> EncodeOpt.optionalField Json.Encode.string
+            , ( "attributeName", val.attributeName ) |> EncodeOpt.optionalField Json.Encode.string
             ]
                 |> EncodeOpt.objectMaySkip
 
@@ -1026,7 +1019,7 @@ listAttributes req =
             ((\nextTokenFld attributesFld -> { attributes = attributesFld, nextToken = nextTokenFld })
                 |> Json.Decode.succeed
             )
-                |> Pipeline.optional "nextToken" (Json.Decode.maybe (Codec.decoder stringCodec)) Nothing
+                |> Pipeline.optional "nextToken" (Json.Decode.maybe Json.Decode.string) Nothing
                 |> Pipeline.optional "attributes" (Json.Decode.maybe (Codec.decoder attributesCodec)) Nothing
                 |> AWS.Http.jsonBodyDecoder
     in
@@ -1039,12 +1032,12 @@ listAccountSettings : ListAccountSettingsRequest -> AWS.Http.Request AWS.Http.AW
 listAccountSettings req =
     let
         encoder val =
-            [ ( "value", val.value ) |> EncodeOpt.optionalField (Codec.encoder stringCodec)
-            , ( "principalArn", val.principalArn ) |> EncodeOpt.optionalField (Codec.encoder stringCodec)
-            , ( "nextToken", val.nextToken ) |> EncodeOpt.optionalField (Codec.encoder stringCodec)
+            [ ( "value", val.value ) |> EncodeOpt.optionalField Json.Encode.string
+            , ( "principalArn", val.principalArn ) |> EncodeOpt.optionalField Json.Encode.string
+            , ( "nextToken", val.nextToken ) |> EncodeOpt.optionalField Json.Encode.string
             , ( "name", val.name ) |> EncodeOpt.optionalField (Codec.encoder settingNameCodec)
-            , ( "maxResults", val.maxResults ) |> EncodeOpt.optionalField (Codec.encoder integerCodec)
-            , ( "effectiveSettings", val.effectiveSettings ) |> EncodeOpt.optionalField (Codec.encoder booleanCodec)
+            , ( "maxResults", val.maxResults ) |> EncodeOpt.optionalField Json.Encode.int
+            , ( "effectiveSettings", val.effectiveSettings ) |> EncodeOpt.optionalField Json.Encode.bool
             ]
                 |> EncodeOpt.objectMaySkip
 
@@ -1057,7 +1050,7 @@ listAccountSettings req =
         decoder =
             ((\settingsFld nextTokenFld -> { nextToken = nextTokenFld, settings = settingsFld }) |> Json.Decode.succeed)
                 |> Pipeline.optional "settings" (Json.Decode.maybe settingsDecoder) Nothing
-                |> Pipeline.optional "nextToken" (Json.Decode.maybe (Codec.decoder stringCodec)) Nothing
+                |> Pipeline.optional "nextToken" (Json.Decode.maybe Json.Decode.string) Nothing
                 |> AWS.Http.jsonBodyDecoder
     in
     AWS.Http.request "ListAccountSettings" AWS.Http.POST url jsonBody decoder AWS.Http.awsAppErrDecoder
@@ -1072,8 +1065,8 @@ discoverPollEndpoint : DiscoverPollEndpointRequest -> AWS.Http.Request AWS.Http.
 discoverPollEndpoint req =
     let
         encoder val =
-            [ ( "containerInstance", val.containerInstance ) |> EncodeOpt.optionalField (Codec.encoder stringCodec)
-            , ( "cluster", val.cluster ) |> EncodeOpt.optionalField (Codec.encoder stringCodec)
+            [ ( "containerInstance", val.containerInstance ) |> EncodeOpt.optionalField Json.Encode.string
+            , ( "cluster", val.cluster ) |> EncodeOpt.optionalField Json.Encode.string
             ]
                 |> EncodeOpt.objectMaySkip
 
@@ -1087,8 +1080,8 @@ discoverPollEndpoint req =
             ((\telemetryEndpointFld endpointFld -> { endpoint = endpointFld, telemetryEndpoint = telemetryEndpointFld })
                 |> Json.Decode.succeed
             )
-                |> Pipeline.optional "telemetryEndpoint" (Json.Decode.maybe (Codec.decoder stringCodec)) Nothing
-                |> Pipeline.optional "endpoint" (Json.Decode.maybe (Codec.decoder stringCodec)) Nothing
+                |> Pipeline.optional "telemetryEndpoint" (Json.Decode.maybe Json.Decode.string) Nothing
+                |> Pipeline.optional "endpoint" (Json.Decode.maybe Json.Decode.string) Nothing
                 |> AWS.Http.jsonBodyDecoder
     in
     AWS.Http.request "DiscoverPollEndpoint" AWS.Http.POST url jsonBody decoder AWS.Http.awsAppErrDecoder
@@ -1102,7 +1095,7 @@ describeTasks req =
         encoder val =
             [ ( "tasks", val.tasks ) |> EncodeOpt.field (Codec.encoder stringListCodec)
             , ( "include", val.include ) |> EncodeOpt.optionalField taskFieldListEncoder
-            , ( "cluster", val.cluster ) |> EncodeOpt.optionalField (Codec.encoder stringCodec)
+            , ( "cluster", val.cluster ) |> EncodeOpt.optionalField Json.Encode.string
             ]
                 |> EncodeOpt.objectMaySkip
 
@@ -1128,8 +1121,8 @@ describeTaskSets req =
     let
         encoder val =
             [ ( "taskSets", val.taskSets ) |> EncodeOpt.optionalField (Codec.encoder stringListCodec)
-            , ( "service", val.service ) |> EncodeOpt.field (Codec.encoder stringCodec)
-            , ( "cluster", val.cluster ) |> EncodeOpt.field (Codec.encoder stringCodec)
+            , ( "service", val.service ) |> EncodeOpt.field Json.Encode.string
+            , ( "cluster", val.cluster ) |> EncodeOpt.field Json.Encode.string
             ]
                 |> EncodeOpt.objectMaySkip
 
@@ -1157,7 +1150,7 @@ describeTaskDefinition : DescribeTaskDefinitionRequest -> AWS.Http.Request AWS.H
 describeTaskDefinition req =
     let
         encoder val =
-            [ ( "taskDefinition", val.taskDefinition ) |> EncodeOpt.field (Codec.encoder stringCodec)
+            [ ( "taskDefinition", val.taskDefinition ) |> EncodeOpt.field Json.Encode.string
             , ( "include", val.include ) |> EncodeOpt.optionalField taskDefinitionFieldListEncoder
             ]
                 |> EncodeOpt.objectMaySkip
@@ -1187,7 +1180,7 @@ describeServices req =
         encoder val =
             [ ( "services", val.services ) |> EncodeOpt.field (Codec.encoder stringListCodec)
             , ( "include", val.include ) |> EncodeOpt.optionalField serviceFieldListEncoder
-            , ( "cluster", val.cluster ) |> EncodeOpt.optionalField (Codec.encoder stringCodec)
+            , ( "cluster", val.cluster ) |> EncodeOpt.optionalField Json.Encode.string
             ]
                 |> EncodeOpt.objectMaySkip
 
@@ -1214,7 +1207,7 @@ describeContainerInstances req =
         encoder val =
             [ ( "include", val.include ) |> EncodeOpt.optionalField containerInstanceFieldListEncoder
             , ( "containerInstances", val.containerInstances ) |> EncodeOpt.field (Codec.encoder stringListCodec)
-            , ( "cluster", val.cluster ) |> EncodeOpt.optionalField (Codec.encoder stringCodec)
+            , ( "cluster", val.cluster ) |> EncodeOpt.optionalField Json.Encode.string
             ]
                 |> EncodeOpt.objectMaySkip
 
@@ -1274,7 +1267,7 @@ deregisterTaskDefinition : DeregisterTaskDefinitionRequest -> AWS.Http.Request A
 deregisterTaskDefinition req =
     let
         encoder val =
-            [ ( "taskDefinition", val.taskDefinition ) |> EncodeOpt.field (Codec.encoder stringCodec) ]
+            [ ( "taskDefinition", val.taskDefinition ) |> EncodeOpt.field Json.Encode.string ]
                 |> EncodeOpt.objectMaySkip
 
         jsonBody =
@@ -1304,9 +1297,9 @@ deregisterContainerInstance : DeregisterContainerInstanceRequest -> AWS.Http.Req
 deregisterContainerInstance req =
     let
         encoder val =
-            [ ( "force", val.force ) |> EncodeOpt.optionalField (Codec.encoder boxedBooleanCodec)
-            , ( "containerInstance", val.containerInstance ) |> EncodeOpt.field (Codec.encoder stringCodec)
-            , ( "cluster", val.cluster ) |> EncodeOpt.optionalField (Codec.encoder stringCodec)
+            [ ( "force", val.force ) |> EncodeOpt.optionalField Json.Encode.bool
+            , ( "containerInstance", val.containerInstance ) |> EncodeOpt.field Json.Encode.string
+            , ( "cluster", val.cluster ) |> EncodeOpt.optionalField Json.Encode.string
             ]
                 |> EncodeOpt.objectMaySkip
 
@@ -1330,10 +1323,10 @@ deleteTaskSet : DeleteTaskSetRequest -> AWS.Http.Request AWS.Http.AWSAppError De
 deleteTaskSet req =
     let
         encoder val =
-            [ ( "taskSet", val.taskSet ) |> EncodeOpt.field (Codec.encoder stringCodec)
-            , ( "service", val.service ) |> EncodeOpt.field (Codec.encoder stringCodec)
-            , ( "force", val.force ) |> EncodeOpt.optionalField (Codec.encoder boxedBooleanCodec)
-            , ( "cluster", val.cluster ) |> EncodeOpt.field (Codec.encoder stringCodec)
+            [ ( "taskSet", val.taskSet ) |> EncodeOpt.field Json.Encode.string
+            , ( "service", val.service ) |> EncodeOpt.field Json.Encode.string
+            , ( "force", val.force ) |> EncodeOpt.optionalField Json.Encode.bool
+            , ( "cluster", val.cluster ) |> EncodeOpt.field Json.Encode.string
             ]
                 |> EncodeOpt.objectMaySkip
 
@@ -1362,9 +1355,9 @@ deleteService : DeleteServiceRequest -> AWS.Http.Request AWS.Http.AWSAppError De
 deleteService req =
     let
         encoder val =
-            [ ( "service", val.service ) |> EncodeOpt.field (Codec.encoder stringCodec)
-            , ( "force", val.force ) |> EncodeOpt.optionalField (Codec.encoder boxedBooleanCodec)
-            , ( "cluster", val.cluster ) |> EncodeOpt.optionalField (Codec.encoder stringCodec)
+            [ ( "service", val.service ) |> EncodeOpt.field Json.Encode.string
+            , ( "force", val.force ) |> EncodeOpt.optionalField Json.Encode.bool
+            , ( "cluster", val.cluster ) |> EncodeOpt.optionalField Json.Encode.string
             ]
                 |> EncodeOpt.objectMaySkip
 
@@ -1388,7 +1381,7 @@ deleteCluster : DeleteClusterRequest -> AWS.Http.Request AWS.Http.AWSAppError De
 deleteCluster req =
     let
         encoder val =
-            [ ( "cluster", val.cluster ) |> EncodeOpt.field (Codec.encoder stringCodec) ] |> EncodeOpt.objectMaySkip
+            [ ( "cluster", val.cluster ) |> EncodeOpt.field Json.Encode.string ] |> EncodeOpt.objectMaySkip
 
         jsonBody =
             req |> encoder |> AWS.Http.jsonBody
@@ -1410,7 +1403,7 @@ deleteAttributes : DeleteAttributesRequest -> AWS.Http.Request AWS.Http.AWSAppEr
 deleteAttributes req =
     let
         encoder val =
-            [ ( "cluster", val.cluster ) |> EncodeOpt.optionalField (Codec.encoder stringCodec)
+            [ ( "cluster", val.cluster ) |> EncodeOpt.optionalField Json.Encode.string
             , ( "attributes", val.attributes ) |> EncodeOpt.field (Codec.encoder attributesCodec)
             ]
                 |> EncodeOpt.objectMaySkip
@@ -1435,7 +1428,7 @@ deleteAccountSetting : DeleteAccountSettingRequest -> AWS.Http.Request AWS.Http.
 deleteAccountSetting req =
     let
         encoder val =
-            [ ( "principalArn", val.principalArn ) |> EncodeOpt.optionalField (Codec.encoder stringCodec)
+            [ ( "principalArn", val.principalArn ) |> EncodeOpt.optionalField Json.Encode.string
             , ( "name", val.name ) |> EncodeOpt.field (Codec.encoder settingNameCodec)
             ]
                 |> EncodeOpt.objectMaySkip
@@ -1460,19 +1453,19 @@ createTaskSet : CreateTaskSetRequest -> AWS.Http.Request AWS.Http.AWSAppError Cr
 createTaskSet req =
     let
         encoder val =
-            [ ( "taskDefinition", val.taskDefinition ) |> EncodeOpt.field (Codec.encoder stringCodec)
+            [ ( "taskDefinition", val.taskDefinition ) |> EncodeOpt.field Json.Encode.string
             , ( "serviceRegistries", val.serviceRegistries )
                 |> EncodeOpt.optionalField (Codec.encoder serviceRegistriesCodec)
-            , ( "service", val.service ) |> EncodeOpt.field (Codec.encoder stringCodec)
+            , ( "service", val.service ) |> EncodeOpt.field Json.Encode.string
             , ( "scale", val.scale ) |> EncodeOpt.optionalField (Codec.encoder scaleCodec)
-            , ( "platformVersion", val.platformVersion ) |> EncodeOpt.optionalField (Codec.encoder stringCodec)
+            , ( "platformVersion", val.platformVersion ) |> EncodeOpt.optionalField Json.Encode.string
             , ( "networkConfiguration", val.networkConfiguration )
                 |> EncodeOpt.optionalField (Codec.encoder networkConfigurationCodec)
             , ( "loadBalancers", val.loadBalancers ) |> EncodeOpt.optionalField (Codec.encoder loadBalancersCodec)
             , ( "launchType", val.launchType ) |> EncodeOpt.optionalField (Codec.encoder launchTypeCodec)
-            , ( "externalId", val.externalId ) |> EncodeOpt.optionalField (Codec.encoder stringCodec)
-            , ( "cluster", val.cluster ) |> EncodeOpt.field (Codec.encoder stringCodec)
-            , ( "clientToken", val.clientToken ) |> EncodeOpt.optionalField (Codec.encoder stringCodec)
+            , ( "externalId", val.externalId ) |> EncodeOpt.optionalField Json.Encode.string
+            , ( "cluster", val.cluster ) |> EncodeOpt.field Json.Encode.string
+            , ( "clientToken", val.clientToken ) |> EncodeOpt.optionalField Json.Encode.string
             ]
                 |> EncodeOpt.objectMaySkip
 
@@ -1519,16 +1512,16 @@ createService : CreateServiceRequest -> AWS.Http.Request AWS.Http.AWSAppError Cr
 createService req =
     let
         encoder val =
-            [ ( "taskDefinition", val.taskDefinition ) |> EncodeOpt.optionalField (Codec.encoder stringCodec)
+            [ ( "taskDefinition", val.taskDefinition ) |> EncodeOpt.optionalField Json.Encode.string
             , ( "tags", val.tags ) |> EncodeOpt.optionalField (Codec.encoder tagsCodec)
             , ( "serviceRegistries", val.serviceRegistries )
                 |> EncodeOpt.optionalField (Codec.encoder serviceRegistriesCodec)
-            , ( "serviceName", val.serviceName ) |> EncodeOpt.field (Codec.encoder stringCodec)
+            , ( "serviceName", val.serviceName ) |> EncodeOpt.field Json.Encode.string
             , ( "schedulingStrategy", val.schedulingStrategy )
                 |> EncodeOpt.optionalField (Codec.encoder schedulingStrategyCodec)
-            , ( "role", val.role ) |> EncodeOpt.optionalField (Codec.encoder stringCodec)
+            , ( "role", val.role ) |> EncodeOpt.optionalField Json.Encode.string
             , ( "propagateTags", val.propagateTags ) |> EncodeOpt.optionalField (Codec.encoder propagateTagsCodec)
-            , ( "platformVersion", val.platformVersion ) |> EncodeOpt.optionalField (Codec.encoder stringCodec)
+            , ( "platformVersion", val.platformVersion ) |> EncodeOpt.optionalField Json.Encode.string
             , ( "placementStrategy", val.placementStrategy )
                 |> EncodeOpt.optionalField (Codec.encoder placementStrategiesCodec)
             , ( "placementConstraints", val.placementConstraints )
@@ -1538,16 +1531,15 @@ createService req =
             , ( "loadBalancers", val.loadBalancers ) |> EncodeOpt.optionalField (Codec.encoder loadBalancersCodec)
             , ( "launchType", val.launchType ) |> EncodeOpt.optionalField (Codec.encoder launchTypeCodec)
             , ( "healthCheckGracePeriodSeconds", val.healthCheckGracePeriodSeconds )
-                |> EncodeOpt.optionalField (Codec.encoder boxedIntegerCodec)
-            , ( "enableECSManagedTags", val.enableEcsmanagedTags )
-                |> EncodeOpt.optionalField (Codec.encoder booleanCodec)
-            , ( "desiredCount", val.desiredCount ) |> EncodeOpt.optionalField (Codec.encoder boxedIntegerCodec)
+                |> EncodeOpt.optionalField Json.Encode.int
+            , ( "enableECSManagedTags", val.enableEcsmanagedTags ) |> EncodeOpt.optionalField Json.Encode.bool
+            , ( "desiredCount", val.desiredCount ) |> EncodeOpt.optionalField Json.Encode.int
             , ( "deploymentController", val.deploymentController )
                 |> EncodeOpt.optionalField (Codec.encoder deploymentControllerCodec)
             , ( "deploymentConfiguration", val.deploymentConfiguration )
                 |> EncodeOpt.optionalField (Codec.encoder deploymentConfigurationCodec)
-            , ( "cluster", val.cluster ) |> EncodeOpt.optionalField (Codec.encoder stringCodec)
-            , ( "clientToken", val.clientToken ) |> EncodeOpt.optionalField (Codec.encoder stringCodec)
+            , ( "cluster", val.cluster ) |> EncodeOpt.optionalField Json.Encode.string
+            , ( "clientToken", val.clientToken ) |> EncodeOpt.optionalField Json.Encode.string
             ]
                 |> EncodeOpt.objectMaySkip
 
@@ -1576,7 +1568,7 @@ createCluster req =
         encoder val =
             [ ( "tags", val.tags ) |> EncodeOpt.optionalField (Codec.encoder tagsCodec)
             , ( "settings", val.settings ) |> EncodeOpt.optionalField (Codec.encoder clusterSettingsCodec)
-            , ( "clusterName", val.clusterName ) |> EncodeOpt.optionalField (Codec.encoder stringCodec)
+            , ( "clusterName", val.clusterName ) |> EncodeOpt.optionalField Json.Encode.string
             ]
                 |> EncodeOpt.objectMaySkip
 
@@ -1609,7 +1601,7 @@ type alias VolumeFromList =
 {-| The VolumeFrom data model.
 -}
 type alias VolumeFrom =
-    { readOnly : Maybe BoxedBoolean, sourceContainer : Maybe String_ }
+    { readOnly : Maybe Bool, sourceContainer : Maybe String }
 
 
 {-| The Volume data model.
@@ -1617,14 +1609,14 @@ type alias VolumeFrom =
 type alias Volume =
     { dockerVolumeConfiguration : Maybe DockerVolumeConfiguration
     , host : Maybe HostVolumeProperties
-    , name : Maybe String_
+    , name : Maybe String
     }
 
 
 {-| The VersionInfo data model.
 -}
 type alias VersionInfo =
-    { agentHash : Maybe String_, agentVersion : Maybe String_, dockerVersion : Maybe String_ }
+    { agentHash : Maybe String, agentVersion : Maybe String, dockerVersion : Maybe String }
 
 
 {-| The UpdateTaskSetResponse data model.
@@ -1636,7 +1628,7 @@ type alias UpdateTaskSetResponse =
 {-| The UpdateTaskSetRequest data model.
 -}
 type alias UpdateTaskSetRequest =
-    { cluster : String_, scale : Scale, service : String_, taskSet : String_ }
+    { cluster : String, scale : Scale, service : String, taskSet : String }
 
 
 {-| The UpdateServiceResponse data model.
@@ -1648,15 +1640,15 @@ type alias UpdateServiceResponse =
 {-| The UpdateServiceRequest data model.
 -}
 type alias UpdateServiceRequest =
-    { cluster : Maybe String_
+    { cluster : Maybe String
     , deploymentConfiguration : Maybe DeploymentConfiguration
-    , desiredCount : Maybe BoxedInteger
-    , forceNewDeployment : Maybe Boolean
-    , healthCheckGracePeriodSeconds : Maybe BoxedInteger
+    , desiredCount : Maybe Int
+    , forceNewDeployment : Maybe Bool
+    , healthCheckGracePeriodSeconds : Maybe Int
     , networkConfiguration : Maybe NetworkConfiguration
-    , platformVersion : Maybe String_
-    , service : String_
-    , taskDefinition : Maybe String_
+    , platformVersion : Maybe String
+    , service : String
+    , taskDefinition : Maybe String
     }
 
 
@@ -1669,7 +1661,7 @@ type alias UpdateServicePrimaryTaskSetResponse =
 {-| The UpdateServicePrimaryTaskSetRequest data model.
 -}
 type alias UpdateServicePrimaryTaskSetRequest =
-    { cluster : String_, primaryTaskSet : String_, service : String_ }
+    { cluster : String, primaryTaskSet : String, service : String }
 
 
 {-| The UpdateContainerInstancesStateResponse data model.
@@ -1681,7 +1673,7 @@ type alias UpdateContainerInstancesStateResponse =
 {-| The UpdateContainerInstancesStateRequest data model.
 -}
 type alias UpdateContainerInstancesStateRequest =
-    { cluster : Maybe String_, containerInstances : StringList, status : ContainerInstanceStatus }
+    { cluster : Maybe String, containerInstances : StringList, status : ContainerInstanceStatus }
 
 
 {-| The UpdateContainerAgentResponse data model.
@@ -1693,7 +1685,7 @@ type alias UpdateContainerAgentResponse =
 {-| The UpdateContainerAgentRequest data model.
 -}
 type alias UpdateContainerAgentRequest =
-    { cluster : Maybe String_, containerInstance : String_ }
+    { cluster : Maybe String, containerInstance : String }
 
 
 {-| The UntagResourceResponse data model.
@@ -1705,7 +1697,7 @@ type alias UntagResourceResponse =
 {-| The UntagResourceRequest data model.
 -}
 type alias UntagResourceRequest =
-    { resourceArn : String_, tagKeys : TagKeys }
+    { resourceArn : String, tagKeys : TagKeys }
 
 
 {-| The UlimitName data model.
@@ -1807,7 +1799,7 @@ type alias UlimitList =
 {-| The Ulimit data model.
 -}
 type alias Ulimit =
-    { hardLimit : Integer, name : UlimitName, softLimit : Integer }
+    { hardLimit : Int, name : UlimitName, softLimit : Int }
 
 
 {-| The TransportProtocol data model.
@@ -1842,13 +1834,7 @@ type alias TmpfsList =
 {-| The Tmpfs data model.
 -}
 type alias Tmpfs =
-    { containerPath : String_, mountOptions : Maybe StringList, size : Integer }
-
-
-{-| The Timestamp data model.
--}
-type alias Timestamp =
-    String
+    { containerPath : String, mountOptions : Maybe StringList, size : Int }
 
 
 {-| The Tasks data model.
@@ -1893,34 +1879,34 @@ type alias TaskSets =
 {-| The TaskSet data model.
 -}
 type alias TaskSet =
-    { clusterArn : Maybe String_
-    , computedDesiredCount : Maybe Integer
-    , createdAt : Maybe Timestamp
-    , externalId : Maybe String_
-    , id : Maybe String_
+    { clusterArn : Maybe String
+    , computedDesiredCount : Maybe Int
+    , createdAt : Maybe String
+    , externalId : Maybe String
+    , id : Maybe String
     , launchType : Maybe LaunchType
     , loadBalancers : Maybe LoadBalancers
     , networkConfiguration : Maybe NetworkConfiguration
-    , pendingCount : Maybe Integer
-    , platformVersion : Maybe String_
-    , runningCount : Maybe Integer
+    , pendingCount : Maybe Int
+    , platformVersion : Maybe String
+    , runningCount : Maybe Int
     , scale : Maybe Scale
-    , serviceArn : Maybe String_
+    , serviceArn : Maybe String
     , serviceRegistries : Maybe ServiceRegistries
     , stabilityStatus : Maybe StabilityStatus
-    , stabilityStatusAt : Maybe Timestamp
-    , startedBy : Maybe String_
-    , status : Maybe String_
-    , taskDefinition : Maybe String_
-    , taskSetArn : Maybe String_
-    , updatedAt : Maybe Timestamp
+    , stabilityStatusAt : Maybe String
+    , startedBy : Maybe String
+    , status : Maybe String
+    , taskDefinition : Maybe String
+    , taskSetArn : Maybe String
+    , updatedAt : Maybe String
     }
 
 
 {-| The TaskOverride data model.
 -}
 type alias TaskOverride =
-    { containerOverrides : Maybe ContainerOverrides, executionRoleArn : Maybe String_, taskRoleArn : Maybe String_ }
+    { containerOverrides : Maybe ContainerOverrides, executionRoleArn : Maybe String, taskRoleArn : Maybe String }
 
 
 {-| The TaskFieldList data model.
@@ -1999,7 +1985,7 @@ taskDefinitionPlacementConstraintType =
 {-| The TaskDefinitionPlacementConstraint data model.
 -}
 type alias TaskDefinitionPlacementConstraint =
-    { expression : Maybe String_, type_ : Maybe TaskDefinitionPlacementConstraintType }
+    { expression : Maybe String, type_ : Maybe TaskDefinitionPlacementConstraintType }
 
 
 {-| The TaskDefinitionFieldList data model.
@@ -2059,21 +2045,21 @@ taskDefinitionFamilyStatus =
 type alias TaskDefinition =
     { compatibilities : Maybe CompatibilityList
     , containerDefinitions : Maybe ContainerDefinitions
-    , cpu : Maybe String_
-    , executionRoleArn : Maybe String_
-    , family : Maybe String_
+    , cpu : Maybe String
+    , executionRoleArn : Maybe String
+    , family : Maybe String
     , ipcMode : Maybe IpcMode
-    , memory : Maybe String_
+    , memory : Maybe String
     , networkMode : Maybe NetworkMode
     , pidMode : Maybe PidMode
     , placementConstraints : Maybe TaskDefinitionPlacementConstraints
     , proxyConfiguration : Maybe ProxyConfiguration
     , requiresAttributes : Maybe RequiresAttributes
     , requiresCompatibilities : Maybe CompatibilityList
-    , revision : Maybe Integer
+    , revision : Maybe Int
     , status : Maybe TaskDefinitionStatus
-    , taskDefinitionArn : Maybe String_
-    , taskRoleArn : Maybe String_
+    , taskDefinitionArn : Maybe String
+    , taskRoleArn : Maybe String
     , volumes : Maybe VolumeList
     }
 
@@ -2082,34 +2068,34 @@ type alias TaskDefinition =
 -}
 type alias Task =
     { attachments : Maybe Attachments
-    , clusterArn : Maybe String_
+    , clusterArn : Maybe String
     , connectivity : Maybe Connectivity
-    , connectivityAt : Maybe Timestamp
-    , containerInstanceArn : Maybe String_
+    , connectivityAt : Maybe String
+    , containerInstanceArn : Maybe String
     , containers : Maybe Containers
-    , cpu : Maybe String_
-    , createdAt : Maybe Timestamp
-    , desiredStatus : Maybe String_
-    , executionStoppedAt : Maybe Timestamp
-    , group : Maybe String_
+    , cpu : Maybe String
+    , createdAt : Maybe String
+    , desiredStatus : Maybe String
+    , executionStoppedAt : Maybe String
+    , group : Maybe String
     , healthStatus : Maybe HealthStatus
-    , lastStatus : Maybe String_
+    , lastStatus : Maybe String
     , launchType : Maybe LaunchType
-    , memory : Maybe String_
+    , memory : Maybe String
     , overrides : Maybe TaskOverride
-    , platformVersion : Maybe String_
-    , pullStartedAt : Maybe Timestamp
-    , pullStoppedAt : Maybe Timestamp
-    , startedAt : Maybe Timestamp
-    , startedBy : Maybe String_
+    , platformVersion : Maybe String
+    , pullStartedAt : Maybe String
+    , pullStoppedAt : Maybe String
+    , startedAt : Maybe String
+    , startedBy : Maybe String
     , stopCode : Maybe TaskStopCode
-    , stoppedAt : Maybe Timestamp
-    , stoppedReason : Maybe String_
-    , stoppingAt : Maybe Timestamp
+    , stoppedAt : Maybe String
+    , stoppedReason : Maybe String
+    , stoppingAt : Maybe String
     , tags : Maybe Tags
-    , taskArn : Maybe String_
-    , taskDefinitionArn : Maybe String_
-    , version : Maybe Long
+    , taskArn : Maybe String
+    , taskDefinitionArn : Maybe String
+    , version : Maybe Int
     }
 
 
@@ -2138,12 +2124,6 @@ type alias Tags =
     List Tag
 
 
-{-| The TagValue data model.
--}
-type alias TagValue =
-    String
-
-
 {-| The TagResourceResponse data model.
 -}
 type alias TagResourceResponse =
@@ -2153,25 +2133,19 @@ type alias TagResourceResponse =
 {-| The TagResourceRequest data model.
 -}
 type alias TagResourceRequest =
-    { resourceArn : String_, tags : Tags }
+    { resourceArn : String, tags : Tags }
 
 
 {-| The TagKeys data model.
 -}
 type alias TagKeys =
-    List TagKey
-
-
-{-| The TagKey data model.
--}
-type alias TagKey =
-    String
+    List String
 
 
 {-| The Tag data model.
 -}
 type alias Tag =
-    { key : Maybe TagKey, value : Maybe TagValue }
+    { key : Maybe String, value : Maybe String }
 
 
 {-| The SystemControls data model.
@@ -2183,77 +2157,71 @@ type alias SystemControls =
 {-| The SystemControl data model.
 -}
 type alias SystemControl =
-    { namespace : Maybe String_, value : Maybe String_ }
+    { namespace : Maybe String, value : Maybe String }
 
 
 {-| The SubmitTaskStateChangeResponse data model.
 -}
 type alias SubmitTaskStateChangeResponse =
-    { acknowledgment : Maybe String_ }
+    { acknowledgment : Maybe String }
 
 
 {-| The SubmitTaskStateChangeRequest data model.
 -}
 type alias SubmitTaskStateChangeRequest =
     { attachments : Maybe AttachmentStateChanges
-    , cluster : Maybe String_
+    , cluster : Maybe String
     , containers : Maybe ContainerStateChanges
-    , executionStoppedAt : Maybe Timestamp
-    , pullStartedAt : Maybe Timestamp
-    , pullStoppedAt : Maybe Timestamp
-    , reason : Maybe String_
-    , status : Maybe String_
-    , task : Maybe String_
+    , executionStoppedAt : Maybe String
+    , pullStartedAt : Maybe String
+    , pullStoppedAt : Maybe String
+    , reason : Maybe String
+    , status : Maybe String
+    , task : Maybe String
     }
 
 
 {-| The SubmitContainerStateChangeResponse data model.
 -}
 type alias SubmitContainerStateChangeResponse =
-    { acknowledgment : Maybe String_ }
+    { acknowledgment : Maybe String }
 
 
 {-| The SubmitContainerStateChangeRequest data model.
 -}
 type alias SubmitContainerStateChangeRequest =
-    { cluster : Maybe String_
-    , containerName : Maybe String_
-    , exitCode : Maybe BoxedInteger
+    { cluster : Maybe String
+    , containerName : Maybe String
+    , exitCode : Maybe Int
     , networkBindings : Maybe NetworkBindings
-    , reason : Maybe String_
-    , status : Maybe String_
-    , task : Maybe String_
+    , reason : Maybe String
+    , status : Maybe String
+    , task : Maybe String
     }
 
 
 {-| The SubmitAttachmentStateChangesResponse data model.
 -}
 type alias SubmitAttachmentStateChangesResponse =
-    { acknowledgment : Maybe String_ }
+    { acknowledgment : Maybe String }
 
 
 {-| The SubmitAttachmentStateChangesRequest data model.
 -}
 type alias SubmitAttachmentStateChangesRequest =
-    { attachments : AttachmentStateChanges, cluster : Maybe String_ }
+    { attachments : AttachmentStateChanges, cluster : Maybe String }
 
 
 {-| The StringMap data model.
 -}
 type alias StringMap =
-    Dict String_ String_
+    Dict String String
 
 
 {-| The StringList data model.
 -}
 type alias StringList =
-    List String_
-
-
-{-| The String\_ data model.
--}
-type alias String_ =
-    String
+    List String
 
 
 {-| The StopTaskResponse data model.
@@ -2265,7 +2233,7 @@ type alias StopTaskResponse =
 {-| The StopTaskRequest data model.
 -}
 type alias StopTaskRequest =
-    { cluster : Maybe String_, reason : Maybe String_, task : String_ }
+    { cluster : Maybe String, reason : Maybe String, task : String }
 
 
 {-| The Statistics data model.
@@ -2283,16 +2251,16 @@ type alias StartTaskResponse =
 {-| The StartTaskRequest data model.
 -}
 type alias StartTaskRequest =
-    { cluster : Maybe String_
+    { cluster : Maybe String
     , containerInstances : StringList
-    , enableEcsmanagedTags : Maybe Boolean
-    , group : Maybe String_
+    , enableEcsmanagedTags : Maybe Bool
+    , group : Maybe String
     , networkConfiguration : Maybe NetworkConfiguration
     , overrides : Maybe TaskOverride
     , propagateTags : Maybe PropagateTags
-    , startedBy : Maybe String_
+    , startedBy : Maybe String
     , tags : Maybe Tags
-    , taskDefinition : String_
+    , taskDefinition : String
     }
 
 
@@ -2391,7 +2359,7 @@ settingName =
 {-| The Setting data model.
 -}
 type alias Setting =
-    { name : Maybe SettingName, principalArn : Maybe String_, value : Maybe String_ }
+    { name : Maybe SettingName, principalArn : Maybe String, value : Maybe String }
 
 
 {-| The Services data model.
@@ -2403,11 +2371,7 @@ type alias Services =
 {-| The ServiceRegistry data model.
 -}
 type alias ServiceRegistry =
-    { containerName : Maybe String_
-    , containerPort : Maybe BoxedInteger
-    , port_ : Maybe BoxedInteger
-    , registryArn : Maybe String_
-    }
+    { containerName : Maybe String, containerPort : Maybe Int, port_ : Maybe Int, registryArn : Maybe String }
 
 
 {-| The ServiceRegistries data model.
@@ -2450,39 +2414,39 @@ type alias ServiceEvents =
 {-| The ServiceEvent data model.
 -}
 type alias ServiceEvent =
-    { createdAt : Maybe Timestamp, id : Maybe String_, message : Maybe String_ }
+    { createdAt : Maybe String, id : Maybe String, message : Maybe String }
 
 
 {-| The Service data model.
 -}
 type alias Service =
-    { clusterArn : Maybe String_
-    , createdAt : Maybe Timestamp
-    , createdBy : Maybe String_
+    { clusterArn : Maybe String
+    , createdAt : Maybe String
+    , createdBy : Maybe String
     , deploymentConfiguration : Maybe DeploymentConfiguration
     , deploymentController : Maybe DeploymentController
     , deployments : Maybe Deployments
-    , desiredCount : Maybe Integer
-    , enableEcsmanagedTags : Maybe Boolean
+    , desiredCount : Maybe Int
+    , enableEcsmanagedTags : Maybe Bool
     , events : Maybe ServiceEvents
-    , healthCheckGracePeriodSeconds : Maybe BoxedInteger
+    , healthCheckGracePeriodSeconds : Maybe Int
     , launchType : Maybe LaunchType
     , loadBalancers : Maybe LoadBalancers
     , networkConfiguration : Maybe NetworkConfiguration
-    , pendingCount : Maybe Integer
+    , pendingCount : Maybe Int
     , placementConstraints : Maybe PlacementConstraints
     , placementStrategy : Maybe PlacementStrategies
-    , platformVersion : Maybe String_
+    , platformVersion : Maybe String
     , propagateTags : Maybe PropagateTags
-    , roleArn : Maybe String_
-    , runningCount : Maybe Integer
+    , roleArn : Maybe String
+    , runningCount : Maybe Int
     , schedulingStrategy : Maybe SchedulingStrategy
-    , serviceArn : Maybe String_
-    , serviceName : Maybe String_
+    , serviceArn : Maybe String
+    , serviceName : Maybe String
     , serviceRegistries : Maybe ServiceRegistries
-    , status : Maybe String_
+    , status : Maybe String
     , tags : Maybe Tags
-    , taskDefinition : Maybe String_
+    , taskDefinition : Maybe String
     , taskSets : Maybe TaskSets
     }
 
@@ -2496,7 +2460,7 @@ type alias SecretList =
 {-| The Secret data model.
 -}
 type alias Secret =
-    { name : String_, valueFrom : String_ }
+    { name : String, valueFrom : String }
 
 
 {-| The Scope data model.
@@ -2567,7 +2531,7 @@ scaleUnit =
 {-| The Scale data model.
 -}
 type alias Scale =
-    { unit : Maybe ScaleUnit, value : Maybe Double }
+    { unit : Maybe ScaleUnit, value : Maybe Float }
 
 
 {-| The RunTaskResponse data model.
@@ -2579,20 +2543,20 @@ type alias RunTaskResponse =
 {-| The RunTaskRequest data model.
 -}
 type alias RunTaskRequest =
-    { cluster : Maybe String_
-    , count : Maybe BoxedInteger
-    , enableEcsmanagedTags : Maybe Boolean
-    , group : Maybe String_
+    { cluster : Maybe String
+    , count : Maybe Int
+    , enableEcsmanagedTags : Maybe Bool
+    , group : Maybe String
     , launchType : Maybe LaunchType
     , networkConfiguration : Maybe NetworkConfiguration
     , overrides : Maybe TaskOverride
     , placementConstraints : Maybe PlacementConstraints
     , placementStrategy : Maybe PlacementStrategies
-    , platformVersion : Maybe String_
+    , platformVersion : Maybe String
     , propagateTags : Maybe PropagateTags
-    , startedBy : Maybe String_
+    , startedBy : Maybe String
     , tags : Maybe Tags
-    , taskDefinition : String_
+    , taskDefinition : String
     }
 
 
@@ -2630,18 +2594,18 @@ type alias ResourceRequirements =
 {-| The ResourceRequirement data model.
 -}
 type alias ResourceRequirement =
-    { type_ : ResourceType, value : String_ }
+    { type_ : ResourceType, value : String }
 
 
 {-| The Resource data model.
 -}
 type alias Resource =
-    { doubleValue : Maybe Double
-    , integerValue : Maybe Integer
-    , longValue : Maybe Long
-    , name : Maybe String_
+    { doubleValue : Maybe Float
+    , integerValue : Maybe Int
+    , longValue : Maybe Int
+    , name : Maybe String
     , stringSetValue : Maybe StringList
-    , type_ : Maybe String_
+    , type_ : Maybe String
     }
 
 
@@ -2654,7 +2618,7 @@ type alias RequiresAttributes =
 {-| The RepositoryCredentials data model.
 -}
 type alias RepositoryCredentials =
-    { credentialsParameter : String_ }
+    { credentialsParameter : String }
 
 
 {-| The RegisterTaskDefinitionResponse data model.
@@ -2667,18 +2631,18 @@ type alias RegisterTaskDefinitionResponse =
 -}
 type alias RegisterTaskDefinitionRequest =
     { containerDefinitions : ContainerDefinitions
-    , cpu : Maybe String_
-    , executionRoleArn : Maybe String_
-    , family : String_
+    , cpu : Maybe String
+    , executionRoleArn : Maybe String
+    , family : String
     , ipcMode : Maybe IpcMode
-    , memory : Maybe String_
+    , memory : Maybe String
     , networkMode : Maybe NetworkMode
     , pidMode : Maybe PidMode
     , placementConstraints : Maybe TaskDefinitionPlacementConstraints
     , proxyConfiguration : Maybe ProxyConfiguration
     , requiresCompatibilities : Maybe CompatibilityList
     , tags : Maybe Tags
-    , taskRoleArn : Maybe String_
+    , taskRoleArn : Maybe String
     , volumes : Maybe VolumeList
     }
 
@@ -2693,10 +2657,10 @@ type alias RegisterContainerInstanceResponse =
 -}
 type alias RegisterContainerInstanceRequest =
     { attributes : Maybe Attributes
-    , cluster : Maybe String_
-    , containerInstanceArn : Maybe String_
-    , instanceIdentityDocument : Maybe String_
-    , instanceIdentityDocumentSignature : Maybe String_
+    , cluster : Maybe String
+    , containerInstanceArn : Maybe String
+    , instanceIdentityDocument : Maybe String
+    , instanceIdentityDocumentSignature : Maybe String
     , platformDevices : Maybe PlatformDevices
     , tags : Maybe Tags
     , totalResources : Maybe Resources
@@ -2713,7 +2677,7 @@ type alias PutAttributesResponse =
 {-| The PutAttributesRequest data model.
 -}
 type alias PutAttributesRequest =
-    { attributes : Attributes, cluster : Maybe String_ }
+    { attributes : Attributes, cluster : Maybe String }
 
 
 {-| The PutAccountSettingResponse data model.
@@ -2725,7 +2689,7 @@ type alias PutAccountSettingResponse =
 {-| The PutAccountSettingRequest data model.
 -}
 type alias PutAccountSettingRequest =
-    { name : SettingName, principalArn : Maybe String_, value : String_ }
+    { name : SettingName, principalArn : Maybe String, value : String }
 
 
 {-| The PutAccountSettingDefaultResponse data model.
@@ -2737,7 +2701,7 @@ type alias PutAccountSettingDefaultResponse =
 {-| The PutAccountSettingDefaultRequest data model.
 -}
 type alias PutAccountSettingDefaultRequest =
-    { name : SettingName, value : String_ }
+    { name : SettingName, value : String }
 
 
 {-| The ProxyConfigurationType data model.
@@ -2768,7 +2732,7 @@ type alias ProxyConfigurationProperties =
 {-| The ProxyConfiguration data model.
 -}
 type alias ProxyConfiguration =
-    { containerName : String_, properties : Maybe ProxyConfigurationProperties, type_ : Maybe ProxyConfigurationType }
+    { containerName : String, properties : Maybe ProxyConfigurationProperties, type_ : Maybe ProxyConfigurationType }
 
 
 {-| The PropagateTags data model.
@@ -2803,7 +2767,7 @@ type alias PortMappingList =
 {-| The PortMapping data model.
 -}
 type alias PortMapping =
-    { containerPort : Maybe BoxedInteger, hostPort : Maybe BoxedInteger, protocol : Maybe TransportProtocol }
+    { containerPort : Maybe Int, hostPort : Maybe Int, protocol : Maybe TransportProtocol }
 
 
 {-| The PlatformDevices data model.
@@ -2834,7 +2798,7 @@ platformDeviceType =
 {-| The PlatformDevice data model.
 -}
 type alias PlatformDevice =
-    { id : String_, type_ : PlatformDeviceType }
+    { id : String, type_ : PlatformDeviceType }
 
 
 {-| The PlacementStrategyType data model.
@@ -2867,7 +2831,7 @@ placementStrategyType =
 {-| The PlacementStrategy data model.
 -}
 type alias PlacementStrategy =
-    { field : Maybe String_, type_ : Maybe PlacementStrategyType }
+    { field : Maybe String, type_ : Maybe PlacementStrategyType }
 
 
 {-| The PlacementStrategies data model.
@@ -2908,7 +2872,7 @@ placementConstraintType =
 {-| The PlacementConstraint data model.
 -}
 type alias PlacementConstraint =
-    { expression : Maybe String_, type_ : Maybe PlacementConstraintType }
+    { expression : Maybe String, type_ : Maybe PlacementConstraintType }
 
 
 {-| The PidMode data model.
@@ -2974,7 +2938,7 @@ type alias NetworkInterfaces =
 {-| The NetworkInterface data model.
 -}
 type alias NetworkInterface =
-    { attachmentId : Maybe String_, ipv6Address : Maybe String_, privateIpv4Address : Maybe String_ }
+    { attachmentId : Maybe String, ipv6Address : Maybe String, privateIpv4Address : Maybe String }
 
 
 {-| The NetworkConfiguration data model.
@@ -2992,11 +2956,7 @@ type alias NetworkBindings =
 {-| The NetworkBinding data model.
 -}
 type alias NetworkBinding =
-    { bindIp : Maybe String_
-    , containerPort : Maybe BoxedInteger
-    , hostPort : Maybe BoxedInteger
-    , protocol : Maybe TransportProtocol
-    }
+    { bindIp : Maybe String, containerPort : Maybe Int, hostPort : Maybe Int, protocol : Maybe TransportProtocol }
 
 
 {-| The MountPointList data model.
@@ -3008,13 +2968,7 @@ type alias MountPointList =
 {-| The MountPoint data model.
 -}
 type alias MountPoint =
-    { containerPath : Maybe String_, readOnly : Maybe BoxedBoolean, sourceVolume : Maybe String_ }
-
-
-{-| The Long data model.
--}
-type alias Long =
-    Int
+    { containerPath : Maybe String, readOnly : Maybe Bool, sourceVolume : Maybe String }
 
 
 {-| The LogDriver data model.
@@ -3070,7 +3024,7 @@ logDriver =
 {-| The LogConfigurationOptionsMap data model.
 -}
 type alias LogConfigurationOptionsMap =
-    Dict String_ String_
+    Dict String String
 
 
 {-| The LogConfiguration data model.
@@ -3088,46 +3042,46 @@ type alias LoadBalancers =
 {-| The LoadBalancer data model.
 -}
 type alias LoadBalancer =
-    { containerName : Maybe String_
-    , containerPort : Maybe BoxedInteger
-    , loadBalancerName : Maybe String_
-    , targetGroupArn : Maybe String_
+    { containerName : Maybe String
+    , containerPort : Maybe Int
+    , loadBalancerName : Maybe String
+    , targetGroupArn : Maybe String
     }
 
 
 {-| The ListTasksResponse data model.
 -}
 type alias ListTasksResponse =
-    { nextToken : Maybe String_, taskArns : Maybe StringList }
+    { nextToken : Maybe String, taskArns : Maybe StringList }
 
 
 {-| The ListTasksRequest data model.
 -}
 type alias ListTasksRequest =
-    { cluster : Maybe String_
-    , containerInstance : Maybe String_
+    { cluster : Maybe String
+    , containerInstance : Maybe String
     , desiredStatus : Maybe DesiredStatus
-    , family : Maybe String_
+    , family : Maybe String
     , launchType : Maybe LaunchType
-    , maxResults : Maybe BoxedInteger
-    , nextToken : Maybe String_
-    , serviceName : Maybe String_
-    , startedBy : Maybe String_
+    , maxResults : Maybe Int
+    , nextToken : Maybe String
+    , serviceName : Maybe String
+    , startedBy : Maybe String
     }
 
 
 {-| The ListTaskDefinitionsResponse data model.
 -}
 type alias ListTaskDefinitionsResponse =
-    { nextToken : Maybe String_, taskDefinitionArns : Maybe StringList }
+    { nextToken : Maybe String, taskDefinitionArns : Maybe StringList }
 
 
 {-| The ListTaskDefinitionsRequest data model.
 -}
 type alias ListTaskDefinitionsRequest =
-    { familyPrefix : Maybe String_
-    , maxResults : Maybe BoxedInteger
-    , nextToken : Maybe String_
+    { familyPrefix : Maybe String
+    , maxResults : Maybe Int
+    , nextToken : Maybe String
     , sort : Maybe SortOrder
     , status : Maybe TaskDefinitionStatus
     }
@@ -3136,15 +3090,15 @@ type alias ListTaskDefinitionsRequest =
 {-| The ListTaskDefinitionFamiliesResponse data model.
 -}
 type alias ListTaskDefinitionFamiliesResponse =
-    { families : Maybe StringList, nextToken : Maybe String_ }
+    { families : Maybe StringList, nextToken : Maybe String }
 
 
 {-| The ListTaskDefinitionFamiliesRequest data model.
 -}
 type alias ListTaskDefinitionFamiliesRequest =
-    { familyPrefix : Maybe String_
-    , maxResults : Maybe BoxedInteger
-    , nextToken : Maybe String_
+    { familyPrefix : Maybe String
+    , maxResults : Maybe Int
+    , nextToken : Maybe String
     , status : Maybe TaskDefinitionFamilyStatus
     }
 
@@ -3158,22 +3112,22 @@ type alias ListTagsForResourceResponse =
 {-| The ListTagsForResourceRequest data model.
 -}
 type alias ListTagsForResourceRequest =
-    { resourceArn : String_ }
+    { resourceArn : String }
 
 
 {-| The ListServicesResponse data model.
 -}
 type alias ListServicesResponse =
-    { nextToken : Maybe String_, serviceArns : Maybe StringList }
+    { nextToken : Maybe String, serviceArns : Maybe StringList }
 
 
 {-| The ListServicesRequest data model.
 -}
 type alias ListServicesRequest =
-    { cluster : Maybe String_
+    { cluster : Maybe String
     , launchType : Maybe LaunchType
-    , maxResults : Maybe BoxedInteger
-    , nextToken : Maybe String_
+    , maxResults : Maybe Int
+    , nextToken : Maybe String
     , schedulingStrategy : Maybe SchedulingStrategy
     }
 
@@ -3181,16 +3135,16 @@ type alias ListServicesRequest =
 {-| The ListContainerInstancesResponse data model.
 -}
 type alias ListContainerInstancesResponse =
-    { containerInstanceArns : Maybe StringList, nextToken : Maybe String_ }
+    { containerInstanceArns : Maybe StringList, nextToken : Maybe String }
 
 
 {-| The ListContainerInstancesRequest data model.
 -}
 type alias ListContainerInstancesRequest =
-    { cluster : Maybe String_
-    , filter : Maybe String_
-    , maxResults : Maybe BoxedInteger
-    , nextToken : Maybe String_
+    { cluster : Maybe String
+    , filter : Maybe String
+    , maxResults : Maybe Int
+    , nextToken : Maybe String
     , status : Maybe ContainerInstanceStatus
     }
 
@@ -3198,29 +3152,29 @@ type alias ListContainerInstancesRequest =
 {-| The ListClustersResponse data model.
 -}
 type alias ListClustersResponse =
-    { clusterArns : Maybe StringList, nextToken : Maybe String_ }
+    { clusterArns : Maybe StringList, nextToken : Maybe String }
 
 
 {-| The ListClustersRequest data model.
 -}
 type alias ListClustersRequest =
-    { maxResults : Maybe BoxedInteger, nextToken : Maybe String_ }
+    { maxResults : Maybe Int, nextToken : Maybe String }
 
 
 {-| The ListAttributesResponse data model.
 -}
 type alias ListAttributesResponse =
-    { attributes : Maybe Attributes, nextToken : Maybe String_ }
+    { attributes : Maybe Attributes, nextToken : Maybe String }
 
 
 {-| The ListAttributesRequest data model.
 -}
 type alias ListAttributesRequest =
-    { attributeName : Maybe String_
-    , attributeValue : Maybe String_
-    , cluster : Maybe String_
-    , maxResults : Maybe BoxedInteger
-    , nextToken : Maybe String_
+    { attributeName : Maybe String
+    , attributeValue : Maybe String
+    , cluster : Maybe String
+    , maxResults : Maybe Int
+    , nextToken : Maybe String
     , targetType : TargetType
     }
 
@@ -3228,18 +3182,18 @@ type alias ListAttributesRequest =
 {-| The ListAccountSettingsResponse data model.
 -}
 type alias ListAccountSettingsResponse =
-    { nextToken : Maybe String_, settings : Maybe Settings }
+    { nextToken : Maybe String, settings : Maybe Settings }
 
 
 {-| The ListAccountSettingsRequest data model.
 -}
 type alias ListAccountSettingsRequest =
-    { effectiveSettings : Maybe Boolean
-    , maxResults : Maybe Integer
+    { effectiveSettings : Maybe Bool
+    , maxResults : Maybe Int
     , name : Maybe SettingName
-    , nextToken : Maybe String_
-    , principalArn : Maybe String_
-    , value : Maybe String_
+    , nextToken : Maybe String
+    , principalArn : Maybe String
+    , value : Maybe String
     }
 
 
@@ -3248,8 +3202,8 @@ type alias ListAccountSettingsRequest =
 type alias LinuxParameters =
     { capabilities : Maybe KernelCapabilities
     , devices : Maybe DevicesList
-    , initProcessEnabled : Maybe BoxedBoolean
-    , sharedMemorySize : Maybe BoxedInteger
+    , initProcessEnabled : Maybe Bool
+    , sharedMemorySize : Maybe Int
     , tmpfs : Maybe TmpfsList
     }
 
@@ -3280,7 +3234,7 @@ launchType =
 {-| The KeyValuePair data model.
 -}
 type alias KeyValuePair =
-    { name : Maybe String_, value : Maybe String_ }
+    { name : Maybe String, value : Maybe String }
 
 
 {-| The KernelCapabilities data model.
@@ -3316,16 +3270,10 @@ ipcMode =
         )
 
 
-{-| The Integer data model.
--}
-type alias Integer =
-    Int
-
-
 {-| The HostVolumeProperties data model.
 -}
 type alias HostVolumeProperties =
-    { sourcePath : Maybe String_ }
+    { sourcePath : Maybe String }
 
 
 {-| The HostEntryList data model.
@@ -3337,7 +3285,7 @@ type alias HostEntryList =
 {-| The HostEntry data model.
 -}
 type alias HostEntry =
-    { hostname : String_, ipAddress : String_ }
+    { hostname : String, ipAddress : String }
 
 
 {-| The HealthStatus data model.
@@ -3370,18 +3318,13 @@ healthStatus =
 {-| The HealthCheck data model.
 -}
 type alias HealthCheck =
-    { command : StringList
-    , interval : Maybe BoxedInteger
-    , retries : Maybe BoxedInteger
-    , startPeriod : Maybe BoxedInteger
-    , timeout : Maybe BoxedInteger
-    }
+    { command : StringList, interval : Maybe Int, retries : Maybe Int, startPeriod : Maybe Int, timeout : Maybe Int }
 
 
 {-| The GpuIds data model.
 -}
 type alias GpuIds =
-    List String_
+    List String
 
 
 {-| The Failures data model.
@@ -3393,7 +3336,7 @@ type alias Failures =
 {-| The Failure data model.
 -}
 type alias Failure =
-    { arn : Maybe String_, reason : Maybe String_ }
+    { arn : Maybe String, reason : Maybe String }
 
 
 {-| The EnvironmentVariables data model.
@@ -3402,17 +3345,11 @@ type alias EnvironmentVariables =
     List KeyValuePair
 
 
-{-| The Double data model.
--}
-type alias Double =
-    Float
-
-
 {-| The DockerVolumeConfiguration data model.
 -}
 type alias DockerVolumeConfiguration =
-    { autoprovision : Maybe BoxedBoolean
-    , driver : Maybe String_
+    { autoprovision : Maybe Bool
+    , driver : Maybe String
     , driverOpts : Maybe StringMap
     , labels : Maybe StringMap
     , scope : Maybe Scope
@@ -3422,19 +3359,19 @@ type alias DockerVolumeConfiguration =
 {-| The DockerLabelsMap data model.
 -}
 type alias DockerLabelsMap =
-    Dict String_ String_
+    Dict String String
 
 
 {-| The DiscoverPollEndpointResponse data model.
 -}
 type alias DiscoverPollEndpointResponse =
-    { endpoint : Maybe String_, telemetryEndpoint : Maybe String_ }
+    { endpoint : Maybe String, telemetryEndpoint : Maybe String }
 
 
 {-| The DiscoverPollEndpointRequest data model.
 -}
 type alias DiscoverPollEndpointRequest =
-    { cluster : Maybe String_, containerInstance : Maybe String_ }
+    { cluster : Maybe String, containerInstance : Maybe String }
 
 
 {-| The DevicesList data model.
@@ -3479,7 +3416,7 @@ deviceCgroupPermission =
 {-| The Device data model.
 -}
 type alias Device =
-    { containerPath : Maybe String_, hostPath : String_, permissions : Maybe DeviceCgroupPermissions }
+    { containerPath : Maybe String, hostPath : String, permissions : Maybe DeviceCgroupPermissions }
 
 
 {-| The DesiredStatus data model.
@@ -3518,7 +3455,7 @@ type alias DescribeTasksResponse =
 {-| The DescribeTasksRequest data model.
 -}
 type alias DescribeTasksRequest =
-    { cluster : Maybe String_, include : Maybe TaskFieldList, tasks : StringList }
+    { cluster : Maybe String, include : Maybe TaskFieldList, tasks : StringList }
 
 
 {-| The DescribeTaskSetsResponse data model.
@@ -3530,7 +3467,7 @@ type alias DescribeTaskSetsResponse =
 {-| The DescribeTaskSetsRequest data model.
 -}
 type alias DescribeTaskSetsRequest =
-    { cluster : String_, service : String_, taskSets : Maybe StringList }
+    { cluster : String, service : String, taskSets : Maybe StringList }
 
 
 {-| The DescribeTaskDefinitionResponse data model.
@@ -3542,7 +3479,7 @@ type alias DescribeTaskDefinitionResponse =
 {-| The DescribeTaskDefinitionRequest data model.
 -}
 type alias DescribeTaskDefinitionRequest =
-    { include : Maybe TaskDefinitionFieldList, taskDefinition : String_ }
+    { include : Maybe TaskDefinitionFieldList, taskDefinition : String }
 
 
 {-| The DescribeServicesResponse data model.
@@ -3554,7 +3491,7 @@ type alias DescribeServicesResponse =
 {-| The DescribeServicesRequest data model.
 -}
 type alias DescribeServicesRequest =
-    { cluster : Maybe String_, include : Maybe ServiceFieldList, services : StringList }
+    { cluster : Maybe String, include : Maybe ServiceFieldList, services : StringList }
 
 
 {-| The DescribeContainerInstancesResponse data model.
@@ -3566,7 +3503,7 @@ type alias DescribeContainerInstancesResponse =
 {-| The DescribeContainerInstancesRequest data model.
 -}
 type alias DescribeContainerInstancesRequest =
-    { cluster : Maybe String_, containerInstances : StringList, include : Maybe ContainerInstanceFieldList }
+    { cluster : Maybe String, containerInstances : StringList, include : Maybe ContainerInstanceFieldList }
 
 
 {-| The DescribeClustersResponse data model.
@@ -3590,7 +3527,7 @@ type alias DeregisterTaskDefinitionResponse =
 {-| The DeregisterTaskDefinitionRequest data model.
 -}
 type alias DeregisterTaskDefinitionRequest =
-    { taskDefinition : String_ }
+    { taskDefinition : String }
 
 
 {-| The DeregisterContainerInstanceResponse data model.
@@ -3602,7 +3539,7 @@ type alias DeregisterContainerInstanceResponse =
 {-| The DeregisterContainerInstanceRequest data model.
 -}
 type alias DeregisterContainerInstanceRequest =
-    { cluster : Maybe String_, containerInstance : String_, force : Maybe BoxedBoolean }
+    { cluster : Maybe String, containerInstance : String, force : Maybe Bool }
 
 
 {-| The Deployments data model.
@@ -3647,23 +3584,23 @@ type alias DeploymentController =
 {-| The DeploymentConfiguration data model.
 -}
 type alias DeploymentConfiguration =
-    { maximumPercent : Maybe BoxedInteger, minimumHealthyPercent : Maybe BoxedInteger }
+    { maximumPercent : Maybe Int, minimumHealthyPercent : Maybe Int }
 
 
 {-| The Deployment data model.
 -}
 type alias Deployment =
-    { createdAt : Maybe Timestamp
-    , desiredCount : Maybe Integer
-    , id : Maybe String_
+    { createdAt : Maybe String
+    , desiredCount : Maybe Int
+    , id : Maybe String
     , launchType : Maybe LaunchType
     , networkConfiguration : Maybe NetworkConfiguration
-    , pendingCount : Maybe Integer
-    , platformVersion : Maybe String_
-    , runningCount : Maybe Integer
-    , status : Maybe String_
-    , taskDefinition : Maybe String_
-    , updatedAt : Maybe Timestamp
+    , pendingCount : Maybe Int
+    , platformVersion : Maybe String
+    , runningCount : Maybe Int
+    , status : Maybe String
+    , taskDefinition : Maybe String
+    , updatedAt : Maybe String
     }
 
 
@@ -3676,7 +3613,7 @@ type alias DeleteTaskSetResponse =
 {-| The DeleteTaskSetRequest data model.
 -}
 type alias DeleteTaskSetRequest =
-    { cluster : String_, force : Maybe BoxedBoolean, service : String_, taskSet : String_ }
+    { cluster : String, force : Maybe Bool, service : String, taskSet : String }
 
 
 {-| The DeleteServiceResponse data model.
@@ -3688,7 +3625,7 @@ type alias DeleteServiceResponse =
 {-| The DeleteServiceRequest data model.
 -}
 type alias DeleteServiceRequest =
-    { cluster : Maybe String_, force : Maybe BoxedBoolean, service : String_ }
+    { cluster : Maybe String, force : Maybe Bool, service : String }
 
 
 {-| The DeleteClusterResponse data model.
@@ -3700,7 +3637,7 @@ type alias DeleteClusterResponse =
 {-| The DeleteClusterRequest data model.
 -}
 type alias DeleteClusterRequest =
-    { cluster : String_ }
+    { cluster : String }
 
 
 {-| The DeleteAttributesResponse data model.
@@ -3712,7 +3649,7 @@ type alias DeleteAttributesResponse =
 {-| The DeleteAttributesRequest data model.
 -}
 type alias DeleteAttributesRequest =
-    { attributes : Attributes, cluster : Maybe String_ }
+    { attributes : Attributes, cluster : Maybe String }
 
 
 {-| The DeleteAccountSettingResponse data model.
@@ -3724,7 +3661,7 @@ type alias DeleteAccountSettingResponse =
 {-| The DeleteAccountSettingRequest data model.
 -}
 type alias DeleteAccountSettingRequest =
-    { name : SettingName, principalArn : Maybe String_ }
+    { name : SettingName, principalArn : Maybe String }
 
 
 {-| The CreateTaskSetResponse data model.
@@ -3736,17 +3673,17 @@ type alias CreateTaskSetResponse =
 {-| The CreateTaskSetRequest data model.
 -}
 type alias CreateTaskSetRequest =
-    { clientToken : Maybe String_
-    , cluster : String_
-    , externalId : Maybe String_
+    { clientToken : Maybe String
+    , cluster : String
+    , externalId : Maybe String
     , launchType : Maybe LaunchType
     , loadBalancers : Maybe LoadBalancers
     , networkConfiguration : Maybe NetworkConfiguration
-    , platformVersion : Maybe String_
+    , platformVersion : Maybe String
     , scale : Maybe Scale
-    , service : String_
+    , service : String
     , serviceRegistries : Maybe ServiceRegistries
-    , taskDefinition : String_
+    , taskDefinition : String
     }
 
 
@@ -3759,26 +3696,26 @@ type alias CreateServiceResponse =
 {-| The CreateServiceRequest data model.
 -}
 type alias CreateServiceRequest =
-    { clientToken : Maybe String_
-    , cluster : Maybe String_
+    { clientToken : Maybe String
+    , cluster : Maybe String
     , deploymentConfiguration : Maybe DeploymentConfiguration
     , deploymentController : Maybe DeploymentController
-    , desiredCount : Maybe BoxedInteger
-    , enableEcsmanagedTags : Maybe Boolean
-    , healthCheckGracePeriodSeconds : Maybe BoxedInteger
+    , desiredCount : Maybe Int
+    , enableEcsmanagedTags : Maybe Bool
+    , healthCheckGracePeriodSeconds : Maybe Int
     , launchType : Maybe LaunchType
     , loadBalancers : Maybe LoadBalancers
     , networkConfiguration : Maybe NetworkConfiguration
     , placementConstraints : Maybe PlacementConstraints
     , placementStrategy : Maybe PlacementStrategies
-    , platformVersion : Maybe String_
+    , platformVersion : Maybe String
     , propagateTags : Maybe PropagateTags
-    , role : Maybe String_
+    , role : Maybe String
     , schedulingStrategy : Maybe SchedulingStrategy
-    , serviceName : String_
+    , serviceName : String
     , serviceRegistries : Maybe ServiceRegistries
     , tags : Maybe Tags
-    , taskDefinition : Maybe String_
+    , taskDefinition : Maybe String
     }
 
 
@@ -3791,7 +3728,7 @@ type alias CreateClusterResponse =
 {-| The CreateClusterRequest data model.
 -}
 type alias CreateClusterRequest =
-    { clusterName : Maybe String_, settings : Maybe ClusterSettings, tags : Maybe Tags }
+    { clusterName : Maybe String, settings : Maybe ClusterSettings, tags : Maybe Tags }
 
 
 {-| The Containers data model.
@@ -3809,11 +3746,11 @@ type alias ContainerStateChanges =
 {-| The ContainerStateChange data model.
 -}
 type alias ContainerStateChange =
-    { containerName : Maybe String_
-    , exitCode : Maybe BoxedInteger
+    { containerName : Maybe String
+    , exitCode : Maybe Int
     , networkBindings : Maybe NetworkBindings
-    , reason : Maybe String_
-    , status : Maybe String_
+    , reason : Maybe String
+    , status : Maybe String
     }
 
 
@@ -3827,11 +3764,11 @@ type alias ContainerOverrides =
 -}
 type alias ContainerOverride =
     { command : Maybe StringList
-    , cpu : Maybe BoxedInteger
+    , cpu : Maybe Int
     , environment : Maybe EnvironmentVariables
-    , memory : Maybe BoxedInteger
-    , memoryReservation : Maybe BoxedInteger
-    , name : Maybe String_
+    , memory : Maybe Int
+    , memoryReservation : Maybe Int
+    , name : Maybe String
     , resourceRequirements : Maybe ResourceRequirements
     }
 
@@ -3910,21 +3847,21 @@ containerInstanceField =
 {-| The ContainerInstance data model.
 -}
 type alias ContainerInstance =
-    { agentConnected : Maybe Boolean
+    { agentConnected : Maybe Bool
     , agentUpdateStatus : Maybe AgentUpdateStatus
     , attachments : Maybe Attachments
     , attributes : Maybe Attributes
-    , containerInstanceArn : Maybe String_
-    , ec2InstanceId : Maybe String_
-    , pendingTasksCount : Maybe Integer
-    , registeredAt : Maybe Timestamp
+    , containerInstanceArn : Maybe String
+    , ec2InstanceId : Maybe String
+    , pendingTasksCount : Maybe Int
+    , registeredAt : Maybe String
     , registeredResources : Maybe Resources
     , remainingResources : Maybe Resources
-    , runningTasksCount : Maybe Integer
-    , status : Maybe String_
-    , statusReason : Maybe String_
+    , runningTasksCount : Maybe Int
+    , status : Maybe String
+    , statusReason : Maybe String
     , tags : Maybe Tags
-    , version : Maybe Long
+    , version : Maybe Int
     , versionInfo : Maybe VersionInfo
     }
 
@@ -3932,7 +3869,7 @@ type alias ContainerInstance =
 {-| The ContainerDependency data model.
 -}
 type alias ContainerDependency =
-    { condition : ContainerCondition, containerName : String_ }
+    { condition : ContainerCondition, containerName : String }
 
 
 {-| The ContainerDependencies data model.
@@ -3951,42 +3888,42 @@ type alias ContainerDefinitions =
 -}
 type alias ContainerDefinition =
     { command : Maybe StringList
-    , cpu : Maybe Integer
+    , cpu : Maybe Int
     , dependsOn : Maybe ContainerDependencies
-    , disableNetworking : Maybe BoxedBoolean
+    , disableNetworking : Maybe Bool
     , dnsSearchDomains : Maybe StringList
     , dnsServers : Maybe StringList
     , dockerLabels : Maybe DockerLabelsMap
     , dockerSecurityOptions : Maybe StringList
     , entryPoint : Maybe StringList
     , environment : Maybe EnvironmentVariables
-    , essential : Maybe BoxedBoolean
+    , essential : Maybe Bool
     , extraHosts : Maybe HostEntryList
     , healthCheck : Maybe HealthCheck
-    , hostname : Maybe String_
-    , image : Maybe String_
-    , interactive : Maybe BoxedBoolean
+    , hostname : Maybe String
+    , image : Maybe String
+    , interactive : Maybe Bool
     , links : Maybe StringList
     , linuxParameters : Maybe LinuxParameters
     , logConfiguration : Maybe LogConfiguration
-    , memory : Maybe BoxedInteger
-    , memoryReservation : Maybe BoxedInteger
+    , memory : Maybe Int
+    , memoryReservation : Maybe Int
     , mountPoints : Maybe MountPointList
-    , name : Maybe String_
+    , name : Maybe String
     , portMappings : Maybe PortMappingList
-    , privileged : Maybe BoxedBoolean
-    , pseudoTerminal : Maybe BoxedBoolean
-    , readonlyRootFilesystem : Maybe BoxedBoolean
+    , privileged : Maybe Bool
+    , pseudoTerminal : Maybe Bool
+    , readonlyRootFilesystem : Maybe Bool
     , repositoryCredentials : Maybe RepositoryCredentials
     , resourceRequirements : Maybe ResourceRequirements
     , secrets : Maybe SecretList
-    , startTimeout : Maybe BoxedInteger
-    , stopTimeout : Maybe BoxedInteger
+    , startTimeout : Maybe Int
+    , stopTimeout : Maybe Int
     , systemControls : Maybe SystemControls
     , ulimits : Maybe UlimitList
-    , user : Maybe String_
+    , user : Maybe String
     , volumesFrom : Maybe VolumeFromList
-    , workingDirectory : Maybe String_
+    , workingDirectory : Maybe String
     }
 
 
@@ -4024,19 +3961,19 @@ containerCondition =
 {-| The Container data model.
 -}
 type alias Container =
-    { containerArn : Maybe String_
-    , cpu : Maybe String_
-    , exitCode : Maybe BoxedInteger
+    { containerArn : Maybe String
+    , cpu : Maybe String
+    , exitCode : Maybe Int
     , gpuIds : Maybe GpuIds
     , healthStatus : Maybe HealthStatus
-    , lastStatus : Maybe String_
-    , memory : Maybe String_
-    , memoryReservation : Maybe String_
-    , name : Maybe String_
+    , lastStatus : Maybe String
+    , memory : Maybe String
+    , memoryReservation : Maybe String
+    , name : Maybe String
     , networkBindings : Maybe NetworkBindings
     , networkInterfaces : Maybe NetworkInterfaces
-    , reason : Maybe String_
-    , taskArn : Maybe String_
+    , reason : Maybe String
+    , taskArn : Maybe String
     }
 
 
@@ -4126,7 +4063,7 @@ clusterSettingName =
 {-| The ClusterSetting data model.
 -}
 type alias ClusterSetting =
-    { name : Maybe ClusterSettingName, value : Maybe String_ }
+    { name : Maybe ClusterSettingName, value : Maybe String }
 
 
 {-| The ClusterFieldList data model.
@@ -4161,35 +4098,17 @@ clusterField =
 {-| The Cluster data model.
 -}
 type alias Cluster =
-    { activeServicesCount : Maybe Integer
-    , clusterArn : Maybe String_
-    , clusterName : Maybe String_
-    , pendingTasksCount : Maybe Integer
-    , registeredContainerInstancesCount : Maybe Integer
-    , runningTasksCount : Maybe Integer
+    { activeServicesCount : Maybe Int
+    , clusterArn : Maybe String
+    , clusterName : Maybe String
+    , pendingTasksCount : Maybe Int
+    , registeredContainerInstancesCount : Maybe Int
+    , runningTasksCount : Maybe Int
     , settings : Maybe ClusterSettings
     , statistics : Maybe Statistics
-    , status : Maybe String_
+    , status : Maybe String
     , tags : Maybe Tags
     }
-
-
-{-| The BoxedInteger data model.
--}
-type alias BoxedInteger =
-    Int
-
-
-{-| The BoxedBoolean data model.
--}
-type alias BoxedBoolean =
-    Bool
-
-
-{-| The Boolean data model.
--}
-type alias Boolean =
-    Bool
 
 
 {-| The AwsVpcConfiguration data model.
@@ -4207,7 +4126,7 @@ type alias Attributes =
 {-| The Attribute data model.
 -}
 type alias Attribute =
-    { name : String_, targetId : Maybe String_, targetType : Maybe TargetType, value : Maybe String_ }
+    { name : String, targetId : Maybe String, targetType : Maybe TargetType, value : Maybe String }
 
 
 {-| The Attachments data model.
@@ -4225,7 +4144,7 @@ type alias AttachmentStateChanges =
 {-| The AttachmentStateChange data model.
 -}
 type alias AttachmentStateChange =
-    { attachmentArn : String_, status : String_ }
+    { attachmentArn : String, status : String }
 
 
 {-| The AttachmentDetails data model.
@@ -4237,7 +4156,7 @@ type alias AttachmentDetails =
 {-| The Attachment data model.
 -}
 type alias Attachment =
-    { details : Maybe AttachmentDetails, id : Maybe String_, status : Maybe String_, type_ : Maybe String_ }
+    { details : Maybe AttachmentDetails, id : Maybe String, status : Maybe String, type_ : Maybe String }
 
 
 {-| The AssignPublicIp data model.
@@ -4328,9 +4247,9 @@ attachmentDecoder : Decoder Attachment
 attachmentDecoder =
     Json.Decode.succeed Attachment
         |> Pipeline.optional "details" (Json.Decode.maybe attachmentDetailsDecoder) Nothing
-        |> Pipeline.optional "id" (Json.Decode.maybe (Codec.decoder stringCodec)) Nothing
-        |> Pipeline.optional "status" (Json.Decode.maybe (Codec.decoder stringCodec)) Nothing
-        |> Pipeline.optional "type" (Json.Decode.maybe (Codec.decoder stringCodec)) Nothing
+        |> Pipeline.optional "id" (Json.Decode.maybe Json.Decode.string) Nothing
+        |> Pipeline.optional "status" (Json.Decode.maybe Json.Decode.string) Nothing
+        |> Pipeline.optional "type" (Json.Decode.maybe Json.Decode.string) Nothing
 
 
 {-| Decoder for AttachmentDetails.
@@ -4344,8 +4263,8 @@ attachmentDetailsDecoder =
 -}
 attachmentStateChangeEncoder : AttachmentStateChange -> Value
 attachmentStateChangeEncoder val =
-    [ ( "attachmentArn", val.attachmentArn ) |> EncodeOpt.field (Codec.encoder stringCodec)
-    , ( "status", val.status ) |> EncodeOpt.field (Codec.encoder stringCodec)
+    [ ( "attachmentArn", val.attachmentArn ) |> EncodeOpt.field Json.Encode.string
+    , ( "status", val.status ) |> EncodeOpt.field Json.Encode.string
     ]
         |> EncodeOpt.objectMaySkip
 
@@ -4369,10 +4288,10 @@ attachmentsDecoder =
 attributeCodec : Codec Attribute
 attributeCodec =
     Codec.object Attribute
-        |> Codec.field "name" .name stringCodec
-        |> Codec.optionalField "targetId" .targetId stringCodec
+        |> Codec.field "name" .name Codec.string
+        |> Codec.optionalField "targetId" .targetId Codec.string
         |> Codec.optionalField "targetType" .targetType targetTypeCodec
-        |> Codec.optionalField "value" .value stringCodec
+        |> Codec.optionalField "value" .value Codec.string
         |> Codec.buildObject
 
 
@@ -4394,44 +4313,20 @@ awsVpcConfigurationCodec =
         |> Codec.buildObject
 
 
-{-| Codec for Boolean.
--}
-booleanCodec : Codec Boolean
-booleanCodec =
-    Codec.bool
-
-
-{-| Codec for BoxedBoolean.
--}
-boxedBooleanCodec : Codec BoxedBoolean
-boxedBooleanCodec =
-    Codec.bool
-
-
-{-| Codec for BoxedInteger.
--}
-boxedIntegerCodec : Codec BoxedInteger
-boxedIntegerCodec =
-    Codec.int
-
-
 {-| Decoder for Cluster.
 -}
 clusterDecoder : Decoder Cluster
 clusterDecoder =
     Json.Decode.succeed Cluster
-        |> Pipeline.optional "activeServicesCount" (Json.Decode.maybe (Codec.decoder integerCodec)) Nothing
-        |> Pipeline.optional "clusterArn" (Json.Decode.maybe (Codec.decoder stringCodec)) Nothing
-        |> Pipeline.optional "clusterName" (Json.Decode.maybe (Codec.decoder stringCodec)) Nothing
-        |> Pipeline.optional "pendingTasksCount" (Json.Decode.maybe (Codec.decoder integerCodec)) Nothing
-        |> Pipeline.optional
-            "registeredContainerInstancesCount"
-            (Json.Decode.maybe (Codec.decoder integerCodec))
-            Nothing
-        |> Pipeline.optional "runningTasksCount" (Json.Decode.maybe (Codec.decoder integerCodec)) Nothing
+        |> Pipeline.optional "activeServicesCount" (Json.Decode.maybe Json.Decode.int) Nothing
+        |> Pipeline.optional "clusterArn" (Json.Decode.maybe Json.Decode.string) Nothing
+        |> Pipeline.optional "clusterName" (Json.Decode.maybe Json.Decode.string) Nothing
+        |> Pipeline.optional "pendingTasksCount" (Json.Decode.maybe Json.Decode.int) Nothing
+        |> Pipeline.optional "registeredContainerInstancesCount" (Json.Decode.maybe Json.Decode.int) Nothing
+        |> Pipeline.optional "runningTasksCount" (Json.Decode.maybe Json.Decode.int) Nothing
         |> Pipeline.optional "settings" (Json.Decode.maybe (Codec.decoder clusterSettingsCodec)) Nothing
         |> Pipeline.optional "statistics" (Json.Decode.maybe statisticsDecoder) Nothing
-        |> Pipeline.optional "status" (Json.Decode.maybe (Codec.decoder stringCodec)) Nothing
+        |> Pipeline.optional "status" (Json.Decode.maybe Json.Decode.string) Nothing
         |> Pipeline.optional "tags" (Json.Decode.maybe (Codec.decoder tagsCodec)) Nothing
 
 
@@ -4455,7 +4350,7 @@ clusterSettingCodec : Codec ClusterSetting
 clusterSettingCodec =
     Codec.object ClusterSetting
         |> Codec.optionalField "name" .name clusterSettingNameCodec
-        |> Codec.optionalField "value" .value stringCodec
+        |> Codec.optionalField "value" .value Codec.string
         |> Codec.buildObject
 
 
@@ -4506,19 +4401,19 @@ connectivityDecoder =
 containerDecoder : Decoder Container
 containerDecoder =
     Json.Decode.succeed Container
-        |> Pipeline.optional "containerArn" (Json.Decode.maybe (Codec.decoder stringCodec)) Nothing
-        |> Pipeline.optional "cpu" (Json.Decode.maybe (Codec.decoder stringCodec)) Nothing
-        |> Pipeline.optional "exitCode" (Json.Decode.maybe (Codec.decoder boxedIntegerCodec)) Nothing
+        |> Pipeline.optional "containerArn" (Json.Decode.maybe Json.Decode.string) Nothing
+        |> Pipeline.optional "cpu" (Json.Decode.maybe Json.Decode.string) Nothing
+        |> Pipeline.optional "exitCode" (Json.Decode.maybe Json.Decode.int) Nothing
         |> Pipeline.optional "gpuIds" (Json.Decode.maybe gpuIdsDecoder) Nothing
         |> Pipeline.optional "healthStatus" (Json.Decode.maybe healthStatusDecoder) Nothing
-        |> Pipeline.optional "lastStatus" (Json.Decode.maybe (Codec.decoder stringCodec)) Nothing
-        |> Pipeline.optional "memory" (Json.Decode.maybe (Codec.decoder stringCodec)) Nothing
-        |> Pipeline.optional "memoryReservation" (Json.Decode.maybe (Codec.decoder stringCodec)) Nothing
-        |> Pipeline.optional "name" (Json.Decode.maybe (Codec.decoder stringCodec)) Nothing
+        |> Pipeline.optional "lastStatus" (Json.Decode.maybe Json.Decode.string) Nothing
+        |> Pipeline.optional "memory" (Json.Decode.maybe Json.Decode.string) Nothing
+        |> Pipeline.optional "memoryReservation" (Json.Decode.maybe Json.Decode.string) Nothing
+        |> Pipeline.optional "name" (Json.Decode.maybe Json.Decode.string) Nothing
         |> Pipeline.optional "networkBindings" (Json.Decode.maybe (Codec.decoder networkBindingsCodec)) Nothing
         |> Pipeline.optional "networkInterfaces" (Json.Decode.maybe networkInterfacesDecoder) Nothing
-        |> Pipeline.optional "reason" (Json.Decode.maybe (Codec.decoder stringCodec)) Nothing
-        |> Pipeline.optional "taskArn" (Json.Decode.maybe (Codec.decoder stringCodec)) Nothing
+        |> Pipeline.optional "reason" (Json.Decode.maybe Json.Decode.string) Nothing
+        |> Pipeline.optional "taskArn" (Json.Decode.maybe Json.Decode.string) Nothing
 
 
 {-| Codec for ContainerCondition.
@@ -4534,42 +4429,42 @@ containerDefinitionCodec : Codec ContainerDefinition
 containerDefinitionCodec =
     Codec.object ContainerDefinition
         |> Codec.optionalField "command" .command stringListCodec
-        |> Codec.optionalField "cpu" .cpu integerCodec
+        |> Codec.optionalField "cpu" .cpu Codec.int
         |> Codec.optionalField "dependsOn" .dependsOn containerDependenciesCodec
-        |> Codec.optionalField "disableNetworking" .disableNetworking boxedBooleanCodec
+        |> Codec.optionalField "disableNetworking" .disableNetworking Codec.bool
         |> Codec.optionalField "dnsSearchDomains" .dnsSearchDomains stringListCodec
         |> Codec.optionalField "dnsServers" .dnsServers stringListCodec
         |> Codec.optionalField "dockerLabels" .dockerLabels dockerLabelsMapCodec
         |> Codec.optionalField "dockerSecurityOptions" .dockerSecurityOptions stringListCodec
         |> Codec.optionalField "entryPoint" .entryPoint stringListCodec
         |> Codec.optionalField "environment" .environment environmentVariablesCodec
-        |> Codec.optionalField "essential" .essential boxedBooleanCodec
+        |> Codec.optionalField "essential" .essential Codec.bool
         |> Codec.optionalField "extraHosts" .extraHosts hostEntryListCodec
         |> Codec.optionalField "healthCheck" .healthCheck healthCheckCodec
-        |> Codec.optionalField "hostname" .hostname stringCodec
-        |> Codec.optionalField "image" .image stringCodec
-        |> Codec.optionalField "interactive" .interactive boxedBooleanCodec
+        |> Codec.optionalField "hostname" .hostname Codec.string
+        |> Codec.optionalField "image" .image Codec.string
+        |> Codec.optionalField "interactive" .interactive Codec.bool
         |> Codec.optionalField "links" .links stringListCodec
         |> Codec.optionalField "linuxParameters" .linuxParameters linuxParametersCodec
         |> Codec.optionalField "logConfiguration" .logConfiguration logConfigurationCodec
-        |> Codec.optionalField "memory" .memory boxedIntegerCodec
-        |> Codec.optionalField "memoryReservation" .memoryReservation boxedIntegerCodec
+        |> Codec.optionalField "memory" .memory Codec.int
+        |> Codec.optionalField "memoryReservation" .memoryReservation Codec.int
         |> Codec.optionalField "mountPoints" .mountPoints mountPointListCodec
-        |> Codec.optionalField "name" .name stringCodec
+        |> Codec.optionalField "name" .name Codec.string
         |> Codec.optionalField "portMappings" .portMappings portMappingListCodec
-        |> Codec.optionalField "privileged" .privileged boxedBooleanCodec
-        |> Codec.optionalField "pseudoTerminal" .pseudoTerminal boxedBooleanCodec
-        |> Codec.optionalField "readonlyRootFilesystem" .readonlyRootFilesystem boxedBooleanCodec
+        |> Codec.optionalField "privileged" .privileged Codec.bool
+        |> Codec.optionalField "pseudoTerminal" .pseudoTerminal Codec.bool
+        |> Codec.optionalField "readonlyRootFilesystem" .readonlyRootFilesystem Codec.bool
         |> Codec.optionalField "repositoryCredentials" .repositoryCredentials repositoryCredentialsCodec
         |> Codec.optionalField "resourceRequirements" .resourceRequirements resourceRequirementsCodec
         |> Codec.optionalField "secrets" .secrets secretListCodec
-        |> Codec.optionalField "startTimeout" .startTimeout boxedIntegerCodec
-        |> Codec.optionalField "stopTimeout" .stopTimeout boxedIntegerCodec
+        |> Codec.optionalField "startTimeout" .startTimeout Codec.int
+        |> Codec.optionalField "stopTimeout" .stopTimeout Codec.int
         |> Codec.optionalField "systemControls" .systemControls systemControlsCodec
         |> Codec.optionalField "ulimits" .ulimits ulimitListCodec
-        |> Codec.optionalField "user" .user stringCodec
+        |> Codec.optionalField "user" .user Codec.string
         |> Codec.optionalField "volumesFrom" .volumesFrom volumeFromListCodec
-        |> Codec.optionalField "workingDirectory" .workingDirectory stringCodec
+        |> Codec.optionalField "workingDirectory" .workingDirectory Codec.string
         |> Codec.buildObject
 
 
@@ -4593,7 +4488,7 @@ containerDependencyCodec : Codec ContainerDependency
 containerDependencyCodec =
     Codec.object ContainerDependency
         |> Codec.field "condition" .condition containerConditionCodec
-        |> Codec.field "containerName" .containerName stringCodec
+        |> Codec.field "containerName" .containerName Codec.string
         |> Codec.buildObject
 
 
@@ -4602,21 +4497,21 @@ containerDependencyCodec =
 containerInstanceDecoder : Decoder ContainerInstance
 containerInstanceDecoder =
     Json.Decode.succeed ContainerInstance
-        |> Pipeline.optional "agentConnected" (Json.Decode.maybe (Codec.decoder booleanCodec)) Nothing
+        |> Pipeline.optional "agentConnected" (Json.Decode.maybe Json.Decode.bool) Nothing
         |> Pipeline.optional "agentUpdateStatus" (Json.Decode.maybe agentUpdateStatusDecoder) Nothing
         |> Pipeline.optional "attachments" (Json.Decode.maybe attachmentsDecoder) Nothing
         |> Pipeline.optional "attributes" (Json.Decode.maybe (Codec.decoder attributesCodec)) Nothing
-        |> Pipeline.optional "containerInstanceArn" (Json.Decode.maybe (Codec.decoder stringCodec)) Nothing
-        |> Pipeline.optional "ec2InstanceId" (Json.Decode.maybe (Codec.decoder stringCodec)) Nothing
-        |> Pipeline.optional "pendingTasksCount" (Json.Decode.maybe (Codec.decoder integerCodec)) Nothing
-        |> Pipeline.optional "registeredAt" (Json.Decode.maybe (Codec.decoder timestampCodec)) Nothing
+        |> Pipeline.optional "containerInstanceArn" (Json.Decode.maybe Json.Decode.string) Nothing
+        |> Pipeline.optional "ec2InstanceId" (Json.Decode.maybe Json.Decode.string) Nothing
+        |> Pipeline.optional "pendingTasksCount" (Json.Decode.maybe Json.Decode.int) Nothing
+        |> Pipeline.optional "registeredAt" (Json.Decode.maybe Json.Decode.string) Nothing
         |> Pipeline.optional "registeredResources" (Json.Decode.maybe (Codec.decoder resourcesCodec)) Nothing
         |> Pipeline.optional "remainingResources" (Json.Decode.maybe (Codec.decoder resourcesCodec)) Nothing
-        |> Pipeline.optional "runningTasksCount" (Json.Decode.maybe (Codec.decoder integerCodec)) Nothing
-        |> Pipeline.optional "status" (Json.Decode.maybe (Codec.decoder stringCodec)) Nothing
-        |> Pipeline.optional "statusReason" (Json.Decode.maybe (Codec.decoder stringCodec)) Nothing
+        |> Pipeline.optional "runningTasksCount" (Json.Decode.maybe Json.Decode.int) Nothing
+        |> Pipeline.optional "status" (Json.Decode.maybe Json.Decode.string) Nothing
+        |> Pipeline.optional "statusReason" (Json.Decode.maybe Json.Decode.string) Nothing
         |> Pipeline.optional "tags" (Json.Decode.maybe (Codec.decoder tagsCodec)) Nothing
-        |> Pipeline.optional "version" (Json.Decode.maybe (Codec.decoder longCodec)) Nothing
+        |> Pipeline.optional "version" (Json.Decode.maybe Json.Decode.int) Nothing
         |> Pipeline.optional "versionInfo" (Json.Decode.maybe (Codec.decoder versionInfoCodec)) Nothing
 
 
@@ -4654,11 +4549,11 @@ containerOverrideCodec : Codec ContainerOverride
 containerOverrideCodec =
     Codec.object ContainerOverride
         |> Codec.optionalField "command" .command stringListCodec
-        |> Codec.optionalField "cpu" .cpu boxedIntegerCodec
+        |> Codec.optionalField "cpu" .cpu Codec.int
         |> Codec.optionalField "environment" .environment environmentVariablesCodec
-        |> Codec.optionalField "memory" .memory boxedIntegerCodec
-        |> Codec.optionalField "memoryReservation" .memoryReservation boxedIntegerCodec
-        |> Codec.optionalField "name" .name stringCodec
+        |> Codec.optionalField "memory" .memory Codec.int
+        |> Codec.optionalField "memoryReservation" .memoryReservation Codec.int
+        |> Codec.optionalField "name" .name Codec.string
         |> Codec.optionalField "resourceRequirements" .resourceRequirements resourceRequirementsCodec
         |> Codec.buildObject
 
@@ -4674,11 +4569,11 @@ containerOverridesCodec =
 -}
 containerStateChangeEncoder : ContainerStateChange -> Value
 containerStateChangeEncoder val =
-    [ ( "containerName", val.containerName ) |> EncodeOpt.optionalField (Codec.encoder stringCodec)
-    , ( "exitCode", val.exitCode ) |> EncodeOpt.optionalField (Codec.encoder boxedIntegerCodec)
+    [ ( "containerName", val.containerName ) |> EncodeOpt.optionalField Json.Encode.string
+    , ( "exitCode", val.exitCode ) |> EncodeOpt.optionalField Json.Encode.int
     , ( "networkBindings", val.networkBindings ) |> EncodeOpt.optionalField (Codec.encoder networkBindingsCodec)
-    , ( "reason", val.reason ) |> EncodeOpt.optionalField (Codec.encoder stringCodec)
-    , ( "status", val.status ) |> EncodeOpt.optionalField (Codec.encoder stringCodec)
+    , ( "reason", val.reason ) |> EncodeOpt.optionalField Json.Encode.string
+    , ( "status", val.status ) |> EncodeOpt.optionalField Json.Encode.string
     ]
         |> EncodeOpt.objectMaySkip
 
@@ -4702,20 +4597,20 @@ containersDecoder =
 deploymentDecoder : Decoder Deployment
 deploymentDecoder =
     Json.Decode.succeed Deployment
-        |> Pipeline.optional "createdAt" (Json.Decode.maybe (Codec.decoder timestampCodec)) Nothing
-        |> Pipeline.optional "desiredCount" (Json.Decode.maybe (Codec.decoder integerCodec)) Nothing
-        |> Pipeline.optional "id" (Json.Decode.maybe (Codec.decoder stringCodec)) Nothing
+        |> Pipeline.optional "createdAt" (Json.Decode.maybe Json.Decode.string) Nothing
+        |> Pipeline.optional "desiredCount" (Json.Decode.maybe Json.Decode.int) Nothing
+        |> Pipeline.optional "id" (Json.Decode.maybe Json.Decode.string) Nothing
         |> Pipeline.optional "launchType" (Json.Decode.maybe (Codec.decoder launchTypeCodec)) Nothing
         |> Pipeline.optional
             "networkConfiguration"
             (Json.Decode.maybe (Codec.decoder networkConfigurationCodec))
             Nothing
-        |> Pipeline.optional "pendingCount" (Json.Decode.maybe (Codec.decoder integerCodec)) Nothing
-        |> Pipeline.optional "platformVersion" (Json.Decode.maybe (Codec.decoder stringCodec)) Nothing
-        |> Pipeline.optional "runningCount" (Json.Decode.maybe (Codec.decoder integerCodec)) Nothing
-        |> Pipeline.optional "status" (Json.Decode.maybe (Codec.decoder stringCodec)) Nothing
-        |> Pipeline.optional "taskDefinition" (Json.Decode.maybe (Codec.decoder stringCodec)) Nothing
-        |> Pipeline.optional "updatedAt" (Json.Decode.maybe (Codec.decoder timestampCodec)) Nothing
+        |> Pipeline.optional "pendingCount" (Json.Decode.maybe Json.Decode.int) Nothing
+        |> Pipeline.optional "platformVersion" (Json.Decode.maybe Json.Decode.string) Nothing
+        |> Pipeline.optional "runningCount" (Json.Decode.maybe Json.Decode.int) Nothing
+        |> Pipeline.optional "status" (Json.Decode.maybe Json.Decode.string) Nothing
+        |> Pipeline.optional "taskDefinition" (Json.Decode.maybe Json.Decode.string) Nothing
+        |> Pipeline.optional "updatedAt" (Json.Decode.maybe Json.Decode.string) Nothing
 
 
 {-| Codec for DeploymentConfiguration.
@@ -4723,8 +4618,8 @@ deploymentDecoder =
 deploymentConfigurationCodec : Codec DeploymentConfiguration
 deploymentConfigurationCodec =
     Codec.object DeploymentConfiguration
-        |> Codec.optionalField "maximumPercent" .maximumPercent boxedIntegerCodec
-        |> Codec.optionalField "minimumHealthyPercent" .minimumHealthyPercent boxedIntegerCodec
+        |> Codec.optionalField "maximumPercent" .maximumPercent Codec.int
+        |> Codec.optionalField "minimumHealthyPercent" .minimumHealthyPercent Codec.int
         |> Codec.buildObject
 
 
@@ -4761,8 +4656,8 @@ desiredStatusEncoder =
 deviceCodec : Codec Device
 deviceCodec =
     Codec.object Device
-        |> Codec.optionalField "containerPath" .containerPath stringCodec
-        |> Codec.field "hostPath" .hostPath stringCodec
+        |> Codec.optionalField "containerPath" .containerPath Codec.string
+        |> Codec.field "hostPath" .hostPath Codec.string
         |> Codec.optionalField "permissions" .permissions deviceCgroupPermissionsCodec
         |> Codec.buildObject
 
@@ -4792,7 +4687,7 @@ devicesListCodec =
 -}
 dockerLabelsMapCodec : Codec DockerLabelsMap
 dockerLabelsMapCodec =
-    Codec.dict stringCodec
+    Codec.dict Codec.string
 
 
 {-| Codec for DockerVolumeConfiguration.
@@ -4800,19 +4695,12 @@ dockerLabelsMapCodec =
 dockerVolumeConfigurationCodec : Codec DockerVolumeConfiguration
 dockerVolumeConfigurationCodec =
     Codec.object DockerVolumeConfiguration
-        |> Codec.optionalField "autoprovision" .autoprovision boxedBooleanCodec
-        |> Codec.optionalField "driver" .driver stringCodec
+        |> Codec.optionalField "autoprovision" .autoprovision Codec.bool
+        |> Codec.optionalField "driver" .driver Codec.string
         |> Codec.optionalField "driverOpts" .driverOpts stringMapCodec
         |> Codec.optionalField "labels" .labels stringMapCodec
         |> Codec.optionalField "scope" .scope scopeCodec
         |> Codec.buildObject
-
-
-{-| Codec for Double.
--}
-doubleCodec : Codec Double
-doubleCodec =
-    Codec.float
 
 
 {-| Codec for EnvironmentVariables.
@@ -4827,8 +4715,8 @@ environmentVariablesCodec =
 failureDecoder : Decoder Failure
 failureDecoder =
     Json.Decode.succeed Failure
-        |> Pipeline.optional "arn" (Json.Decode.maybe (Codec.decoder stringCodec)) Nothing
-        |> Pipeline.optional "reason" (Json.Decode.maybe (Codec.decoder stringCodec)) Nothing
+        |> Pipeline.optional "arn" (Json.Decode.maybe Json.Decode.string) Nothing
+        |> Pipeline.optional "reason" (Json.Decode.maybe Json.Decode.string) Nothing
 
 
 {-| Decoder for Failures.
@@ -4842,7 +4730,7 @@ failuresDecoder =
 -}
 gpuIdsDecoder : Decoder GpuIds
 gpuIdsDecoder =
-    Json.Decode.list (Codec.decoder stringCodec)
+    Json.Decode.list Json.Decode.string
 
 
 {-| Codec for HealthCheck.
@@ -4851,10 +4739,10 @@ healthCheckCodec : Codec HealthCheck
 healthCheckCodec =
     Codec.object HealthCheck
         |> Codec.field "command" .command stringListCodec
-        |> Codec.optionalField "interval" .interval boxedIntegerCodec
-        |> Codec.optionalField "retries" .retries boxedIntegerCodec
-        |> Codec.optionalField "startPeriod" .startPeriod boxedIntegerCodec
-        |> Codec.optionalField "timeout" .timeout boxedIntegerCodec
+        |> Codec.optionalField "interval" .interval Codec.int
+        |> Codec.optionalField "retries" .retries Codec.int
+        |> Codec.optionalField "startPeriod" .startPeriod Codec.int
+        |> Codec.optionalField "timeout" .timeout Codec.int
         |> Codec.buildObject
 
 
@@ -4870,8 +4758,8 @@ healthStatusDecoder =
 hostEntryCodec : Codec HostEntry
 hostEntryCodec =
     Codec.object HostEntry
-        |> Codec.field "hostname" .hostname stringCodec
-        |> Codec.field "ipAddress" .ipAddress stringCodec
+        |> Codec.field "hostname" .hostname Codec.string
+        |> Codec.field "ipAddress" .ipAddress Codec.string
         |> Codec.buildObject
 
 
@@ -4886,14 +4774,7 @@ hostEntryListCodec =
 -}
 hostVolumePropertiesCodec : Codec HostVolumeProperties
 hostVolumePropertiesCodec =
-    Codec.object HostVolumeProperties |> Codec.optionalField "sourcePath" .sourcePath stringCodec |> Codec.buildObject
-
-
-{-| Codec for Integer.
--}
-integerCodec : Codec Integer
-integerCodec =
-    Codec.int
+    Codec.object HostVolumeProperties |> Codec.optionalField "sourcePath" .sourcePath Codec.string |> Codec.buildObject
 
 
 {-| Codec for IpcMode.
@@ -4918,8 +4799,8 @@ kernelCapabilitiesCodec =
 keyValuePairCodec : Codec KeyValuePair
 keyValuePairCodec =
     Codec.object KeyValuePair
-        |> Codec.optionalField "name" .name stringCodec
-        |> Codec.optionalField "value" .value stringCodec
+        |> Codec.optionalField "name" .name Codec.string
+        |> Codec.optionalField "value" .value Codec.string
         |> Codec.buildObject
 
 
@@ -4937,8 +4818,8 @@ linuxParametersCodec =
     Codec.object LinuxParameters
         |> Codec.optionalField "capabilities" .capabilities kernelCapabilitiesCodec
         |> Codec.optionalField "devices" .devices devicesListCodec
-        |> Codec.optionalField "initProcessEnabled" .initProcessEnabled boxedBooleanCodec
-        |> Codec.optionalField "sharedMemorySize" .sharedMemorySize boxedIntegerCodec
+        |> Codec.optionalField "initProcessEnabled" .initProcessEnabled Codec.bool
+        |> Codec.optionalField "sharedMemorySize" .sharedMemorySize Codec.int
         |> Codec.optionalField "tmpfs" .tmpfs tmpfsListCodec
         |> Codec.buildObject
 
@@ -4948,10 +4829,10 @@ linuxParametersCodec =
 loadBalancerCodec : Codec LoadBalancer
 loadBalancerCodec =
     Codec.object LoadBalancer
-        |> Codec.optionalField "containerName" .containerName stringCodec
-        |> Codec.optionalField "containerPort" .containerPort boxedIntegerCodec
-        |> Codec.optionalField "loadBalancerName" .loadBalancerName stringCodec
-        |> Codec.optionalField "targetGroupArn" .targetGroupArn stringCodec
+        |> Codec.optionalField "containerName" .containerName Codec.string
+        |> Codec.optionalField "containerPort" .containerPort Codec.int
+        |> Codec.optionalField "loadBalancerName" .loadBalancerName Codec.string
+        |> Codec.optionalField "targetGroupArn" .targetGroupArn Codec.string
         |> Codec.buildObject
 
 
@@ -4977,7 +4858,7 @@ logConfigurationCodec =
 -}
 logConfigurationOptionsMapCodec : Codec LogConfigurationOptionsMap
 logConfigurationOptionsMapCodec =
-    Codec.dict stringCodec
+    Codec.dict Codec.string
 
 
 {-| Codec for LogDriver.
@@ -4987,21 +4868,14 @@ logDriverCodec =
     Codec.build (Enum.encoder logDriver) (Enum.decoder logDriver)
 
 
-{-| Codec for Long.
--}
-longCodec : Codec Long
-longCodec =
-    Codec.int
-
-
 {-| Codec for MountPoint.
 -}
 mountPointCodec : Codec MountPoint
 mountPointCodec =
     Codec.object MountPoint
-        |> Codec.optionalField "containerPath" .containerPath stringCodec
-        |> Codec.optionalField "readOnly" .readOnly boxedBooleanCodec
-        |> Codec.optionalField "sourceVolume" .sourceVolume stringCodec
+        |> Codec.optionalField "containerPath" .containerPath Codec.string
+        |> Codec.optionalField "readOnly" .readOnly Codec.bool
+        |> Codec.optionalField "sourceVolume" .sourceVolume Codec.string
         |> Codec.buildObject
 
 
@@ -5017,9 +4891,9 @@ mountPointListCodec =
 networkBindingCodec : Codec NetworkBinding
 networkBindingCodec =
     Codec.object NetworkBinding
-        |> Codec.optionalField "bindIP" .bindIp stringCodec
-        |> Codec.optionalField "containerPort" .containerPort boxedIntegerCodec
-        |> Codec.optionalField "hostPort" .hostPort boxedIntegerCodec
+        |> Codec.optionalField "bindIP" .bindIp Codec.string
+        |> Codec.optionalField "containerPort" .containerPort Codec.int
+        |> Codec.optionalField "hostPort" .hostPort Codec.int
         |> Codec.optionalField "protocol" .protocol transportProtocolCodec
         |> Codec.buildObject
 
@@ -5045,9 +4919,9 @@ networkConfigurationCodec =
 networkInterfaceDecoder : Decoder NetworkInterface
 networkInterfaceDecoder =
     Json.Decode.succeed NetworkInterface
-        |> Pipeline.optional "attachmentId" (Json.Decode.maybe (Codec.decoder stringCodec)) Nothing
-        |> Pipeline.optional "ipv6Address" (Json.Decode.maybe (Codec.decoder stringCodec)) Nothing
-        |> Pipeline.optional "privateIpv4Address" (Json.Decode.maybe (Codec.decoder stringCodec)) Nothing
+        |> Pipeline.optional "attachmentId" (Json.Decode.maybe Json.Decode.string) Nothing
+        |> Pipeline.optional "ipv6Address" (Json.Decode.maybe Json.Decode.string) Nothing
+        |> Pipeline.optional "privateIpv4Address" (Json.Decode.maybe Json.Decode.string) Nothing
 
 
 {-| Decoder for NetworkInterfaces.
@@ -5076,7 +4950,7 @@ pidModeCodec =
 placementConstraintCodec : Codec PlacementConstraint
 placementConstraintCodec =
     Codec.object PlacementConstraint
-        |> Codec.optionalField "expression" .expression stringCodec
+        |> Codec.optionalField "expression" .expression Codec.string
         |> Codec.optionalField "type" .type_ placementConstraintTypeCodec
         |> Codec.buildObject
 
@@ -5107,7 +4981,7 @@ placementStrategiesCodec =
 placementStrategyCodec : Codec PlacementStrategy
 placementStrategyCodec =
     Codec.object PlacementStrategy
-        |> Codec.optionalField "field" .field stringCodec
+        |> Codec.optionalField "field" .field Codec.string
         |> Codec.optionalField "type" .type_ placementStrategyTypeCodec
         |> Codec.buildObject
 
@@ -5123,7 +4997,7 @@ placementStrategyTypeCodec =
 -}
 platformDeviceEncoder : PlatformDevice -> Value
 platformDeviceEncoder val =
-    [ ( "id", val.id ) |> EncodeOpt.field (Codec.encoder stringCodec)
+    [ ( "id", val.id ) |> EncodeOpt.field Json.Encode.string
     , ( "type", val.type_ ) |> EncodeOpt.field platformDeviceTypeEncoder
     ]
         |> EncodeOpt.objectMaySkip
@@ -5148,8 +5022,8 @@ platformDevicesEncoder val =
 portMappingCodec : Codec PortMapping
 portMappingCodec =
     Codec.object PortMapping
-        |> Codec.optionalField "containerPort" .containerPort boxedIntegerCodec
-        |> Codec.optionalField "hostPort" .hostPort boxedIntegerCodec
+        |> Codec.optionalField "containerPort" .containerPort Codec.int
+        |> Codec.optionalField "hostPort" .hostPort Codec.int
         |> Codec.optionalField "protocol" .protocol transportProtocolCodec
         |> Codec.buildObject
 
@@ -5173,7 +5047,7 @@ propagateTagsCodec =
 proxyConfigurationCodec : Codec ProxyConfiguration
 proxyConfigurationCodec =
     Codec.object ProxyConfiguration
-        |> Codec.field "containerName" .containerName stringCodec
+        |> Codec.field "containerName" .containerName Codec.string
         |> Codec.optionalField "properties" .properties proxyConfigurationPropertiesCodec
         |> Codec.optionalField "type" .type_ proxyConfigurationTypeCodec
         |> Codec.buildObject
@@ -5198,7 +5072,7 @@ proxyConfigurationTypeCodec =
 repositoryCredentialsCodec : Codec RepositoryCredentials
 repositoryCredentialsCodec =
     Codec.object RepositoryCredentials
-        |> Codec.field "credentialsParameter" .credentialsParameter stringCodec
+        |> Codec.field "credentialsParameter" .credentialsParameter Codec.string
         |> Codec.buildObject
 
 
@@ -5214,12 +5088,12 @@ requiresAttributesDecoder =
 resourceCodec : Codec Resource
 resourceCodec =
     Codec.object Resource
-        |> Codec.optionalField "doubleValue" .doubleValue doubleCodec
-        |> Codec.optionalField "integerValue" .integerValue integerCodec
-        |> Codec.optionalField "longValue" .longValue longCodec
-        |> Codec.optionalField "name" .name stringCodec
+        |> Codec.optionalField "doubleValue" .doubleValue Codec.float
+        |> Codec.optionalField "integerValue" .integerValue Codec.int
+        |> Codec.optionalField "longValue" .longValue Codec.int
+        |> Codec.optionalField "name" .name Codec.string
         |> Codec.optionalField "stringSetValue" .stringSetValue stringListCodec
-        |> Codec.optionalField "type" .type_ stringCodec
+        |> Codec.optionalField "type" .type_ Codec.string
         |> Codec.buildObject
 
 
@@ -5229,7 +5103,7 @@ resourceRequirementCodec : Codec ResourceRequirement
 resourceRequirementCodec =
     Codec.object ResourceRequirement
         |> Codec.field "type" .type_ resourceTypeCodec
-        |> Codec.field "value" .value stringCodec
+        |> Codec.field "value" .value Codec.string
         |> Codec.buildObject
 
 
@@ -5260,7 +5134,7 @@ scaleCodec : Codec Scale
 scaleCodec =
     Codec.object Scale
         |> Codec.optionalField "unit" .unit scaleUnitCodec
-        |> Codec.optionalField "value" .value doubleCodec
+        |> Codec.optionalField "value" .value Codec.float
         |> Codec.buildObject
 
 
@@ -5290,8 +5164,8 @@ scopeCodec =
 secretCodec : Codec Secret
 secretCodec =
     Codec.object Secret
-        |> Codec.field "name" .name stringCodec
-        |> Codec.field "valueFrom" .valueFrom stringCodec
+        |> Codec.field "name" .name Codec.string
+        |> Codec.field "valueFrom" .valueFrom Codec.string
         |> Codec.buildObject
 
 
@@ -5307,9 +5181,9 @@ secretListCodec =
 serviceDecoder : Decoder Service
 serviceDecoder =
     Json.Decode.succeed Service
-        |> Pipeline.optional "clusterArn" (Json.Decode.maybe (Codec.decoder stringCodec)) Nothing
-        |> Pipeline.optional "createdAt" (Json.Decode.maybe (Codec.decoder timestampCodec)) Nothing
-        |> Pipeline.optional "createdBy" (Json.Decode.maybe (Codec.decoder stringCodec)) Nothing
+        |> Pipeline.optional "clusterArn" (Json.Decode.maybe Json.Decode.string) Nothing
+        |> Pipeline.optional "createdAt" (Json.Decode.maybe Json.Decode.string) Nothing
+        |> Pipeline.optional "createdBy" (Json.Decode.maybe Json.Decode.string) Nothing
         |> Pipeline.optional
             "deploymentConfiguration"
             (Json.Decode.maybe (Codec.decoder deploymentConfigurationCodec))
@@ -5319,36 +5193,33 @@ serviceDecoder =
             (Json.Decode.maybe (Codec.decoder deploymentControllerCodec))
             Nothing
         |> Pipeline.optional "deployments" (Json.Decode.maybe deploymentsDecoder) Nothing
-        |> Pipeline.optional "desiredCount" (Json.Decode.maybe (Codec.decoder integerCodec)) Nothing
-        |> Pipeline.optional "enableECSManagedTags" (Json.Decode.maybe (Codec.decoder booleanCodec)) Nothing
+        |> Pipeline.optional "desiredCount" (Json.Decode.maybe Json.Decode.int) Nothing
+        |> Pipeline.optional "enableECSManagedTags" (Json.Decode.maybe Json.Decode.bool) Nothing
         |> Pipeline.optional "events" (Json.Decode.maybe serviceEventsDecoder) Nothing
-        |> Pipeline.optional
-            "healthCheckGracePeriodSeconds"
-            (Json.Decode.maybe (Codec.decoder boxedIntegerCodec))
-            Nothing
+        |> Pipeline.optional "healthCheckGracePeriodSeconds" (Json.Decode.maybe Json.Decode.int) Nothing
         |> Pipeline.optional "launchType" (Json.Decode.maybe (Codec.decoder launchTypeCodec)) Nothing
         |> Pipeline.optional "loadBalancers" (Json.Decode.maybe (Codec.decoder loadBalancersCodec)) Nothing
         |> Pipeline.optional
             "networkConfiguration"
             (Json.Decode.maybe (Codec.decoder networkConfigurationCodec))
             Nothing
-        |> Pipeline.optional "pendingCount" (Json.Decode.maybe (Codec.decoder integerCodec)) Nothing
+        |> Pipeline.optional "pendingCount" (Json.Decode.maybe Json.Decode.int) Nothing
         |> Pipeline.optional
             "placementConstraints"
             (Json.Decode.maybe (Codec.decoder placementConstraintsCodec))
             Nothing
         |> Pipeline.optional "placementStrategy" (Json.Decode.maybe (Codec.decoder placementStrategiesCodec)) Nothing
-        |> Pipeline.optional "platformVersion" (Json.Decode.maybe (Codec.decoder stringCodec)) Nothing
+        |> Pipeline.optional "platformVersion" (Json.Decode.maybe Json.Decode.string) Nothing
         |> Pipeline.optional "propagateTags" (Json.Decode.maybe (Codec.decoder propagateTagsCodec)) Nothing
-        |> Pipeline.optional "roleArn" (Json.Decode.maybe (Codec.decoder stringCodec)) Nothing
-        |> Pipeline.optional "runningCount" (Json.Decode.maybe (Codec.decoder integerCodec)) Nothing
+        |> Pipeline.optional "roleArn" (Json.Decode.maybe Json.Decode.string) Nothing
+        |> Pipeline.optional "runningCount" (Json.Decode.maybe Json.Decode.int) Nothing
         |> Pipeline.optional "schedulingStrategy" (Json.Decode.maybe (Codec.decoder schedulingStrategyCodec)) Nothing
-        |> Pipeline.optional "serviceArn" (Json.Decode.maybe (Codec.decoder stringCodec)) Nothing
-        |> Pipeline.optional "serviceName" (Json.Decode.maybe (Codec.decoder stringCodec)) Nothing
+        |> Pipeline.optional "serviceArn" (Json.Decode.maybe Json.Decode.string) Nothing
+        |> Pipeline.optional "serviceName" (Json.Decode.maybe Json.Decode.string) Nothing
         |> Pipeline.optional "serviceRegistries" (Json.Decode.maybe (Codec.decoder serviceRegistriesCodec)) Nothing
-        |> Pipeline.optional "status" (Json.Decode.maybe (Codec.decoder stringCodec)) Nothing
+        |> Pipeline.optional "status" (Json.Decode.maybe Json.Decode.string) Nothing
         |> Pipeline.optional "tags" (Json.Decode.maybe (Codec.decoder tagsCodec)) Nothing
-        |> Pipeline.optional "taskDefinition" (Json.Decode.maybe (Codec.decoder stringCodec)) Nothing
+        |> Pipeline.optional "taskDefinition" (Json.Decode.maybe Json.Decode.string) Nothing
         |> Pipeline.optional "taskSets" (Json.Decode.maybe taskSetsDecoder) Nothing
 
 
@@ -5357,9 +5228,9 @@ serviceDecoder =
 serviceEventDecoder : Decoder ServiceEvent
 serviceEventDecoder =
     Json.Decode.succeed ServiceEvent
-        |> Pipeline.optional "createdAt" (Json.Decode.maybe (Codec.decoder timestampCodec)) Nothing
-        |> Pipeline.optional "id" (Json.Decode.maybe (Codec.decoder stringCodec)) Nothing
-        |> Pipeline.optional "message" (Json.Decode.maybe (Codec.decoder stringCodec)) Nothing
+        |> Pipeline.optional "createdAt" (Json.Decode.maybe Json.Decode.string) Nothing
+        |> Pipeline.optional "id" (Json.Decode.maybe Json.Decode.string) Nothing
+        |> Pipeline.optional "message" (Json.Decode.maybe Json.Decode.string) Nothing
 
 
 {-| Decoder for ServiceEvents.
@@ -5395,10 +5266,10 @@ serviceRegistriesCodec =
 serviceRegistryCodec : Codec ServiceRegistry
 serviceRegistryCodec =
     Codec.object ServiceRegistry
-        |> Codec.optionalField "containerName" .containerName stringCodec
-        |> Codec.optionalField "containerPort" .containerPort boxedIntegerCodec
-        |> Codec.optionalField "port" .port_ boxedIntegerCodec
-        |> Codec.optionalField "registryArn" .registryArn stringCodec
+        |> Codec.optionalField "containerName" .containerName Codec.string
+        |> Codec.optionalField "containerPort" .containerPort Codec.int
+        |> Codec.optionalField "port" .port_ Codec.int
+        |> Codec.optionalField "registryArn" .registryArn Codec.string
         |> Codec.buildObject
 
 
@@ -5415,8 +5286,8 @@ settingDecoder : Decoder Setting
 settingDecoder =
     Json.Decode.succeed Setting
         |> Pipeline.optional "name" (Json.Decode.maybe (Codec.decoder settingNameCodec)) Nothing
-        |> Pipeline.optional "principalArn" (Json.Decode.maybe (Codec.decoder stringCodec)) Nothing
-        |> Pipeline.optional "value" (Json.Decode.maybe (Codec.decoder stringCodec)) Nothing
+        |> Pipeline.optional "principalArn" (Json.Decode.maybe Json.Decode.string) Nothing
+        |> Pipeline.optional "value" (Json.Decode.maybe Json.Decode.string) Nothing
 
 
 {-| Codec for SettingName.
@@ -5454,25 +5325,18 @@ statisticsDecoder =
     Json.Decode.list (Codec.decoder keyValuePairCodec)
 
 
-{-| Codec for String\_.
--}
-stringCodec : Codec String_
-stringCodec =
-    Codec.string
-
-
 {-| Codec for StringList.
 -}
 stringListCodec : Codec StringList
 stringListCodec =
-    Codec.list stringCodec
+    Codec.list Codec.string
 
 
 {-| Codec for StringMap.
 -}
 stringMapCodec : Codec StringMap
 stringMapCodec =
-    Codec.dict stringCodec
+    Codec.dict Codec.string
 
 
 {-| Codec for SystemControl.
@@ -5480,8 +5344,8 @@ stringMapCodec =
 systemControlCodec : Codec SystemControl
 systemControlCodec =
     Codec.object SystemControl
-        |> Codec.optionalField "namespace" .namespace stringCodec
-        |> Codec.optionalField "value" .value stringCodec
+        |> Codec.optionalField "namespace" .namespace Codec.string
+        |> Codec.optionalField "value" .value Codec.string
         |> Codec.buildObject
 
 
@@ -5497,30 +5361,16 @@ systemControlsCodec =
 tagCodec : Codec Tag
 tagCodec =
     Codec.object Tag
-        |> Codec.optionalField "key" .key tagKeyCodec
-        |> Codec.optionalField "value" .value tagValueCodec
+        |> Codec.optionalField "key" .key Codec.string
+        |> Codec.optionalField "value" .value Codec.string
         |> Codec.buildObject
-
-
-{-| Codec for TagKey.
--}
-tagKeyCodec : Codec TagKey
-tagKeyCodec =
-    Codec.string
 
 
 {-| Encoder for TagKeys.
 -}
 tagKeysEncoder : TagKeys -> Value
 tagKeysEncoder val =
-    Json.Encode.list (Codec.encoder tagKeyCodec) val
-
-
-{-| Codec for TagValue.
--}
-tagValueCodec : Codec TagValue
-tagValueCodec =
-    Codec.string
+    Json.Encode.list Json.Encode.string val
 
 
 {-| Codec for Tags.
@@ -5543,34 +5393,34 @@ taskDecoder : Decoder Task
 taskDecoder =
     Json.Decode.succeed Task
         |> Pipeline.optional "attachments" (Json.Decode.maybe attachmentsDecoder) Nothing
-        |> Pipeline.optional "clusterArn" (Json.Decode.maybe (Codec.decoder stringCodec)) Nothing
+        |> Pipeline.optional "clusterArn" (Json.Decode.maybe Json.Decode.string) Nothing
         |> Pipeline.optional "connectivity" (Json.Decode.maybe connectivityDecoder) Nothing
-        |> Pipeline.optional "connectivityAt" (Json.Decode.maybe (Codec.decoder timestampCodec)) Nothing
-        |> Pipeline.optional "containerInstanceArn" (Json.Decode.maybe (Codec.decoder stringCodec)) Nothing
+        |> Pipeline.optional "connectivityAt" (Json.Decode.maybe Json.Decode.string) Nothing
+        |> Pipeline.optional "containerInstanceArn" (Json.Decode.maybe Json.Decode.string) Nothing
         |> Pipeline.optional "containers" (Json.Decode.maybe containersDecoder) Nothing
-        |> Pipeline.optional "cpu" (Json.Decode.maybe (Codec.decoder stringCodec)) Nothing
-        |> Pipeline.optional "createdAt" (Json.Decode.maybe (Codec.decoder timestampCodec)) Nothing
-        |> Pipeline.optional "desiredStatus" (Json.Decode.maybe (Codec.decoder stringCodec)) Nothing
-        |> Pipeline.optional "executionStoppedAt" (Json.Decode.maybe (Codec.decoder timestampCodec)) Nothing
-        |> Pipeline.optional "group" (Json.Decode.maybe (Codec.decoder stringCodec)) Nothing
+        |> Pipeline.optional "cpu" (Json.Decode.maybe Json.Decode.string) Nothing
+        |> Pipeline.optional "createdAt" (Json.Decode.maybe Json.Decode.string) Nothing
+        |> Pipeline.optional "desiredStatus" (Json.Decode.maybe Json.Decode.string) Nothing
+        |> Pipeline.optional "executionStoppedAt" (Json.Decode.maybe Json.Decode.string) Nothing
+        |> Pipeline.optional "group" (Json.Decode.maybe Json.Decode.string) Nothing
         |> Pipeline.optional "healthStatus" (Json.Decode.maybe healthStatusDecoder) Nothing
-        |> Pipeline.optional "lastStatus" (Json.Decode.maybe (Codec.decoder stringCodec)) Nothing
+        |> Pipeline.optional "lastStatus" (Json.Decode.maybe Json.Decode.string) Nothing
         |> Pipeline.optional "launchType" (Json.Decode.maybe (Codec.decoder launchTypeCodec)) Nothing
-        |> Pipeline.optional "memory" (Json.Decode.maybe (Codec.decoder stringCodec)) Nothing
+        |> Pipeline.optional "memory" (Json.Decode.maybe Json.Decode.string) Nothing
         |> Pipeline.optional "overrides" (Json.Decode.maybe (Codec.decoder taskOverrideCodec)) Nothing
-        |> Pipeline.optional "platformVersion" (Json.Decode.maybe (Codec.decoder stringCodec)) Nothing
-        |> Pipeline.optional "pullStartedAt" (Json.Decode.maybe (Codec.decoder timestampCodec)) Nothing
-        |> Pipeline.optional "pullStoppedAt" (Json.Decode.maybe (Codec.decoder timestampCodec)) Nothing
-        |> Pipeline.optional "startedAt" (Json.Decode.maybe (Codec.decoder timestampCodec)) Nothing
-        |> Pipeline.optional "startedBy" (Json.Decode.maybe (Codec.decoder stringCodec)) Nothing
+        |> Pipeline.optional "platformVersion" (Json.Decode.maybe Json.Decode.string) Nothing
+        |> Pipeline.optional "pullStartedAt" (Json.Decode.maybe Json.Decode.string) Nothing
+        |> Pipeline.optional "pullStoppedAt" (Json.Decode.maybe Json.Decode.string) Nothing
+        |> Pipeline.optional "startedAt" (Json.Decode.maybe Json.Decode.string) Nothing
+        |> Pipeline.optional "startedBy" (Json.Decode.maybe Json.Decode.string) Nothing
         |> Pipeline.optional "stopCode" (Json.Decode.maybe taskStopCodeDecoder) Nothing
-        |> Pipeline.optional "stoppedAt" (Json.Decode.maybe (Codec.decoder timestampCodec)) Nothing
-        |> Pipeline.optional "stoppedReason" (Json.Decode.maybe (Codec.decoder stringCodec)) Nothing
-        |> Pipeline.optional "stoppingAt" (Json.Decode.maybe (Codec.decoder timestampCodec)) Nothing
+        |> Pipeline.optional "stoppedAt" (Json.Decode.maybe Json.Decode.string) Nothing
+        |> Pipeline.optional "stoppedReason" (Json.Decode.maybe Json.Decode.string) Nothing
+        |> Pipeline.optional "stoppingAt" (Json.Decode.maybe Json.Decode.string) Nothing
         |> Pipeline.optional "tags" (Json.Decode.maybe (Codec.decoder tagsCodec)) Nothing
-        |> Pipeline.optional "taskArn" (Json.Decode.maybe (Codec.decoder stringCodec)) Nothing
-        |> Pipeline.optional "taskDefinitionArn" (Json.Decode.maybe (Codec.decoder stringCodec)) Nothing
-        |> Pipeline.optional "version" (Json.Decode.maybe (Codec.decoder longCodec)) Nothing
+        |> Pipeline.optional "taskArn" (Json.Decode.maybe Json.Decode.string) Nothing
+        |> Pipeline.optional "taskDefinitionArn" (Json.Decode.maybe Json.Decode.string) Nothing
+        |> Pipeline.optional "version" (Json.Decode.maybe Json.Decode.int) Nothing
 
 
 {-| Decoder for TaskDefinition.
@@ -5583,11 +5433,11 @@ taskDefinitionDecoder =
             "containerDefinitions"
             (Json.Decode.maybe (Codec.decoder containerDefinitionsCodec))
             Nothing
-        |> Pipeline.optional "cpu" (Json.Decode.maybe (Codec.decoder stringCodec)) Nothing
-        |> Pipeline.optional "executionRoleArn" (Json.Decode.maybe (Codec.decoder stringCodec)) Nothing
-        |> Pipeline.optional "family" (Json.Decode.maybe (Codec.decoder stringCodec)) Nothing
+        |> Pipeline.optional "cpu" (Json.Decode.maybe Json.Decode.string) Nothing
+        |> Pipeline.optional "executionRoleArn" (Json.Decode.maybe Json.Decode.string) Nothing
+        |> Pipeline.optional "family" (Json.Decode.maybe Json.Decode.string) Nothing
         |> Pipeline.optional "ipcMode" (Json.Decode.maybe (Codec.decoder ipcModeCodec)) Nothing
-        |> Pipeline.optional "memory" (Json.Decode.maybe (Codec.decoder stringCodec)) Nothing
+        |> Pipeline.optional "memory" (Json.Decode.maybe Json.Decode.string) Nothing
         |> Pipeline.optional "networkMode" (Json.Decode.maybe (Codec.decoder networkModeCodec)) Nothing
         |> Pipeline.optional "pidMode" (Json.Decode.maybe (Codec.decoder pidModeCodec)) Nothing
         |> Pipeline.optional
@@ -5600,10 +5450,10 @@ taskDefinitionDecoder =
             "requiresCompatibilities"
             (Json.Decode.maybe (Codec.decoder compatibilityListCodec))
             Nothing
-        |> Pipeline.optional "revision" (Json.Decode.maybe (Codec.decoder integerCodec)) Nothing
+        |> Pipeline.optional "revision" (Json.Decode.maybe Json.Decode.int) Nothing
         |> Pipeline.optional "status" (Json.Decode.maybe (Codec.decoder taskDefinitionStatusCodec)) Nothing
-        |> Pipeline.optional "taskDefinitionArn" (Json.Decode.maybe (Codec.decoder stringCodec)) Nothing
-        |> Pipeline.optional "taskRoleArn" (Json.Decode.maybe (Codec.decoder stringCodec)) Nothing
+        |> Pipeline.optional "taskDefinitionArn" (Json.Decode.maybe Json.Decode.string) Nothing
+        |> Pipeline.optional "taskRoleArn" (Json.Decode.maybe Json.Decode.string) Nothing
         |> Pipeline.optional "volumes" (Json.Decode.maybe (Codec.decoder volumeListCodec)) Nothing
 
 
@@ -5633,7 +5483,7 @@ taskDefinitionFieldListEncoder val =
 taskDefinitionPlacementConstraintCodec : Codec TaskDefinitionPlacementConstraint
 taskDefinitionPlacementConstraintCodec =
     Codec.object TaskDefinitionPlacementConstraint
-        |> Codec.optionalField "expression" .expression stringCodec
+        |> Codec.optionalField "expression" .expression Codec.string
         |> Codec.optionalField "type" .type_ taskDefinitionPlacementConstraintTypeCodec
         |> Codec.buildObject
 
@@ -5681,8 +5531,8 @@ taskOverrideCodec : Codec TaskOverride
 taskOverrideCodec =
     Codec.object TaskOverride
         |> Codec.optionalField "containerOverrides" .containerOverrides containerOverridesCodec
-        |> Codec.optionalField "executionRoleArn" .executionRoleArn stringCodec
-        |> Codec.optionalField "taskRoleArn" .taskRoleArn stringCodec
+        |> Codec.optionalField "executionRoleArn" .executionRoleArn Codec.string
+        |> Codec.optionalField "taskRoleArn" .taskRoleArn Codec.string
         |> Codec.buildObject
 
 
@@ -5691,30 +5541,30 @@ taskOverrideCodec =
 taskSetDecoder : Decoder TaskSet
 taskSetDecoder =
     Json.Decode.succeed TaskSet
-        |> Pipeline.optional "clusterArn" (Json.Decode.maybe (Codec.decoder stringCodec)) Nothing
-        |> Pipeline.optional "computedDesiredCount" (Json.Decode.maybe (Codec.decoder integerCodec)) Nothing
-        |> Pipeline.optional "createdAt" (Json.Decode.maybe (Codec.decoder timestampCodec)) Nothing
-        |> Pipeline.optional "externalId" (Json.Decode.maybe (Codec.decoder stringCodec)) Nothing
-        |> Pipeline.optional "id" (Json.Decode.maybe (Codec.decoder stringCodec)) Nothing
+        |> Pipeline.optional "clusterArn" (Json.Decode.maybe Json.Decode.string) Nothing
+        |> Pipeline.optional "computedDesiredCount" (Json.Decode.maybe Json.Decode.int) Nothing
+        |> Pipeline.optional "createdAt" (Json.Decode.maybe Json.Decode.string) Nothing
+        |> Pipeline.optional "externalId" (Json.Decode.maybe Json.Decode.string) Nothing
+        |> Pipeline.optional "id" (Json.Decode.maybe Json.Decode.string) Nothing
         |> Pipeline.optional "launchType" (Json.Decode.maybe (Codec.decoder launchTypeCodec)) Nothing
         |> Pipeline.optional "loadBalancers" (Json.Decode.maybe (Codec.decoder loadBalancersCodec)) Nothing
         |> Pipeline.optional
             "networkConfiguration"
             (Json.Decode.maybe (Codec.decoder networkConfigurationCodec))
             Nothing
-        |> Pipeline.optional "pendingCount" (Json.Decode.maybe (Codec.decoder integerCodec)) Nothing
-        |> Pipeline.optional "platformVersion" (Json.Decode.maybe (Codec.decoder stringCodec)) Nothing
-        |> Pipeline.optional "runningCount" (Json.Decode.maybe (Codec.decoder integerCodec)) Nothing
+        |> Pipeline.optional "pendingCount" (Json.Decode.maybe Json.Decode.int) Nothing
+        |> Pipeline.optional "platformVersion" (Json.Decode.maybe Json.Decode.string) Nothing
+        |> Pipeline.optional "runningCount" (Json.Decode.maybe Json.Decode.int) Nothing
         |> Pipeline.optional "scale" (Json.Decode.maybe (Codec.decoder scaleCodec)) Nothing
-        |> Pipeline.optional "serviceArn" (Json.Decode.maybe (Codec.decoder stringCodec)) Nothing
+        |> Pipeline.optional "serviceArn" (Json.Decode.maybe Json.Decode.string) Nothing
         |> Pipeline.optional "serviceRegistries" (Json.Decode.maybe (Codec.decoder serviceRegistriesCodec)) Nothing
         |> Pipeline.optional "stabilityStatus" (Json.Decode.maybe stabilityStatusDecoder) Nothing
-        |> Pipeline.optional "stabilityStatusAt" (Json.Decode.maybe (Codec.decoder timestampCodec)) Nothing
-        |> Pipeline.optional "startedBy" (Json.Decode.maybe (Codec.decoder stringCodec)) Nothing
-        |> Pipeline.optional "status" (Json.Decode.maybe (Codec.decoder stringCodec)) Nothing
-        |> Pipeline.optional "taskDefinition" (Json.Decode.maybe (Codec.decoder stringCodec)) Nothing
-        |> Pipeline.optional "taskSetArn" (Json.Decode.maybe (Codec.decoder stringCodec)) Nothing
-        |> Pipeline.optional "updatedAt" (Json.Decode.maybe (Codec.decoder timestampCodec)) Nothing
+        |> Pipeline.optional "stabilityStatusAt" (Json.Decode.maybe Json.Decode.string) Nothing
+        |> Pipeline.optional "startedBy" (Json.Decode.maybe Json.Decode.string) Nothing
+        |> Pipeline.optional "status" (Json.Decode.maybe Json.Decode.string) Nothing
+        |> Pipeline.optional "taskDefinition" (Json.Decode.maybe Json.Decode.string) Nothing
+        |> Pipeline.optional "taskSetArn" (Json.Decode.maybe Json.Decode.string) Nothing
+        |> Pipeline.optional "updatedAt" (Json.Decode.maybe Json.Decode.string) Nothing
 
 
 {-| Decoder for TaskSets.
@@ -5738,21 +5588,14 @@ tasksDecoder =
     Json.Decode.list taskDecoder
 
 
-{-| Codec for Timestamp.
--}
-timestampCodec : Codec Timestamp
-timestampCodec =
-    Codec.string
-
-
 {-| Codec for Tmpfs.
 -}
 tmpfsCodec : Codec Tmpfs
 tmpfsCodec =
     Codec.object Tmpfs
-        |> Codec.field "containerPath" .containerPath stringCodec
+        |> Codec.field "containerPath" .containerPath Codec.string
         |> Codec.optionalField "mountOptions" .mountOptions stringListCodec
-        |> Codec.field "size" .size integerCodec
+        |> Codec.field "size" .size Codec.int
         |> Codec.buildObject
 
 
@@ -5775,9 +5618,9 @@ transportProtocolCodec =
 ulimitCodec : Codec Ulimit
 ulimitCodec =
     Codec.object Ulimit
-        |> Codec.field "hardLimit" .hardLimit integerCodec
+        |> Codec.field "hardLimit" .hardLimit Codec.int
         |> Codec.field "name" .name ulimitNameCodec
-        |> Codec.field "softLimit" .softLimit integerCodec
+        |> Codec.field "softLimit" .softLimit Codec.int
         |> Codec.buildObject
 
 
@@ -5800,9 +5643,9 @@ ulimitNameCodec =
 versionInfoCodec : Codec VersionInfo
 versionInfoCodec =
     Codec.object VersionInfo
-        |> Codec.optionalField "agentHash" .agentHash stringCodec
-        |> Codec.optionalField "agentVersion" .agentVersion stringCodec
-        |> Codec.optionalField "dockerVersion" .dockerVersion stringCodec
+        |> Codec.optionalField "agentHash" .agentHash Codec.string
+        |> Codec.optionalField "agentVersion" .agentVersion Codec.string
+        |> Codec.optionalField "dockerVersion" .dockerVersion Codec.string
         |> Codec.buildObject
 
 
@@ -5813,7 +5656,7 @@ volumeCodec =
     Codec.object Volume
         |> Codec.optionalField "dockerVolumeConfiguration" .dockerVolumeConfiguration dockerVolumeConfigurationCodec
         |> Codec.optionalField "host" .host hostVolumePropertiesCodec
-        |> Codec.optionalField "name" .name stringCodec
+        |> Codec.optionalField "name" .name Codec.string
         |> Codec.buildObject
 
 
@@ -5822,8 +5665,8 @@ volumeCodec =
 volumeFromCodec : Codec VolumeFrom
 volumeFromCodec =
     Codec.object VolumeFrom
-        |> Codec.optionalField "readOnly" .readOnly boxedBooleanCodec
-        |> Codec.optionalField "sourceContainer" .sourceContainer stringCodec
+        |> Codec.optionalField "readOnly" .readOnly Codec.bool
+        |> Codec.optionalField "sourceContainer" .sourceContainer Codec.string
         |> Codec.buildObject
 
 
