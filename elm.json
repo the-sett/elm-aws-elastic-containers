@@ -3,7 +3,7 @@
     "name": "the-sett/elm-aws-elastic-containers",
     "summary": "Elm client for the AWS ECR and ECS services.",
     "license": "BSD-3-Clause",
-    "version": "1.0.0",
+    "version": "2.0.0",
     "exposed-modules": [
         "AWS.Ecr",
         "AWS.Ecs"
